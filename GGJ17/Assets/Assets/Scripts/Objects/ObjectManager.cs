@@ -10,14 +10,12 @@ public class ObjectManager : MonoBehaviour {
     {
         public Sprite sprite;
         public FurnitureType furnitureType;
-
     }
     public enum FurnitureType
     {
         MADERA,
         COBRE,
         SALCHICAS
-
     };
 
     Vector3 newfurniturePos = Vector3.zero;
@@ -30,14 +28,23 @@ public class ObjectManager : MonoBehaviour {
     [SerializeField]
     public List<FurnitureSprites> furnitureSprites;
 
+    private List<Furniture> furnitures = new List<Furniture>();
     
-    
+    int numbersOfEmissors = 0;
+
     void Start () {
         instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
 	}
-	
-	
-    void instantiateFurniture(GameObject tile, int distanciaHorizontal, int distanciaVertical, FurnitureType furnitureType)
+
+    public void instantiateEmisors()
+    {
+        foreach(Furniture furniture in furnitures)
+        {
+            numbersOfEmissors += furniture.createEmisors();
+        }
+    }
+
+    public void instantiateFurniture(GameObject tile, int distanciaHorizontal, int distanciaVertical, FurnitureType furnitureType)
     {
         GameObject mueble = new GameObject("furniture");
 
@@ -46,7 +53,8 @@ public class ObjectManager : MonoBehaviour {
         Sprite selectedSprite = getRandomSpriteFrom(furnitureType);
 
         mueble.AddComponent<Furniture>().setData(distanciaHorizontal,distanciaVertical,furnitureType,selectedSprite);
-       
+        furnitures.Add(mueble.GetComponent<Furniture>());
+
         for(int i = 0; i < distanciaVertical; i++ )
         {
             for(int j = 0; j < distanciaHorizontal; j++)
@@ -59,8 +67,6 @@ public class ObjectManager : MonoBehaviour {
                 newfurniturePos.y = piezaMueble.transform.position.y + i * -VertDistanceBetweenTiles;
                 piezaMueble.transform.position = newfurniturePos;
                 piezaMueble.AddComponent<SpriteRenderer>().sprite = selectedSprite; 
-
-
             }
         }
     }
