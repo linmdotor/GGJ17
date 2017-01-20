@@ -3,8 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject player;
-    public int score;
+    public float score;
 
     #region Singleton
     public static GameManager GameManagerInstance;
@@ -35,8 +34,6 @@ public class GameManager : MonoBehaviour {
         //pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
         //pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
 
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag(KeyCodes.Player);
 	}
 	
 	// Update is called once per frame
@@ -44,8 +41,15 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-    public void increaseScore(int score)
+    public void increaseScore(float score)
     {
         this.score += score;
+    }
+
+    public void gameOver()
+    {
+        //Load gameOver screen
+        //Update scores
+        //Deactivate everything (?)
     }
 }

@@ -3,11 +3,13 @@ using System.Collections;
 
 public class AttackManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+    private bool enemyHit;
+
+    void OnEnable()
+    {
+        enemyHit = false;
+    }
+
 	// Update is called once per frame
 	void Update () {
 	    
@@ -15,10 +17,14 @@ public class AttackManager : MonoBehaviour {
 
     void onTriggerEnter2D(Collider enemy)
     {
-        if(enemy.tag == KeyCodes.Enemy)
+        if(enemy.tag == KeyCodes.Enemy && enemyHit == false)
         {
-            //NOMBRE MANAGER ENEMIGO
-            //enemy.gameObject.GetComponent<>().damage();
+            enemyHit = true;
+            enemy.gameObject.GetComponent<EnemyManager>().damage();
         }
+    }
+    public void animationEnded()
+    {
+        this.gameObject.SetActive(false);
     }
 }
