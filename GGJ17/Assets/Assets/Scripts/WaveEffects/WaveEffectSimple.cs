@@ -22,6 +22,18 @@ public class WaveEffectSimple : WaveEffect
 	
 	// Update is called once per frame
 	void Update () {
+        if (expand)
+        {
+            lifeTime -= Time.deltaTime;
+            if(lifeTime > 0)
+                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.075f, this.transform.localScale.y + Time.deltaTime * 0.12f, 0);
+            else
+            {
+                lifeTime = lifeTimeBase;
+                expand = false;
+                this.transform.localScale = new Vector3(originalScaleX, originalScaleY, 0); 
+            }
+        }
 
 		for (int i = 0; i < spriteWaveTransforms.Length; ++i)
 		{

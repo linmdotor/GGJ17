@@ -22,9 +22,8 @@ public class PlayerActions : MonoBehaviour {
 
         float rot_z = Mathf.Atan2(toLook.y, toLook.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-
-        if (!movementPressed)
-            this.gameObject.GetComponent<Animator>().SetBool("Walk", false);
+        
+        #region Movimiento
         if (Input.GetButton(KeyCodes.Up))
         {
             this.gameObject.GetComponent<Animator>().SetBool("Walk", true);
@@ -49,7 +48,10 @@ public class PlayerActions : MonoBehaviour {
             this.transform.position += new Vector3(Time.deltaTime * m_playerSpeed, 0, 0);
             movementPressed = true;
         }
-            
+        if (!movementPressed)
+            this.gameObject.GetComponent<Animator>().SetBool("Walk", false);
+        #endregion
+
         if (Input.GetButtonDown(KeyCodes.PlayerAttack) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);

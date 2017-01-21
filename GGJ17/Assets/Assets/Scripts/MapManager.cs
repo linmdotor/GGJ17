@@ -162,8 +162,9 @@ public class MapManager : MonoBehaviour
 
         // Testing... delete later...
         //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[20][15].gameObject,4,6,ObjectManager.FurnitureType.MADERA);
-        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1, ObjectManager.FurnitureType.MADERA);
-        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[50][2].gameObject, 7, 10, ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[2][2].gameObject, 4 ,5);
+        ObjectManager.ObjectManagerInstance.instantiateEmisors();
     }
 
     private void CreateWall()

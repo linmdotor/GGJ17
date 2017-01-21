@@ -500,7 +500,7 @@ Transform:
   m_GameObject: {fileID: 107714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2.8491518}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 472108}
@@ -640,7 +640,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 14.307369, y: -0.41563272, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -853,7 +853,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.012196064, y: -0.14635587}
   serializedVersion: 2
@@ -917,6 +917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec740e71a6399864286ad3e554b2a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalScaleX: 0.03
+  originalScaleY: 0.03
+  lifeTimeBase: 4
+  lifeTime: 4
+  expand: 0
   Circle1: {fileID: 472108}
   Circle2: {fileID: 453486}
   angularSpeed1: 110
