@@ -33,6 +33,7 @@ public class ObjectManager : MonoBehaviour {
     public List<FurnitureSprites> furnitureSprites;
 
     private List<Furniture> furnitures = new List<Furniture>();
+    private List<Furniture> cabinets = new List<Furniture>();
 
     public Sprite cabinetSprite;
     public Sprite wallSprite;
@@ -52,7 +53,8 @@ public class ObjectManager : MonoBehaviour {
         {
             int emissor = furniture.createEmisors();
             numbersOfEmissors += emissor;
-        }
+        }       
+
     }
 
     public void instantiateFurniture(GameObject tile, int distanciaHorizontal, int distanciaVertical)
@@ -101,6 +103,9 @@ public class ObjectManager : MonoBehaviour {
 
                 piezaMueble.AddComponent<BoxCollider2D>();
 
+                piezaMueble.GetComponent<BoxCollider2D>().isTrigger = true;
+                piezaMueble.tag = KeyCodes.Furniture;
+
                 mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 mueble.GetComponent<Furniture>().accessiblePieces++;
 
@@ -114,28 +119,50 @@ public class ObjectManager : MonoBehaviour {
         cabinet.transform.parent = tile.transform;
         cabinet.transform.localPosition = Vector3.zero;
 
+        cabinet.AddComponent<Furniture>().setData(distanciaHorizontal, distanciaVertical, FurnitureType.MADERA, cabinetSprite);
+        cabinets.Add(cabinet.GetComponent<Furniture>());
+
         for (int i = 0; i < distanciaVertical; i++)
         {
             for (int j = 0; j < distanciaHorizontal; j++)
             {
-                GameObject piezaCabinet = new GameObject("piezaCabinet" + j + "-" + i);
-                piezaCabinet.transform.parent = cabinet.transform;
-                piezaCabinet.transform.localPosition = Vector3.zero;
+                GameObject piezaMueble = new GameObject("piezaMueble" + j + "-" + i);
+                piezaMueble.transform.parent = cabinet.transform;
+                piezaMueble.transform.localPosition = Vector3.zero;
+                piezaMueble.AddComponent<FurniturePiece>();
                 MapTile mapTile = tile.GetComponent<MapTile>();
+
 
                 MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + (uint)j, mapTile.logicPosition_Y + (uint)i).tileType = MapTile.TileType.Cabinet;
 
-                newfurniturePos.x = piezaCabinet.transform.position.x + j * MapTile.TileLength;
-                newfurniturePos.y = piezaCabinet.transform.position.y + i * -MapTile.TileLength;
-                piezaCabinet.transform.position = newfurniturePos;
-                piezaCabinet.AddComponent<SpriteRenderer>().sprite = cabinetSprite;
+                if (i == 0 || i == distanciaVertical - 1)
+                {
+                    piezaMueble.GetComponent<FurniturePiece>().emisorPlace = true;
+                    piezaMueble.GetComponent<FurniturePiece>().x = j;
+                    piezaMueble.GetComponent<FurniturePiece>().y = i;
 
-                piezaCabinet.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
+                }
+                else if (j == 0 || j == distanciaHorizontal - 1)
+                {
+                    piezaMueble.GetComponent<FurniturePiece>().emisorPlace = true;
+                    piezaMueble.GetComponent<FurniturePiece>().x = j;
+                    piezaMueble.GetComponent<FurniturePiece>().y = i;
+                }
 
-                piezaCabinet.AddComponent<BoxCollider2D>();
+                newfurniturePos.x = piezaMueble.transform.position.x + j * MapTile.TileLength;
+                newfurniturePos.y = piezaMueble.transform.position.y + i * -MapTile.TileLength;
+                piezaMueble.transform.position = newfurniturePos;
+                piezaMueble.AddComponent<SpriteRenderer>().sprite = cabinetSprite;
+
+                piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
+
+                cabinet.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
+                cabinet.GetComponent<Furniture>().accessiblePieces++;
+
             }
         }
     }
+
     public void instantiateWall(GameObject tile, int distanciaHorizontal, int distanciaVertical)
     {
         GameObject wall = new GameObject("wall");

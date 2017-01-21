@@ -12,9 +12,11 @@ public class KeyCodes {
     public static string PlayerAttack = "PlayerAttack";
 
     //Tags
-    public static string Player = "Player";
+    public static string PlayerWarrior = "PlayerWarrior";
     public static string Enemy = "Enemy";
     public static string GameManager = "GameManager";
     public static string Wave = "Wave";
     public static string MainCamera = "MainCamera";
+    public static string Map = "Map";
+    public static string Furniture = "Furniture";
 }
