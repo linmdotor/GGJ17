@@ -86,7 +86,7 @@ public class ObjectManager : MonoBehaviour {
                 MapTile mapTile = tile.GetComponent<MapTile>();
 
 
-                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + (uint)j, mapTile.logicPosition_Y +(uint)i).tileType = MapTile.TileType.Furniture;
+                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + j, mapTile.logicPosition_Y +i).tileType = MapTile.TileType.Furniture;
 
                 if (i == 0 || i == distanciaVertical - 1)
                 {
@@ -139,8 +139,7 @@ public class ObjectManager : MonoBehaviour {
                 piezaMueble.AddComponent<FurniturePiece>();
                 MapTile mapTile = tile.GetComponent<MapTile>();
 
-
-                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + (uint)j, mapTile.logicPosition_Y + (uint)i).tileType = MapTile.TileType.Cabinet;
+                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + j, mapTile.logicPosition_Y + i).tileType = MapTile.TileType.Cabinet;
 
                 if (i == 0 || i == distanciaVertical - 1)
                 {
@@ -186,7 +185,7 @@ public class ObjectManager : MonoBehaviour {
                 piezaWall.transform.localPosition = Vector3.zero;
                 MapTile mapTile = tile.GetComponent<MapTile>();
 
-                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + (uint)j, mapTile.logicPosition_Y + (uint)i).tileType = MapTile.TileType.Wall;
+                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + j, mapTile.logicPosition_Y + i).tileType = MapTile.TileType.Wall;
 
                 newfurniturePos.x = piezaWall.transform.position.x + j * MapTile.TileLength;
                 newfurniturePos.y = piezaWall.transform.position.y + i * -MapTile.TileLength;
