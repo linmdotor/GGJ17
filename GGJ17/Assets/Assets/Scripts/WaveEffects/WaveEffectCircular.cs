@@ -21,7 +21,7 @@ public class WaveEffectCircular: WaveEffect
 	void Start () {
 
 		//Store the initial position of the Wave
-		initialPosY = Circle1.FindChild("Wave0").FindChild("wave_sprite").transform.position.y;
+		initialPosY = Circle1.FindChild("Wave0").FindChild("wave_sprite").transform.localPosition.y;
 
 		//Find all the sprite waves
 		for (int i = 0; i < 6; ++i)
