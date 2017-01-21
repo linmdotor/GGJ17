@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - GameManager
   - Wave
+  - MapManager
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -42,6 +44,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 3702953079
+    locked: 0
+  - name: Furniture
+    uniqueID: 2704870211
+    locked: 0
+  - name: ObjectsInFurniture
+    uniqueID: 2442565833
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
