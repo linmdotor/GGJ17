@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: e302370d079b9d6488c0cfb18ed8edde
+timeCreated: 1485033014
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Intro_Intro_625x562_0
+    21300002: Intro_Intro_625x562_1
+    21300004: Intro_Intro_625x562_2
+    21300006: Intro_Intro_625x562_3
+    21300008: Intro_Intro_625x562_4
+    21300010: Intro_Intro_625x562_5
+    21300012: Intro_Intro_625x562_6
+    21300014: Intro_Intro_625x562_7
+    21300016: Intro_Intro_625x562_8
+    21300018: Intro_Intro_625x562_9
+    21300020: Intro_Intro_625x562_10
+    21300022: Intro_Intro_625x562_11
+    21300024: Intro_Intro_625x562_12
+    21300026: Intro_Intro_625x562_13
+    21300028: Intro_Intro_625x562_14
+    21300030: Intro_Intro_625x562_15
+    21300032: Intro_Intro_625x562_16
+    21300034: Intro_Intro_625x562_17
+    21300036: Intro_Intro_625x562_18
+    21300038: Intro_Intro_625x562_19
+    21300040: Intro_Intro_625x562_20
+    21300042: Intro_Intro_625x562_21
+    21300044: Intro_Intro_625x562_22
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_0
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1688
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_1
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1688
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_2
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1688
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_3
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1688
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_4
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 1688
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_6
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_7
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_8
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_9
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_10
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 1126
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_12
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_13
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_14
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_15
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_16
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 564
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_18
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_19
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_20
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_21
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: Intro_Intro_625x562_22
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 2
+        width: 625
+        height: 562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
