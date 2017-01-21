@@ -4,7 +4,7 @@ using System.Collections;
 public class PowerUp : MonoBehaviour {
 
     public float redBullTime = 5;
-    public float redBullBoost = 3;
+    public float redBullBoost = 6;
     public float foilTime = 5;
     public int sandwichHeal = 20;
 
@@ -22,6 +22,12 @@ public class PowerUp : MonoBehaviour {
 	void Start () {
         timeOnMap = expiresOn;
         type = (PowerUpManager.powerUps)Random.Range(0, 3);
+        if (type == PowerUpManager.powerUps.Foil)
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (type == PowerUpManager.powerUps.RedBull)
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        if (type == PowerUpManager.powerUps.Sandwich)
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
         player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
 	}
 	
@@ -35,7 +41,7 @@ public class PowerUp : MonoBehaviour {
     public void deletePowerUp()
     {
         MapManager.MapManagerInstance.GetMapTile(tileXCord, tileYCord).tileType = MapTile.TileType.Floor;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
     public void effect()
     {

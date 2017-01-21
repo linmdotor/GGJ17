@@ -4,7 +4,10 @@ using System.Collections;
 public class PowerUpManager : MonoBehaviour {
 
     public GameObject powerUpPrefab;
+
+    [HideInInspector]
     public float posX;
+    [HideInInspector]
     public float posY;
 
     public float spawnCheckTime = 5;
@@ -22,7 +25,7 @@ public class PowerUpManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        timeToCheck = spawnCheckTime;
 	}
 	
 	// Update is called once per frame
@@ -47,14 +50,13 @@ public class PowerUpManager : MonoBehaviour {
 
     public void spawnItem()
     {
-        MapTile spawnPlace = null;
-        //POR IMPLEMENTAR
-        //MapTile spawnPlace = MapManager.MapManagerInstance.getFreeTiles();
-        posX = spawnPlace.transform.position.x;
-        posY = spawnPlace.transform.position.y;
+        MapTile[] spawnPlace = MapManager.MapManagerInstance.GetMapTiles(MapTile.TileType.Floor);
+        MapTile freeTile = spawnPlace[Random.Range(0, spawnPlace.Length)];
+        posX = freeTile.transform.position.x;
+        posY = freeTile.transform.position.y;
         GameObject powerUp = (GameObject)GameObject.Instantiate(powerUpPrefab, new Vector3(posX, posY, 0), Quaternion.identity);
-        powerUp.GetComponent<PowerUp>().tileXCord = spawnPlace.logicPosition_X;
-        powerUp.GetComponent<PowerUp>().tileYCord = spawnPlace.logicPosition_Y;
+        powerUp.GetComponent<PowerUp>().tileXCord = freeTile.logicPosition_X;
+        powerUp.GetComponent<PowerUp>().tileYCord = freeTile.logicPosition_Y;
         timesSinceLastSpawn = 0;
     }
 }

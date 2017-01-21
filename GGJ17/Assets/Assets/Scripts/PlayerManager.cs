@@ -55,8 +55,8 @@ public class PlayerManager : MonoBehaviour {
     {
         if(powerUp.tag == KeyCodes.PowerUp)
         {
-            powerUp.transform.parent.gameObject.GetComponent<PowerUp>().effect();
-            powerUp.transform.parent.gameObject.GetComponent<PowerUp>().deletePowerUp();
+            powerUp.transform.gameObject.GetComponent<PowerUp>().effect();
+            powerUp.transform.gameObject.GetComponent<PowerUp>().deletePowerUp();
         }
     }
 
@@ -148,6 +148,8 @@ public class PlayerManager : MonoBehaviour {
         GetComponent<SpriteRenderer>().color = Color.magenta;
         yield return new WaitForSeconds(waitTime);
         GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
         foilFeedbackActive = false;
     }
 }
