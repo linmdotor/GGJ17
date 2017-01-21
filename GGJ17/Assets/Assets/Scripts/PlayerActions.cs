@@ -11,7 +11,8 @@ public class PlayerActions : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         camera = GameObject.FindGameObjectWithTag(KeyCodes.MainCamera).GetComponent<Camera>();
-	}
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerHit();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,6 +57,7 @@ public class PlayerActions : MonoBehaviour {
         {
             attack.SetActive(true);
             this.gameObject.GetComponent<Animator>().SetBool("Attack", true);
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }
