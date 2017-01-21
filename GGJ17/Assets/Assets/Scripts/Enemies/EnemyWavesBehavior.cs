@@ -22,14 +22,13 @@ public class EnemyWavesBehavior : MonoBehaviour {
 		randomDelayedStartTime *= Random.value;
 		//Hack to start delayed
 		currentTime = -randomDelayedStartTime;
-		Debug.Log("RAND: " + randomDelayedStartTime);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
 		currentTime += Time.deltaTime;
-		Debug.Log("TIME: " + currentTime);
+
 		if(weaponEnabled && currentTime >= weaponTimeOn)
 		{
 			weaponEnabled = false;
