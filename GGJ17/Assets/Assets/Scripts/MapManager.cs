@@ -60,7 +60,7 @@ public class MapManager : MonoBehaviour
 	
 	}
 
-    public MapTile GetMapTile(uint i, uint j)
+    public static MapTile GetMapTile(uint i, uint j)
     {
         return tiles[i][j];
     }
