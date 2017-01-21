@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         invTimeBaseActual = invTimeBase;
+        UIManager.UIManagerInstance.changeLifeText(life);
 	}
 	
 	// Update is called once per frame
@@ -59,6 +60,7 @@ public class PlayerManager : MonoBehaviour {
     public void damage()
     {
         --life;
+        UIManager.UIManagerInstance.changeLifeText(life);
     }
     public void attackEnded()
     {

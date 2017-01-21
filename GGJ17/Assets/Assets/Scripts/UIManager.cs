@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour {
 
     Text enemyText;
     Text scoreText;
+    Text lifeText;
     GameObject pauseMenu;
 
     private bool paused = false;
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour {
     {
         enemyText = transform.Find("EnemiesText").GetComponent<Text>();
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
+        lifeText = transform.Find("LifeText").GetComponent<Text>();
         pauseMenu = transform.Find("PauseMenu").gameObject;
         
     }
@@ -59,6 +61,11 @@ public class UIManager : MonoBehaviour {
         scoreText.text = "Score: " + score;
     }
 
+    public void changeLifeText(int life)
+    {
+        lifeText.text = "Life: " + life;
+
+    }
     public void ResumeButton()
     {
         paused = false;
