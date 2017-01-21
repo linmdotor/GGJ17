@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0442195, y: -4.3900824, z: 0}
+  m_LocalPosition: {x: 0.2681368, y: 3.761548, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 167262}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071067}
   m_LocalPosition: {x: 0.005, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_Children:
   - {fileID: 460598}
@@ -325,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 179804}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
   m_LocalPosition: {x: -0.005, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children:
   - {fileID: 416756}
@@ -341,7 +341,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -469,11 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab440b4065a85f46a60f49309ef5640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScaleX: 0.03
-  originalScaleY: 0.03
-  lifeTimeBase: 5
-  lifeTime: 0
-  expand: 0
   spriteWaveTransforms:
   - {fileID: 460598}
   - {fileID: 481108}
@@ -518,10 +513,7 @@ MonoBehaviour:
   life: 1
   score: 10
   crashAnimationPrefab: {fileID: 0}
-<<<<<<< HEAD
-=======
   enemyType: 1
->>>>>>> 924bc425407e931d46831577d22fe01c554165e9
 --- !u!114 &11486404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -533,11 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab440b4065a85f46a60f49309ef5640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScaleX: 0.03
-  originalScaleY: 0.03
-  lifeTimeBase: 5
-  lifeTime: 0
-  expand: 0
   spriteWaveTransforms:
   - {fileID: 416756}
   - {fileID: 423404}
