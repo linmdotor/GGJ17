@@ -395,9 +395,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -469,6 +469,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab440b4065a85f46a60f49309ef5640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalScaleX: 0.03
+  originalScaleY: 0.03
+  originalScaleXCircle: 0.5
+  originalScaleYCircle: 0.5
+  lifeTimeBase: 5
+  lifeTime: 0
+  expand: 0
   spriteWaveTransforms:
   - {fileID: 460598}
   - {fileID: 481108}
@@ -525,6 +532,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab440b4065a85f46a60f49309ef5640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalScaleX: 0.03
+  originalScaleY: 0.03
+  originalScaleXCircle: 0.5
+  originalScaleYCircle: 0.5
+  lifeTimeBase: 5
+  lifeTime: 0
+  expand: 0
   spriteWaveTransforms:
   - {fileID: 416756}
   - {fileID: 423404}

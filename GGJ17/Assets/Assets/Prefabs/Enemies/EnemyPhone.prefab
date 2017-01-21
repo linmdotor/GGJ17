@@ -870,9 +870,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -959,6 +959,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec740e71a6399864286ad3e554b2a83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalScaleX: 0.03
+  originalScaleY: 0.03
+  originalScaleXCircle: 0.5
+  originalScaleYCircle: 0.5
+  lifeTimeBase: 5
+  lifeTime: 0
+  expand: 0
   Circle1: {fileID: 438374}
   Circle2: {fileID: 447498}
   angularSpeed1: 110
