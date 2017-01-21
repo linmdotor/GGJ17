@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour {
     Text scoreText;
     Text lifeText;
     Text deadMenuScoreText;
-    GameObject pauseMenu, deadMenu;
+    [HideInInspector]
+    public GameObject pauseMenu, deadMenu;
 
     private bool paused = false;
 

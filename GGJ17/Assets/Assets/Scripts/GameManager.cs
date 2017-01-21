@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
 
     public void gameOver()
     {
+        Time.timeScale = 1f;
+        UIManager.UIManagerInstance.deadMenu.SetActive(true);
         //Load gameOver screen
         //Update scores
         //Deactivate everything (?)

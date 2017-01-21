@@ -456,6 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ef0ef324a34a44fa4c9bac20e55d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  deadMenu: {fileID: 0}
 --- !u!114 &11445972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -675,7 +677,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: Replay
 --- !u!114 &11469352
 MonoBehaviour:
   m_ObjectHideFlags: 1
