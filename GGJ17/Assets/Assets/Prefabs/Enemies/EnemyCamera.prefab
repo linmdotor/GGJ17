@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 476568}
   - 212: {fileID: 21206854}
-  - 68: {fileID: 6815940}
   m_Layer: 0
   m_Name: wave_sprite
   m_TagString: Untagged
@@ -41,9 +40,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 497266}
   - 114: {fileID: 11491130}
+  - 60: {fileID: 6061616}
   m_Layer: 0
   m_Name: SimpleWave
-  m_TagString: Untagged
+  m_TagString: Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 424012}
   - 212: {fileID: 21247932}
-  - 68: {fileID: 6872058}
   m_Layer: 0
   m_Name: wave_sprite
   m_TagString: Untagged
@@ -175,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.112504, y: -3.860899, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -196,12 +195,12 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.04093693
---- !u!68 &6815940
-EdgeCollider2D:
+--- !u!60 &6061616
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127702}
+  m_GameObject: {fileID: 132106}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -209,31 +208,12 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -0.03689553, y: -3.4440622}
-  - {x: 3.1346936, y: 2.0620968}
-  - {x: 1.2894661, y: 2.897323}
-  - {x: -1.2028203, y: 2.9159153}
-  - {x: -3.0839105, y: 2.0492651}
-  - {x: -0.03656462, y: -3.4587224}
---- !u!68 &6872058
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155800}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -0.03689553, y: -3.4440622}
-  - {x: 3.1346936, y: 2.0620968}
-  - {x: 1.2894661, y: 2.897323}
-  - {x: -1.2028203, y: 2.9159153}
-  - {x: -3.0839105, y: 2.0492651}
-  - {x: -0.03656462, y: -3.4587224}
+    m_Paths:
+    - - {x: -1.2555323, y: 5.9959707}
+      - {x: 1.2387825, y: 5.9327536}
+      - {x: 3.0488043, y: 4.9931207}
+      - {x: -0.00105276, y: -0.4830542}
+      - {x: -3.004622, y: 5.0680733}
 --- !u!114 &11439150
 MonoBehaviour:
   m_ObjectHideFlags: 1
