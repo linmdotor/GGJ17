@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour {
 	private EnemyMovementState currentState;
 	private EnemyMovementState previousState;
 
+	public float DelayedRandomTime = 10.0f;
 
 
 	//STATES
@@ -35,9 +36,11 @@ public class EnemyMovement : MonoBehaviour {
 	void Start () {
 		targetTransform = currentTarget.transform;
 
-		currentTime = 0f;
 		previousState = EnemyMovementState.NONE;
 		currentState = EnemyMovementState.MOVING_AROUND;
+
+		DelayedRandomTime *= Random.value;
+		currentTime = -DelayedRandomTime;
     }
 	
 	// Update is called once per frame
