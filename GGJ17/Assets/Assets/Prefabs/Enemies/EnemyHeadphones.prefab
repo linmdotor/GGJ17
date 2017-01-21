@@ -634,7 +634,7 @@ MonoBehaviour:
   speed: 8
   DelayedRandomTime: 10
   movingTime: 6
-  waitingTime: 1
+  movingAroundTime: 2
   pauseTime: 1.5
 --- !u!212 &21202830
 SpriteRenderer:
