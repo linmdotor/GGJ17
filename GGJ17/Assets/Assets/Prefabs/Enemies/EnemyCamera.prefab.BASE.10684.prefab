@@ -160,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 132106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.005, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 494290}
@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7136583, y: -0.19422871, z: 0}
+  m_LocalPosition: {x: 9.112504, y: -3.860899, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -190,7 +190,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -227,7 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   score: 10
-  crashAnimationPrefab: {fileID: 0}
 --- !u!114 &11486944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,10 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTimeOn: 1
   weaponTimeOff: 5
-  randomDelayedStartTime: 5
-  startEnabled: 0
   waves:
   - {fileID: 11491130}
+  startEnabled: 0
 --- !u!114 &11491130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,11 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab440b4065a85f46a60f49309ef5640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScaleX: 0.03
-  originalScaleY: 0.03
-  lifeTimeBase: 4
-  lifeTime: 4
-  expand: 0
   spriteWaveTransforms:
   - {fileID: 494290}
   - {fileID: 422940}

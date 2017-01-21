@@ -35,6 +35,19 @@ public class WaveEffectCircular: WaveEffect
 	// Update is called once per frame
 	void Update () {
 
+        if (expand)
+        {
+            lifeTime -= Time.deltaTime;
+            if (lifeTime > 0)
+                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.3f, this.transform.localScale.y + Time.deltaTime * 0.3f, 0);
+            else
+            {
+                lifeTime = lifeTimeBase;
+                expand = false;
+                this.transform.localScale = new Vector3(originalScaleXCircle, originalScaleYCircle, 0);
+            }
+        }
+
 		Circle1.Rotate(Vector3.forward * Time.deltaTime * angularSpeed1);
 		Circle2.Rotate(Vector3.forward * Time.deltaTime * angularSpeed2);
 

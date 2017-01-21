@@ -8,12 +8,15 @@ public class AttackManager : MonoBehaviour {
 
     void OnEnable()
     {
+        this.transform.localPosition = new Vector3(1, 0.5f, 0);
         enemyHit = false;
         timeToDisable = 0.8f;
     }
 
 	// Update is called once per frame
-	void Update () {
+    void Update()
+    {
+        this.transform.localPosition = new Vector3(1, 0.5f, 0);
         timeToDisable -= Time.deltaTime;
         if (timeToDisable <= 0)
         {
