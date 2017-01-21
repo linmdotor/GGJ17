@@ -49,9 +49,17 @@ public class ObjectManager : MonoBehaviour {
 
     public void instantiateEmisors()
     {
+        int emissor = 0; 
+
         foreach(Furniture furniture in furnitures)
         {
-            int emissor = furniture.createEmisors();
+            emissor = furniture.createEmisors();
+            numbersOfEmissors += emissor;
+        }
+
+        foreach (Furniture cabinet in cabinets)
+        {
+            emissor += cabinet.createCabinetEmisors();
             numbersOfEmissors += emissor;
         }       
 
@@ -103,7 +111,6 @@ public class ObjectManager : MonoBehaviour {
 
                 piezaMueble.AddComponent<BoxCollider2D>();
 
-                piezaMueble.GetComponent<BoxCollider2D>().isTrigger = true;
                 piezaMueble.tag = KeyCodes.Furniture;
 
                 mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
@@ -126,7 +133,7 @@ public class ObjectManager : MonoBehaviour {
         {
             for (int j = 0; j < distanciaHorizontal; j++)
             {
-                GameObject piezaMueble = new GameObject("piezaMueble" + j + "-" + i);
+                GameObject piezaMueble = new GameObject("piezaCabinet" + j + "-" + i);
                 piezaMueble.transform.parent = cabinet.transform;
                 piezaMueble.transform.localPosition = Vector3.zero;
                 piezaMueble.AddComponent<FurniturePiece>();
@@ -155,6 +162,7 @@ public class ObjectManager : MonoBehaviour {
                 piezaMueble.AddComponent<SpriteRenderer>().sprite = cabinetSprite;
 
                 piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
+                piezaMueble.AddComponent<BoxCollider2D>();
 
                 cabinet.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 cabinet.GetComponent<Furniture>().accessiblePieces++;
