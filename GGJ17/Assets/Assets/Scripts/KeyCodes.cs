@@ -8,7 +8,7 @@ public class KeyCodes {
     public static string Down = "Down";
     public static string Left = "Left";
     public static string Right = "Right";
-    public static string AttackUp = "Attack";
+    public static string PlayerAttack = "PlayerAttack";
 
     //Tags
     public static string Player = "Player";

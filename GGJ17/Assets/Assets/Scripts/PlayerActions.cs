@@ -38,12 +38,10 @@ public class PlayerActions : MonoBehaviour {
             this.transform.position += new Vector3(Time.deltaTime * m_playerSpeed, 0, 0);
         }
 
-        if (Input.GetButtonDown(KeyCodes.Attack) && !attack.activeInHierarchy)
+        if (Input.GetButtonDown(KeyCodes.PlayerAttack) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);
             attack.transform.localPosition = new Vector3(0, 1.75f, 0);
-            attack.transform.Rotate(0, 0, 0);
-        }
         }
     }
 }
