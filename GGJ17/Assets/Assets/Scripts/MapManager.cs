@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
@@ -56,9 +57,9 @@ public class MapManager : MonoBehaviour
     private int numFurnitures;
     private int numCabinets;
 
-    private ArrayList walls;
-    private ArrayList furnitures;
-    private ArrayList cabinets;
+    private List<MapTile> walls;
+    private List<MapTile> furnitures;
+    private List<MapTile> cabinets;
 
     // Limit dimensions and restrictions for walls
     public int distanceBetweenWalls = 3;
@@ -86,7 +87,7 @@ public class MapManager : MonoBehaviour
 
         // Map internal stuff instantiation
         verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
-        walls = new ArrayList();
+        walls = new List<MapTile>();
 
         if (verticalWalls)
         {
@@ -112,6 +113,18 @@ public class MapManager : MonoBehaviour
     public MapTile GetMapTile(int i, int j)
     {
         return tiles[i][j];
+    }
+
+    public MapTile[] GetMapTiles(MapTile.TileType wantedTileType)
+    {
+        List<MapTile> mapTiles = new List<MapTile>();
+
+        for (int i = 0; i < mapSize_X; ++i)
+            for (int j = 0; j < mapSize_Y; ++j)
+                if (tiles[i][j].tileType == wantedTileType)
+                    mapTiles.Add(tiles[i][j]);
+
+        return mapTiles.ToArray();
     }
 
     private void CreateMap()
