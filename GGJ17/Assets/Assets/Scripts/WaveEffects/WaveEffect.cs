@@ -17,4 +17,9 @@ public class WaveEffect : MonoBehaviour {
 	{
 			this.gameObject.SetActive(enabled);
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("Trigger enter " + this.name);
+	}
 }
