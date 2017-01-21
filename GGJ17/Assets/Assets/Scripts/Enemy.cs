@@ -45,6 +45,11 @@ public class Enemy : MonoBehaviour {
             GameObject crash = (GameObject)Instantiate(crashAnimationPrefab, this.transform.position, Quaternion.identity);
         }
 
+        foreach (Transform child in this.transform)
+        {
+            child.localScale = new Vector3(0, 0, 0);
+        }
+
         Destroy(this.gameObject);
     }
     public void damage()
