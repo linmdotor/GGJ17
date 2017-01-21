@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaveEffectSimple : MonoBehaviour {
+public class WaveEffectSimple : WaveEffect
+{
 
 	[Header("Waves")]
 	public Transform[] spriteWaveTransforms;
