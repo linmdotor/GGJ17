@@ -44,9 +44,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Floor
     uniqueID: 3702953079
     locked: 0
@@ -55,4 +52,7 @@ TagManager:
     locked: 0
   - name: ObjectsInFurniture
     uniqueID: 2442565833
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
