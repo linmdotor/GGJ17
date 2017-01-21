@@ -60,4 +60,9 @@ public class PlayerManager : MonoBehaviour {
     {
         --life;
     }
+    public void attackEnded()
+    {
+        this.transform.GetChild(0).GetChild(0).GetComponent<AttackManager>().animationEnded();
+        this.gameObject.GetComponent<Animator>().SetBool("Attack", false);
+    }
 }
