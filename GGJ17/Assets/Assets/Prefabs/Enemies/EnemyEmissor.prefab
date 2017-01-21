@@ -888,9 +888,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTimeOn: 3
   weaponTimeOff: 5
+  randomDelayedStartTime: 5
+  startEnabled: 0
   waves:
   - {fileID: 11489150}
-  startEnabled: 0
 --- !u!114 &11479316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -904,6 +905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   score: 10
+  crashAnimationPrefab: {fileID: 146776, guid: 04acb45d2af6e0441abe2756325f5c62, type: 2}
 --- !u!114 &11489150
 MonoBehaviour:
   m_ObjectHideFlags: 1
