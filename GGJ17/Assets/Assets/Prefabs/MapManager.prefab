@@ -40,7 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14fcfc10f316dd4eb1b72213047c3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 148352, guid: 8d70ff83e61724b408a8bf040a067a5d, type: 2}
+  tileFloorPrefab: {fileID: 148352, guid: 8d70ff83e61724b408a8bf040a067a5d, type: 2}
+  tileWallPrefab: {fileID: 148352, guid: 1b2d4aa76a79e2a43ae0aad1021c4ef4, type: 2}
   maxMapSize_X: 100
   maxMapSize_Y: 70
   mapSize_X: 80
@@ -54,10 +55,8 @@ MonoBehaviour:
   maxWalls: 020000000300000005000000
   maxFurnitures: 030000000500000009000000
   maxCabinets: 010000000300000005000000
-  wallMinSize_ShorterDim: 1
-  wallMinSize_LongerDim: 3
-  wallMinGap_X: 3
-  wallMinGap_Y: 2
+  distanceBetweenWalls: 3
+  wallMinGap: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

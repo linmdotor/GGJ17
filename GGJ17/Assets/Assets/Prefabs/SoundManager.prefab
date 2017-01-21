@@ -42,13 +42,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundTrack: {fileID: 8300000, guid: 75ebf20d0be9d084595e82f4cf6c515b, type: 3}
   playerHit: {fileID: 8300000, guid: d31f3173ed2e7c246afbb040ee166199, type: 3}
-  playerDamage: {fileID: 0}
-  playerDeath: {fileID: 0}
+  playerDamage: {fileID: 8300000, guid: b1da8171588442241970ccb00108f898, type: 3}
+  playerDeath: {fileID: 8300000, guid: f54279fc13c867c4c870b800a912fca2, type: 3}
   enemyMusic: {fileID: 8300000, guid: 767c7e3940bb3fe4eb3e820481fc611a, type: 3}
-  enemyDeath: {fileID: 0}
-  showcaseCrash: {fileID: 0}
+  enemyDeath: {fileID: 8300000, guid: 44e05ff645054e24793b95e3bacc8831, type: 3}
+  showcaseCrash: {fileID: 8300000, guid: 932259a690350d645850862b3a930373, type: 3}
   emisorMusic: {fileID: 8300000, guid: d2d08747656d9cc499808327a2f2c74f, type: 3}
-  emisorCrash: {fileID: 0}
+  emisorCrash: {fileID: 8300000, guid: 1463a8114c56e9944a2909308d1bed0b, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

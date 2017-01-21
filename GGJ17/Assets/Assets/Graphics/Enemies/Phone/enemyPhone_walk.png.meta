@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 46a00b6c674551e4994859581775ed97
+timeCreated: 1485032882
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemyPhone_walk_0
+    21300002: enemyPhone_walk_1
+    21300004: enemyPhone_walk_2
+    21300006: enemyPhone_walk_3
+    21300008: enemyPhone_walk_4
+    21300010: enemyPhone_walk_5
+    21300012: enemyPhone_walk_6
+    21300014: enemyPhone_walk_7
+    21300016: enemyPhone_walk_8
+    21300018: enemyPhone_walk_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyPhone_walk_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 397
+        width: 376
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_1
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 421
+        width: 351
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_2
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 421
+        width: 342
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_3
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 418
+        width: 358
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_4
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 409
+        width: 389
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_5
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 421
+        width: 375
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_6
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 49
+        width: 371
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_7
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 49
+        width: 368
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_8
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 49
+        width: 369
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhone_walk_9
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 47
+        width: 371
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

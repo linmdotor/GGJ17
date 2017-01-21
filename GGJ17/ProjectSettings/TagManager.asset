@@ -12,6 +12,8 @@ TagManager:
   - Map
   - PlayerWarrior
   - Furniture
+  - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

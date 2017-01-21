@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour {
         //PersistentScore.PersistentScoreInstance.ResetScores();
         //GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
         #endregion
-        #region Audio
-        //this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
-        //this.GetComponent<AudioSource>().Play();
-        #endregion
 
         //pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
         //pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
@@ -49,7 +45,6 @@ public class GameManager : MonoBehaviour {
         {
     	    if(numberOfEnemiesLeft == 0)
                 Debug.Log("Level won");
-
         }
 	}
 
@@ -68,10 +63,8 @@ public class GameManager : MonoBehaviour {
 
     public void removeEnemy()
     {
-
         numberOfEnemiesLeft--;
         UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
-
     }
 
     public void addEnemy()

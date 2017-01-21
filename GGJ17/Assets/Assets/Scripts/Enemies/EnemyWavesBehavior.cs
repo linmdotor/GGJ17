@@ -6,7 +6,7 @@ public class EnemyWavesBehavior : MonoBehaviour {
 	public float weaponTimeOn;
 	public float weaponTimeOff;
 
-	public float randomDelayedStartTime = 5f;
+	public float randomDelayedStartTime = 10.0f;
 	public bool startEnabled = false;
 	private bool weaponEnabled;
 
