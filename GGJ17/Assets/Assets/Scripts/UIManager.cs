@@ -21,7 +21,9 @@ public class UIManager : MonoBehaviour {
     Text enemyText;
     Text scoreText;
     GameObject pauseMenu;
-       
+
+    private bool paused = false;
+
     void Start()
     {
         enemyText = transform.Find("EnemiesText").GetComponent<Text>();
@@ -34,8 +36,16 @@ public class UIManager : MonoBehaviour {
     {
         if (Input.GetButton(KeyCodes.Escape))
         {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
+            if (paused)
+            {
+                Time.timeScale = 1f;
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
 
     }
@@ -51,14 +61,15 @@ public class UIManager : MonoBehaviour {
 
     public void ResumeButton()
     {
-        Debug.Log("asdfasdf");
-
+        paused = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
     }
 
     public void ExitButton()
     {
+        paused = false;
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartScene");
     }
