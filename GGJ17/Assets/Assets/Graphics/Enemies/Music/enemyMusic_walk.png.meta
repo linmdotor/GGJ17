@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 7e96cdda0de5d9b49ae6220cb18bdea5
+timeCreated: 1485032620
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemyMusic_walk_0
+    21300002: enemyMusic_walk_1
+    21300004: enemyMusic_walk_2
+    21300006: enemyMusic_walk_3
+    21300008: enemyMusic_walk_4
+    21300010: enemyMusic_walk_5
+    21300012: enemyMusic_walk_6
+    21300014: enemyMusic_walk_7
+    21300016: enemyMusic_walk_8
+    21300018: enemyMusic_walk_9
+    21300020: enemyMusic_walk_10
+    21300022: enemyMusic_walk_11
+    21300024: enemyMusic_walk_12
+    21300026: enemyMusic_walk_13
+    21300028: enemyMusic_walk_14
+    21300030: enemyMusic_walk_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyMusic_walk_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 819
+        width: 320
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 816
+        width: 327
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_2
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 816
+        width: 334
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_3
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 809
+        width: 347
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_4
+      rect:
+        serializedVersion: 2
+        x: 1993
+        y: 778
+        width: 360
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_5
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 809
+        width: 346
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_6
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 442
+        width: 334
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_7
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 443
+        width: 327
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_8
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 444
+        width: 320
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_9
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 445
+        width: 331
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_10
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 447
+        width: 348
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_11
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 447
+        width: 372
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 51
+        width: 396
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 70
+        width: 376
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_14
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 74
+        width: 353
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_walk_15
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 74
+        width: 332
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
