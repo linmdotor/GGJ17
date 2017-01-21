@@ -40,6 +40,7 @@ public class ObjectManager : MonoBehaviour {
     int numbersOfEmissors = 0;
 
     public GameObject enemyEmissor;
+    public GameObject cabinetPrefab;
 
     void Start () {
         //instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
@@ -133,10 +134,14 @@ public class ObjectManager : MonoBehaviour {
         {
             for (int j = 0; j < distanciaHorizontal; j++)
             {
-                GameObject piezaMueble = new GameObject("piezaCabinet" + j + "-" + i);
+                //GameObject piezaMueble = new GameObject("piezaCabinet" + j + "-" + i);
+                GameObject piezaMueble = Instantiate((GameObject)cabinetPrefab);
+                //new GameObject("piezaCabinet" + j + "-" + i);
+
+                piezaMueble.name = "piezaCabinet" + j + "-" + i;
                 piezaMueble.transform.parent = cabinet.transform;
                 piezaMueble.transform.localPosition = Vector3.zero;
-                piezaMueble.AddComponent<FurniturePiece>();
+                //piezaMueble.AddComponent<FurniturePiece>();
                 MapTile mapTile = tile.GetComponent<MapTile>();
 
 
@@ -156,13 +161,19 @@ public class ObjectManager : MonoBehaviour {
                     piezaMueble.GetComponent<FurniturePiece>().y = i;
                 }
 
+
+                piezaMueble.GetComponent<FurniturePiece>().isCabinet = true;
+
                 newfurniturePos.x = piezaMueble.transform.position.x + j * MapTile.TileLength;
                 newfurniturePos.y = piezaMueble.transform.position.y + i * -MapTile.TileLength;
                 piezaMueble.transform.position = newfurniturePos;
-                piezaMueble.AddComponent<SpriteRenderer>().sprite = cabinetSprite;
+                //piezaMueble.AddComponent<SpriteRenderer>().sprite = cabinetSprite;
 
-                piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
-                piezaMueble.AddComponent<BoxCollider2D>();
+                //piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
+                //piezaMueble.AddComponent<BoxCollider2D>();
+
+                //piezaMueble.AddComponent<BoxCollider2D>().isTrigger = true;
+
 
                 cabinet.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 cabinet.GetComponent<Furniture>().accessiblePieces++;
