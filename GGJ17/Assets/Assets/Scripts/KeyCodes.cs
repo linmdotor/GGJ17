@@ -8,14 +8,12 @@ public class KeyCodes {
     public static string Down = "Down";
     public static string Left = "Left";
     public static string Right = "Right";
-    public static string AttackUp = "AttackUp";
-    public static string AttackDown = "AttackDown";
-    public static string AttackLeft = "AttackLeft";
-    public static string AttackRight = "AttackRight";
+    public static string AttackUp = "Attack";
 
     //Tags
     public static string Player = "Player";
     public static string Enemy = "Enemy";
     public static string GameManager = "GameManager";
     public static string Wave = "Wave";
+    public static string MainCamera = "MainCamera";
 }

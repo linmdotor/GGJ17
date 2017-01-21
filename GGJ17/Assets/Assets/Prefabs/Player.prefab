@@ -11,6 +11,7 @@ GameObject:
   - 61: {fileID: 6172108}
   - 114: {fileID: 11464064}
   - 212: {fileID: 21210386}
+  - 50: {fileID: 5050470}
   m_Layer: 0
   m_Name: Attack
   m_TagString: PlayerAttack
@@ -29,6 +30,8 @@ GameObject:
   - 58: {fileID: 5862908}
   - 114: {fileID: 11471712}
   - 212: {fileID: 21246684}
+  - 50: {fileID: 5074100}
+  - 114: {fileID: 11431960}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -63,6 +66,40 @@ Transform:
   - {fileID: 442578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5050470
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119044}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &5074100
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198836}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &5862908
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -72,7 +109,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -86,11 +123,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2.5}
+--- !u!114 &11431960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad36aa5b5d218344098d320d8913a5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 0
 --- !u!114 &11464064
 MonoBehaviour:
   m_ObjectHideFlags: 1
