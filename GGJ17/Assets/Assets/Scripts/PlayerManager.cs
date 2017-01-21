@@ -7,8 +7,8 @@ public class PlayerManager : MonoBehaviour {
 
     private bool hit;
     private bool onDamageZone;
-    private int invTimeBase = 3;
-    private int invTimeBaseActual;
+    private float invTimeBase = 3;
+    private float invTimeBaseActual;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
         if (onDamageZone)
         {
-            
+            invTimeBaseActual -= Time.deltaTime;
         }
 	    if (life == 0)
         {
