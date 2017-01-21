@@ -71,6 +71,10 @@ public class ObjectManager : MonoBehaviour {
                 piezaMueble.transform.parent = mueble.transform;
                 piezaMueble.transform.localPosition = Vector3.zero;
                 piezaMueble.AddComponent<FurniturePiece>();
+                MapTile mapTile = tile.GetComponent<MapTile>();
+
+
+                MapManager.MapManagerInstance.GetMapTile(mapTile.logicPosition_X + (uint)j, mapTile.logicPosition_Y +(uint)i).tileType = MapTile.TileType.Furniture;
 
                 if (i == 0 || i == distanciaVertical - 1)
                 {
