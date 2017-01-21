@@ -23,12 +23,12 @@ public class MapManager : MonoBehaviour
     public GameObject tilePrefab;
 
     // Maximum size for every map [X,Y]
-    public uint maxMapSize_X = 100;
-    public uint maxMapSize_Y = 70;
+    public int maxMapSize_X = 100;
+    public int maxMapSize_Y = 70;
 
     // Actual size of the map [X,Y]
-    public uint mapSize_X = 80;
-    public uint mapSize_Y = 50;
+    public int mapSize_X = 80;
+    public int mapSize_Y = 50;
 
     // Map sprites
     public Sprite spriteFloor;
@@ -36,34 +36,41 @@ public class MapManager : MonoBehaviour
 
     // Current map level and difficulty (depending on the map level, it will be
     // used for the number of things -walls, furnitures, etc.- to instantiate)
-    public uint[] levelsIncreasingDifficulty = new uint[] { 1, 5, 10 };
+    public int[] levelsIncreasingDifficulty = new int[] { 1, 5, 10 };
 
-    private uint numDifficultyLevels;
-    private uint currentDifficultyLevel;
-    private uint currentLevel;
+    private int numDifficultyLevels;
+    private int currentDifficultyLevel;
+    private int currentLevel;
 
     // Map internal stuff
-    public uint[] minWalls = new uint[] { 2, 1, 3 };
-    public uint[] minTables = new uint[] { 1, 3, 7 };
-    public uint[] minCabinets = new uint[] { 0, 1, 3 };
+    public int[] minWalls = new int[] { 2, 1, 3 };
+    public int[] minFurnitures = new int[] { 1, 3, 7 };
+    public int[] minCabinets = new int[] { 0, 1, 3 };
 
-    public uint[] maxWalls = new uint[] { 2, 3, 5 };
-    public uint[] maxTables = new uint[] { 3, 5, 9 };
-    public uint[] maxCabinets = new uint[] { 1, 3, 5 };
+    public int[] maxWalls = new int[] { 2, 3, 5 };
+    public int[] maxFurnitures = new int[] { 3, 5, 9 };
+    public int[] maxCabinets = new int[] { 1, 3, 5 };
 
-    private uint numWalls;
-    private uint numTables;
-    private uint numCabinets;
+    private int numWalls;
+    private int numFurnitures;
+    private int numCabinets;
 
     private GameObject[] walls;
-    private GameObject[] tables;
+    private GameObject[] furnitures;
     private GameObject[] cabinets;
+
+    // Limit dimensions and restrictions for walls
+    public int wallMinSize_ShorterDim = 1; // Minimum number of tiles for the shorter dimension of the wall
+    public int wallMinSize_LongerDim = 3;  // Minimum number of tiles for the longer dimension of the wall
+
+    public int wallMinGap_X = 3; // Minimum number of free tiles for the X dimension of the wall row
+    public int wallMinGap_Y = 2; // Minimum number of free tiles for the Y dimension of the wall column
 
 	// Use this for initialization
 	void Start ()
     {
         // Difficulty levels
-        numDifficultyLevels = (uint)levelsIncreasingDifficulty.Length;
+        numDifficultyLevels = levelsIncreasingDifficulty.Length;
 
         map = GameObject.FindGameObjectWithTag("Map");
         CreateMap();
@@ -81,7 +88,7 @@ public class MapManager : MonoBehaviour
 	
 	}
 
-    public MapTile GetMapTile(uint i, uint j)
+    public MapTile GetMapTile(int i, int j)
     {
         return tiles[i][j];
     }
@@ -91,11 +98,11 @@ public class MapManager : MonoBehaviour
         // ===== Map base tiles (Floor) =====
         tiles = new MapTile[mapSize_X][];
 
-        for (uint i = 0; i < mapSize_X; ++i)
+        for (int i = 0; i < mapSize_X; ++i)
         {
              tiles[i] = new MapTile[mapSize_Y];
 
-            for (uint j = 0; j < mapSize_Y; ++j)
+            for (int j = 0; j < mapSize_Y; ++j)
             {
                 GameObject newTileInstance = (GameObject)Instantiate(tilePrefab, new Vector3(0, 0, 0), Quaternion.identity);
                 newTileInstance.name = tilePrefab.name + "_" + i + "_" + j;
@@ -148,31 +155,46 @@ public class MapManager : MonoBehaviour
 
     private void CreateMapObjects()
     {
-        numWalls = (uint)Random.Range(minWalls[currentDifficultyLevel], maxWalls[currentDifficultyLevel]);
+        numWalls = Random.Range(minWalls[currentDifficultyLevel], maxWalls[currentDifficultyLevel] + 1);
         for (int i = 0; i < numWalls; ++i)
             CreateWall();
 
-        numTables = (uint)Random.Range(minTables[currentDifficultyLevel], maxTables[currentDifficultyLevel]);
-        for (int i = 0; i < numTables; ++i)
-            CreateTable();
+        numFurnitures = Random.Range(minFurnitures[currentDifficultyLevel], maxFurnitures[currentDifficultyLevel] + 1);
+        for (int i = 0; i < numFurnitures; ++i)
+            CreateFurniture();
 
-        numCabinets = (uint)Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel]);
+        numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
         for (int i = 0; i < numCabinets; ++i)
             CreateCabinet();
-
-        // Testing... delete later...
-        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[20][15].gameObject,4,6,ObjectManager.FurnitureType.MADERA);
-        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1, ObjectManager.FurnitureType.MADERA);
-        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[50][2].gameObject, 7, 10, ObjectManager.FurnitureType.MADERA);
     }
 
     private void CreateWall()
     {
-        // Select wall initial tile
+        // Wall initial tile
+        MapTile initialTile = GetRandomTile();
 
+        // Wall dimensions
+        int wallDim_X;
+        int wallDim_Y;
+
+        if (Random.Range(0, 2) == 0)
+        {
+            wallDim_X = wallMinSize_ShorterDim;
+            wallDim_Y = wallMinSize_LongerDim +
+                Random.Range(0, Mathf.Min(mapSize_Y - wallMinGap_Y, mapSize_Y - initialTile.logicPosition_Y));
+        }
+        else
+        {
+            wallDim_Y = wallMinSize_ShorterDim;
+            wallDim_X = wallMinSize_LongerDim +
+                Random.Range(0, Mathf.Min(mapSize_X - wallMinGap_X, mapSize_X - initialTile.logicPosition_X));
+        }
+
+        // Wall instantiation
+        ObjectManager.ObjectManagerInstance.instantiateWall(initialTile.gameObject, wallDim_X, wallDim_Y);
     }
 
-    private void CreateTable()
+    private void CreateFurniture()
     {
 
     }
@@ -182,5 +204,16 @@ public class MapManager : MonoBehaviour
 
     }
 
+    private MapTile GetRandomTile()
+    {
+        while (true)
+        {
+            int rndPos_X = Random.Range(0, mapSize_X);
+            int rndPos_Y = Random.Range(0, mapSize_Y);
+
+            if (tiles[rndPos_X][rndPos_Y].tileType == MapTile.TileType.Floor)
+                return tiles[rndPos_X][rndPos_Y];
+        }
+    }
 
 }

@@ -24,9 +24,9 @@ public class MapTile : MonoBehaviour {
     public TileType tileType = TileType.Floor;
 
     [HideInInspector]
-    public uint logicPosition_X;
+    public int logicPosition_X;
     [HideInInspector]
-    public uint logicPosition_Y;
+    public int logicPosition_Y;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +38,7 @@ public class MapTile : MonoBehaviour {
 	
 	}
 
-    public void SetPosition(uint logicPos_X, uint logicPos_Y)
+    public void SetPosition(int logicPos_X, int logicPos_Y)
     {
         logicPosition_X = logicPos_X;
         logicPosition_Y = logicPos_Y;
