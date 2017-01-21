@@ -19,6 +19,7 @@ public class ObjectManager : MonoBehaviour {
         public Sprite sprite;
         public FurnitureType furnitureType;
     }
+
     public enum FurnitureType
     {
         MADERA,
