@@ -46,14 +46,18 @@ MonoBehaviour:
   mapSize_X: 80
   mapSize_Y: 50
   spriteFloor: {fileID: 21300000, guid: 92331c1a36480bd4da833754a1206ec4, type: 3}
-  spriteWall: {fileID: 21300000, guid: cabd906be9844ad45a2b423b1a9b3b37, type: 3}
+  spriteWall: {fileID: 21300000, guid: b5301ab93e8604649b426d858261de5b, type: 3}
   levelsIncreasingDifficulty: 01000000050000000a000000
   minWalls: 020000000100000003000000
-  minTables: 010000000300000007000000
+  minFurnitures: 010000000300000007000000
   minCabinets: 000000000100000003000000
   maxWalls: 020000000300000005000000
-  maxTables: 030000000500000009000000
+  maxFurnitures: 030000000500000009000000
   maxCabinets: 010000000300000005000000
+  wallMinSize_ShorterDim: 1
+  wallMinSize_LongerDim: 3
+  wallMinGap_X: 3
+  wallMinGap_Y: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
