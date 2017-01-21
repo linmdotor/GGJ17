@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour {
     private bool onDamageZone;
     private float invTimeBase = 3;
     private float invTimeBaseActual;
+    private bool damageFeedbackActive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -61,10 +62,36 @@ public class PlayerManager : MonoBehaviour {
     {
         --life;
         UIManager.UIManagerInstance.changeLifeText(life);
+
+        if (!damageFeedbackActive)
+            StartCoroutine(damageFeedback());
     }
     public void attackEnded()
     {
         this.gameObject.GetComponent<Animator>().SetBool("Attack", false);
         this.transform.GetChild(0).GetComponent<AttackManager>().animationEnded();
+    }
+
+    IEnumerator damageFeedback()
+    {
+        damageFeedbackActive = true;
+        float waitTime = 0.1f;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+        damageFeedbackActive = false;
     }
 }
