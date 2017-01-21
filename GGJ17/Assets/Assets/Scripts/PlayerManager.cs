@@ -18,6 +18,11 @@ public class PlayerManager : MonoBehaviour {
         }
 	}
 
+    void OnTriggerStay2D(Collider2D wave)
+    { 
+        //EL PLAYER CONTROLA CADA X TIEMPO SI ESTÁ EN UNA ONDA, EN ESE CASO SE QUITA VIDA
+    }
+
     private void death()
     {
         GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();

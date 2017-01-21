@@ -18,25 +18,38 @@ public class PlayerActions : MonoBehaviour {
         {
             transform.Translate(0, Time.deltaTime * m_playerSpeed, 0);
         }
-
         if (Input.GetButton(KeyCodes.Down))
         {
             transform.Translate(0, Time.deltaTime * -m_playerSpeed, 0);
         }
-
         if (Input.GetButton(KeyCodes.Left))
         {
             transform.Translate(Time.deltaTime * -m_playerSpeed, 0, 0);
         }
-
         if (Input.GetButton(KeyCodes.Right))
         {
             transform.Translate(Time.deltaTime * m_playerSpeed, 0, 0);
         }
 
-        if(Input.GetButtonDown(KeyCodes.Attack) && !attack.activeInHierarchy) //&& Comprobar si el ataque anterior ha acabado)
+        if (Input.GetButtonDown(KeyCodes.AttackUp) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);
+            attack.transform.localPosition = new Vector3(0, 1.75f, 0);
+        }
+        if (Input.GetButtonDown(KeyCodes.AttackDown) && !attack.activeInHierarchy)
+        {
+            attack.SetActive(true);
+            attack.transform.localPosition = new Vector3(0, -1.75f, 0);
+        }
+        if (Input.GetButtonDown(KeyCodes.AttackLeft) && !attack.activeInHierarchy)
+        {
+            attack.SetActive(true);
+            attack.transform.localPosition = new Vector3(-1.75f, 0, 0);
+        }
+        if (Input.GetButtonDown(KeyCodes.AttackRight) && !attack.activeInHierarchy)
+        {
+            attack.SetActive(true);
+            attack.transform.localPosition = new Vector3(1.75f, 0, 0);
         }
     }
 }

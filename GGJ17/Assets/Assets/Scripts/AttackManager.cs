@@ -15,7 +15,7 @@ public class AttackManager : MonoBehaviour {
 	    
 	}
 
-    void onTriggerEnter2D(Collider enemy)
+    void OnTriggerStay2D(Collider2D enemy)
     {
         if(enemy.tag == KeyCodes.Enemy && enemyHit == false)
         {
