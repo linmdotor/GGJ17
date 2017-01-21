@@ -28,11 +28,6 @@ public class ObjectManager : MonoBehaviour {
 
     Vector3 newfurniturePos = Vector3.zero;
 
-    public GameObject tilePadre;
-
-    public float HorDistanceBetweenTiles = 2f;
-    public float VertDistanceBetweenTiles = 5f;
-
     [SerializeField]
     public List<FurnitureSprites> furnitureSprites;
 
@@ -43,8 +38,8 @@ public class ObjectManager : MonoBehaviour {
     public GameObject objetoDeMierdaQueVaEnLaMesa;
 
     void Start () {
-        instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
-        instantiateEmisors(); 
+        //instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
+
 	}
 
 
@@ -59,7 +54,7 @@ public class ObjectManager : MonoBehaviour {
     public void instantiateFurniture(GameObject tile, int distanciaHorizontal, int distanciaVertical, FurnitureType furnitureType)
     {
         GameObject mueble = new GameObject("furniture");
-
+        Debug.Log("asdss");
         mueble.transform.parent = tile.transform;
         mueble.transform.localPosition = Vector3.zero;
         Sprite selectedSprite = getRandomSpriteFrom(furnitureType);
@@ -71,7 +66,7 @@ public class ObjectManager : MonoBehaviour {
         {
             for(int j = 0; j < distanciaHorizontal; j++)
             {
-                GameObject piezaMueble = new GameObject("piezbaMueble" + j + "-" + i);
+                GameObject piezaMueble = new GameObject("piezaMueble" + j + "-" + i);
                 piezaMueble.transform.parent = mueble.transform;
                 piezaMueble.transform.localPosition = Vector3.zero;
                 piezaMueble.AddComponent<FurniturePiece>();
@@ -89,17 +84,21 @@ public class ObjectManager : MonoBehaviour {
                     piezaMueble.GetComponent<FurniturePiece>().x = j;
                     piezaMueble.GetComponent<FurniturePiece>().y = i;
                 }
-                    
-                newfurniturePos.x = piezaMueble.transform.position.x + j * HorDistanceBetweenTiles;
-                newfurniturePos.y = piezaMueble.transform.position.y + i * -VertDistanceBetweenTiles;
+
+                newfurniturePos.x = piezaMueble.transform.position.x + j * MapTile.TileLength;
+                newfurniturePos.y = piezaMueble.transform.position.y + i * -MapTile.TileLength;
                 piezaMueble.transform.position = newfurniturePos;
                 piezaMueble.AddComponent<SpriteRenderer>().sprite = selectedSprite;
+                
+                piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
+
 
                 mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 mueble.GetComponent<Furniture>().accessiblePieces++;
 
             }
         }
+        instantiateEmisors(); 
     }
 
     private Sprite getRandomSpriteFrom(FurnitureType givenType)

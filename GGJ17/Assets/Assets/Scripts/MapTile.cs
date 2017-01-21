@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MapTile : MonoBehaviour {
 
-    private const float TILE_LENGTH = 720 / 100;
+    private const float TILE_LENGTH = 500 / 100;
 
     public static float TileLength
     {
