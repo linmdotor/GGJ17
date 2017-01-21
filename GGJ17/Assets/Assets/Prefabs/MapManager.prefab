@@ -43,10 +43,16 @@ MonoBehaviour:
   tilePrefab: {fileID: 148352, guid: 8d70ff83e61724b408a8bf040a067a5d, type: 2}
   maxMapSize_X: 30
   maxMapSize_Y: 21
-  mapSize_X: 30
-  mapSize_Y: 21
+  mapSize_X: 21
+  mapSize_Y: 13
   spriteFloor: {fileID: 21300000, guid: 92331c1a36480bd4da833754a1206ec4, type: 3}
-  spriteWall: {fileID: 21300000, guid: a0ebcfae06db2034b882645ad1c1cb3e, type: 3}
+  spriteWall: {fileID: 21300000, guid: cabd906be9844ad45a2b423b1a9b3b37, type: 3}
+  maxWalls: 2
+  maxTables: 4
+  maxCabinets: 2
+  minWalls: 1
+  minTables: 2
+  minCabinets: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
