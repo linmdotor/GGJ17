@@ -12,8 +12,12 @@ public class MapManager : MonoBehaviour
     // GameObject tile
     public GameObject tilePrefab;
 
+    // Maximum size for every map [X,Y]
+    public uint maxMapSize_X = 100;
+    public uint maxMapSize_Y = 70;
+
     // Size of the current map [X,Y]
-    public uint mapSize_X = 50;
+    public uint mapSize_X = 80;
     public uint mapSize_Y = 50;
 
     // Map sprites
@@ -24,7 +28,9 @@ public class MapManager : MonoBehaviour
 	void Start ()
     {
         map = GameObject.FindGameObjectWithTag("Map");
+
         CreateMap();
+        SetCamera();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +41,7 @@ public class MapManager : MonoBehaviour
 
     private void CreateMap()
     {
-        // Map base tiles (Floor)
+        // ===== Map base tiles (Floor) =====
         tiles = new MapTile[mapSize_X][];
 
         for (uint i = 0; i < mapSize_X; ++i)
@@ -53,18 +59,38 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        // Map border tiles (Wall)
+        // ===== Map border tiles (Wall) =====
         for (int i = 0; i < mapSize_X; ++i)
         {
             tiles[i][0].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[i][mapSize_X - 1].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[i][mapSize_Y - 1].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
         }
 
         for (int j = 0; j < mapSize_Y; ++j)
         {
             tiles[0][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[mapSize_Y - 1][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[mapSize_X - 1][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
         }
+    }
+
+    private void SetCamera()
+    {
+        // ===== Position =====
+        // Camera position for a full map (map size == screen size)
+        float maxCameraPos_X = (maxMapSize_X * MapTile.TileLength) / 2;
+        float maxCameraPos_Y = (maxMapSize_Y * MapTile.TileLength) / 2;
+
+        // Camera position adjustment
+        float cameraPosShift_X = (maxMapSize_X - mapSize_X) * MapTile.TileLength / 2;
+        float finalCameraPos_X = maxCameraPos_X - cameraPosShift_X;
+
+        float cameraPosShift_Y = (maxMapSize_Y - mapSize_Y) * MapTile.TileLength / 2;
+        float finalCameraPos_Y = maxCameraPos_Y - cameraPosShift_Y;
+
+        Camera.main.transform.position = new Vector3(finalCameraPos_X, -finalCameraPos_Y, Camera.main.transform.position.z);
+
+        // ===== Size =====
+        Camera.main.orthographicSize = (maxMapSize_Y * MapTile.TileLength) / 2;
     }
 
 }
