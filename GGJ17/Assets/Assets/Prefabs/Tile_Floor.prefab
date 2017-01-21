@@ -11,8 +11,8 @@ GameObject:
   - 212: {fileID: 21297888}
   - 114: {fileID: 11448172}
   m_Layer: 0
-  m_Name: Tile
-  m_TagString: Untagged
+  m_Name: Tile_Floor
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +41,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b7e5f1ab89e3c42af3b59dc2872ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileType: 0
+  logicPosition_X: 0
+  logicPosition_Y: 0
 --- !u!212 &21297888
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -20,7 +20,8 @@ public class MapManager : MonoBehaviour
     private MapTile[][] tiles;
 
     // GameObject tile
-    public GameObject tilePrefab;
+    public GameObject tileFloorPrefab;
+    public GameObject tileWallPrefab;
 
     // Maximum size for every map [X,Y]
     public int maxMapSize_X = 100;
@@ -55,16 +56,21 @@ public class MapManager : MonoBehaviour
     private int numFurnitures;
     private int numCabinets;
 
-    private GameObject[] walls;
-    private GameObject[] furnitures;
-    private GameObject[] cabinets;
+    private ArrayList walls;
+    private ArrayList furnitures;
+    private ArrayList cabinets;
 
     // Limit dimensions and restrictions for walls
-    public int wallMinSize_ShorterDim = 1; // Minimum number of tiles for the shorter dimension of the wall
-    public int wallMinSize_LongerDim = 3;  // Minimum number of tiles for the longer dimension of the wall
+    public int distanceBetweenWalls = 3;
+    public int wallMinGap = 3;
 
-    public int wallMinGap_X = 3; // Minimum number of free tiles for the X dimension of the wall row
-    public int wallMinGap_Y = 2; // Minimum number of free tiles for the Y dimension of the wall column
+    private bool verticalWalls;
+
+    //public int wallMinSize_ShorterDim = 1; // Minimum number of tiles for the shorter dimension of the wall
+    //public int wallMinSize_LongerDim = 3;  // Minimum number of tiles for the longer dimension of the wall
+
+    //public int wallMinGap_X = 3; // Minimum number of free tiles for the X dimension of the wall row
+    //public int wallMinGap_Y = 2; // Minimum number of free tiles for the Y dimension of the wall column
 
 	// Use this for initialization
 	void Start ()
@@ -79,6 +85,21 @@ public class MapManager : MonoBehaviour
         //SetCamera();
 
         // Map internal stuff instantiation
+        verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
+        walls = new ArrayList();
+
+        if (verticalWalls)
+        {
+            walls.Add(tiles[0][0]);
+            walls.Add(tiles[mapSize_X - 1][0]);
+        }
+        else
+        {
+            walls.Add(tiles[0][0]);
+            walls.Add(tiles[0][mapSize_Y - 1]);
+        }
+
+
         CreateMapObjects();
 	}
 	
@@ -100,12 +121,12 @@ public class MapManager : MonoBehaviour
 
         for (int i = 0; i < mapSize_X; ++i)
         {
-             tiles[i] = new MapTile[mapSize_Y];
+            tiles[i] = new MapTile[mapSize_Y];
 
             for (int j = 0; j < mapSize_Y; ++j)
             {
-                GameObject newTileInstance = (GameObject)Instantiate(tilePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                newTileInstance.name = tilePrefab.name + "_" + i + "_" + j;
+                GameObject newTileInstance = (GameObject)Instantiate(tileFloorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                newTileInstance.name = tileFloorPrefab.name + "_" + i + "_" + j;
                 newTileInstance.transform.parent = map.transform;
                 
                 tiles[i][j] = newTileInstance.GetComponent<MapTile>();
@@ -116,20 +137,48 @@ public class MapManager : MonoBehaviour
         // ===== Map border tiles (Wall) =====
         for (int i = 0; i < mapSize_X; ++i)
         {
-            tiles[i][0].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[i][0].tileType = MapTile.TileType.Wall;
+            // Row 0
+            GameObject newTileInstance = (GameObject)Instantiate(tileWallPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            newTileInstance.name = tileWallPrefab.name + "_" + i + "_" + 0;
+            newTileInstance.transform.parent = map.transform;
 
-            tiles[i][mapSize_Y - 1].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[i][mapSize_Y - 1].tileType = MapTile.TileType.Wall;
+            Destroy(tiles[i][0].gameObject);
+
+            tiles[i][0] = newTileInstance.GetComponent<MapTile>();
+            tiles[i][0].SetPosition(i, 0);
+
+            // Row (mapSize_Y - 1)
+            GameObject newTileInstance2 = (GameObject)Instantiate(tileWallPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            newTileInstance2.name = tileWallPrefab.name + "_" + i + "_" + (mapSize_Y - 1);
+            newTileInstance2.transform.parent = map.transform;
+
+            Destroy(tiles[i][mapSize_Y - 1].gameObject);
+
+            tiles[i][mapSize_Y - 1] = newTileInstance2.GetComponent<MapTile>();
+            tiles[i][mapSize_Y - 1].SetPosition(i, mapSize_Y - 1);
         }
 
         for (int j = 0; j < mapSize_Y; ++j)
         {
-            tiles[0][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[0][j].tileType = MapTile.TileType.Wall;
+            // Column 0
+            GameObject newTileInstance = (GameObject)Instantiate(tileWallPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            newTileInstance.name = tileWallPrefab.name + "_" + 0 + "_" + j;
+            newTileInstance.transform.parent = map.transform;
 
-            tiles[mapSize_X - 1][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
-            tiles[mapSize_X - 1][j].tileType = MapTile.TileType.Wall;
+            Destroy(tiles[0][j].gameObject);
+
+            tiles[0][j] = newTileInstance.GetComponent<MapTile>();
+            tiles[0][j].SetPosition(0, j);
+
+            // Column (mapSize_X - 1)
+            GameObject newTileInstance2 = (GameObject)Instantiate(tileWallPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            newTileInstance2.name = tileWallPrefab.name + "_" + (mapSize_X - 1) + "_" + j;
+            newTileInstance2.transform.parent = map.transform;
+
+            Destroy(tiles[mapSize_X - 1][j].gameObject);
+
+            tiles[mapSize_X - 1][j] = newTileInstance2.GetComponent<MapTile>();
+            tiles[mapSize_X - 1][j].SetPosition(mapSize_X - 1, j);
         }
     }
 
@@ -171,12 +220,47 @@ public class MapManager : MonoBehaviour
     private void CreateWall()
     {
         // Wall initial tile
-        MapTile initialTile = GetRandomTile();
+        MapTile initialTile = GetRandomTileWall();
 
-        // Wall dimensions
+        // Wall semi-random dimensions
         int wallDim_X;
         int wallDim_Y;
 
+        if (verticalWalls)
+        {
+            wallDim_X = 1;
+
+            if ((wallMinGap < initialTile.logicPosition_Y) && (initialTile.logicPosition_Y < mapSize_Y / 2))
+            {
+                // Wall going down
+                wallDim_Y = mapSize_Y - initialTile.logicPosition_Y - 1;
+            }
+            else
+            {
+                // Wall going up
+                wallDim_Y = initialTile.logicPosition_Y;
+                initialTile = tiles[initialTile.logicPosition_X][0];
+            }
+        }
+        else
+        {
+            wallDim_Y = 1;
+
+            if ((wallMinGap < initialTile.logicPosition_X) && (initialTile.logicPosition_X < mapSize_X / 2))
+            {
+                // Wall going right
+                wallDim_X = mapSize_X - initialTile.logicPosition_X - 1;
+            }
+            else
+            {
+                // Wall going left
+                wallDim_X = initialTile.logicPosition_X;
+                initialTile = tiles[0][initialTile.logicPosition_Y];
+            }
+        }
+
+        // Wall random dimensions
+        /*
         if (Random.Range(0, 2) == 0)
         {
             wallDim_X = wallMinSize_ShorterDim;
@@ -189,8 +273,10 @@ public class MapManager : MonoBehaviour
             wallDim_X = wallMinSize_LongerDim +
                 Random.Range(0, Mathf.Min(mapSize_X - wallMinGap_X, mapSize_X - initialTile.logicPosition_X));
         }
+        */
 
-        // Wall instantiation
+        // Wall instantiation and register
+        walls.Add(initialTile);
         ObjectManager.ObjectManagerInstance.instantiateWall(initialTile.gameObject, wallDim_X, wallDim_Y);
     }
 
@@ -204,16 +290,41 @@ public class MapManager : MonoBehaviour
 
     }
 
-    private MapTile GetRandomTile()
+    private MapTile GetRandomTileWall()
     {
-        while (true)
+        MapTile wallTile = null;
+
+        while (wallTile == null)
         {
             int rndPos_X = Random.Range(0, mapSize_X);
             int rndPos_Y = Random.Range(0, mapSize_Y);
 
-            if (tiles[rndPos_X][rndPos_Y].tileType == MapTile.TileType.Floor)
-                return tiles[rndPos_X][rndPos_Y];
+            if ((rndPos_X > wallMinGap) && (rndPos_Y > wallMinGap)
+                && (rndPos_X < mapSize_X - wallMinGap) && (rndPos_Y < mapSize_Y - wallMinGap)
+                && (tiles[rndPos_X][rndPos_Y].tileType == MapTile.TileType.Floor))
+            {
+                wallTile = tiles[rndPos_X][rndPos_Y];
+
+                // Distance check between walls
+                foreach (MapTile wall in walls)
+                {
+                    if (verticalWalls)
+                    {
+                        // Check horizontal distance
+                        if (Mathf.Abs(wallTile.logicPosition_X - wall.logicPosition_X) < distanceBetweenWalls)
+                            wallTile = null;
+                    }
+                    else
+                    {
+                        // Check vertical distance
+                        if (Mathf.Abs(wallTile.logicPosition_Y - wall.logicPosition_Y) < distanceBetweenWalls)
+                            wallTile = null;
+                    }
+                }
+            }
         }
+
+        return wallTile;
     }
 
 }
