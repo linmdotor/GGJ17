@@ -20,11 +20,11 @@ public class AttackManager : MonoBehaviour {
         if(enemy.tag == KeyCodes.Enemy && enemyHit == false)
         {
             enemyHit = true;
-            enemy.gameObject.GetComponent<EnemyManager>().damage();
+            enemy.gameObject.GetComponent<Enemy>().damage();
         }
     }
     public void animationEnded()
     {
-        this.gameObject.SetActive(false);
+        this.gameObject.transform.parent.gameObject.SetActive(false);
     }
 }
