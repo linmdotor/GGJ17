@@ -58,6 +58,7 @@ GameObject:
   - 114: {fileID: 11484200}
   - 58: {fileID: 5801888}
   - 114: {fileID: 11485176}
+  - 114: {fileID: 11499438}
   m_Layer: 0
   m_Name: EnemyHeadphones
   m_TagString: Enemy
@@ -418,10 +419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTimeOn: 10
   weaponTimeOff: 5
+  randomDelayedStartTime: 5
+  startEnabled: 0
   waves:
   - {fileID: 11453930}
   - {fileID: 11486404}
-  startEnabled: 0
 --- !u!114 &11485176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +460,23 @@ MonoBehaviour:
   - 5
   - 7
   - 11
+--- !u!114 &11499438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b4fdc392734af4489ef5d64144aad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  retargetHACK: {fileID: 0}
+  speed: 8
+  movingTime: 6
+  waitingTime: 1
+  pauseTime: 1.5
 --- !u!212 &21202830
 SpriteRenderer:
   m_ObjectHideFlags: 1
