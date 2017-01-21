@@ -4,15 +4,22 @@ using System.Collections;
 public class AttackManager : MonoBehaviour {
 
     private bool enemyHit;
+    private float timeToDisable;
 
     void OnEnable()
     {
         enemyHit = false;
+        timeToDisable = 1;
     }
 
 	// Update is called once per frame
 	void Update () {
-	    
+        timeToDisable -= Time.deltaTime;
+        if (timeToDisable <= 0)
+        {
+            this.gameObject.transform.parent.GetComponent<Animator>().Play("Idle");
+            animationEnded();
+        }
 	}
 
     void OnTriggerStay2D(Collider2D enemy)
@@ -25,6 +32,6 @@ public class AttackManager : MonoBehaviour {
     }
     public void animationEnded()
     {
-        this.gameObject.transform.parent.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
