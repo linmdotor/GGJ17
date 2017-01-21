@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   score: 10
-  crashAnimationPrefab: {fileID: 0}
+  crashAnimationPrefab: {fileID: 146776, guid: 57f82a746b4d9434b800fa20d7594f53, type: 2}
   enemyType: 1
 --- !u!114 &11486944
 MonoBehaviour:

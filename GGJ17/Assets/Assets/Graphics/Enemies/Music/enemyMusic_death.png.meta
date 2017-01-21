@@ -1,19 +1,15 @@
 fileFormatVersion: 2
-guid: 4a448589bbda1e94ab7d504925a644ec
-timeCreated: 1485032611
+guid: 4c27aaede9f7eb1429e7dcfe579374a7
+timeCreated: 1485034715
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemyPhoto_death_0
-    21300002: enemyPhoto_death_1
-    21300004: enemyPhoto_death_2
-    21300006: enemyPhoto_death_3
-    21300008: enemyPhoto_death_4
-    21300010: enemyPhoto_death_5
-    21300012: enemyPhoto_death_6
-    21300014: enemyPhoto_death_7
-    21300016: enemyPhoto_death_8
-    21300018: enemyPhoto_death_9
+    21300000: enemyMusic_death_0
+    21300002: enemyMusic_death_1
+    21300004: enemyMusic_death_2
+    21300006: enemyMusic_death_3
+    21300008: enemyMusic_death_4
+    21300010: enemyMusic_death_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,121 +58,73 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemyPhoto_death_0
+      name: enemyMusic_death_0
       rect:
         serializedVersion: 2
-        x: 159
-        y: 418
-        width: 346
-        height: 354
+        x: 181
+        y: 50
+        width: 322
+        height: 364
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - serializedVersion: 2
-      name: enemyPhoto_death_1
+      name: enemyMusic_death_1
       rect:
         serializedVersion: 2
-        x: 788
-        y: 418
-        width: 427
-        height: 341
+        x: 828
+        y: 62
+        width: 417
+        height: 349
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - serializedVersion: 2
-      name: enemyPhoto_death_2
+      name: enemyMusic_death_2
       rect:
         serializedVersion: 2
-        x: 1417
-        y: 418
+        x: 1468
+        y: 64
         width: 532
-        height: 313
+        height: 339
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - serializedVersion: 2
-      name: enemyPhoto_death_3
+      name: enemyMusic_death_3
       rect:
         serializedVersion: 2
-        x: 2056
-        y: 418
-        width: 613
-        height: 293
+        x: 2125
+        y: 66
+        width: 616
+        height: 327
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - serializedVersion: 2
-      name: enemyPhoto_death_4
+      name: enemyMusic_death_4
       rect:
         serializedVersion: 2
-        x: 2722
-        y: 421
-        width: 633
-        height: 289
+        x: 2801
+        y: 70
+        width: 667
+        height: 314
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - serializedVersion: 2
-      name: enemyPhoto_death_5
+      name: enemyMusic_death_5
       rect:
         serializedVersion: 2
-        x: 3396
-        y: 425
-        width: 633
-        height: 283
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - serializedVersion: 2
-      name: enemyPhoto_death_6
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 41
-        width: 633
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - serializedVersion: 2
-      name: enemyPhoto_death_7
-      rect:
-        serializedVersion: 2
-        x: 697
+        x: 3497
         y: 46
-        width: 633
-        height: 270
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - serializedVersion: 2
-      name: enemyPhoto_death_8
-      rect:
-        serializedVersion: 2
-        x: 1372
-        y: 47
-        width: 632
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - serializedVersion: 2
-      name: enemyPhoto_death_9
-      rect:
-        serializedVersion: 2
-        x: 2046
-        y: 47
-        width: 633
-        height: 269
+        width: 679
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

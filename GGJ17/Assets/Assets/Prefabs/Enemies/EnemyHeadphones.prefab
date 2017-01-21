@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2681368, y: 3.761548, z: 0}
+  m_LocalPosition: {x: 37.9, y: -32.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -585,8 +585,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   score: 10
-  crashAnimationPrefab: {fileID: 0}
+  crashAnimationPrefab: {fileID: 146776, guid: 57f82a746b4d9434b800fa20d7594f53, type: 2}
   enemyType: 1
+  alreadyDead: 0
 --- !u!114 &11486404
 MonoBehaviour:
   m_ObjectHideFlags: 1

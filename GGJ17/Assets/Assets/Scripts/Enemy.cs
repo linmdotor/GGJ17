@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField]
     private EnemyType enemyType;
+
+    public bool alreadyDead = false;
     
 
 	// Use this for initialization
@@ -32,23 +34,32 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (destroy)
+        if (!alreadyDead)
         {
-            death();
-        }
-        if (life == 0)
-        {
-            foreach (Transform child in this.transform)
+            if (destroy)
             {
-                child.localScale = new Vector3(0, 0, 0);
-                destroy = true;
+                death();
+            }
+            if (life == 0)
+            {
+                foreach (Transform child in this.transform)
+                {
+                    if(child.name != "NPCSprite")
+                        child.localScale = new Vector3(0, 0, 0);
+
+                    GetComponent<EnemyMovement>().enabled = false;
+                    destroy = true;
+                }
             }
         }
+        
 	}
 
     private void death()
     {
+        alreadyDead = true;
         GameManager.GameManagerInstance.increaseScore(score);
+        gameObject.transform.Find("NPCSprite").GetComponent<Animator>().SetTrigger("Dead");
         GameManager.GameManagerInstance.removeEnemy();
 
         if(crashAnimationPrefab != null)
@@ -56,8 +67,7 @@ public class Enemy : MonoBehaviour {
             GameObject crash = (GameObject)Instantiate(crashAnimationPrefab, this.transform.position, Quaternion.identity);
         }
 
-
-        Destroy(this.gameObject);
+        Destroy(this.gameObject,1.5f);
     }
     public void damage()
     {
