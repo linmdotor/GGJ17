@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 796d1540b9148eb438b5c34300e4740e
+timeCreated: 1485032402
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemyPhoto_attack_0
+    21300002: enemyPhoto_attack_1
+    21300004: enemyPhoto_attack_2
+    21300006: enemyPhoto_attack_3
+    21300008: enemyPhoto_attack_4
+    21300010: enemyPhoto_attack_5
+    21300012: enemyPhoto_attack_6
+    21300014: enemyPhoto_attack_7
+    21300016: enemyPhoto_attack_8
+    21300018: enemyPhoto_attack_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyPhoto_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 694
+        height: 327
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_1
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 483
+        width: 694
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_2
+      rect:
+        serializedVersion: 2
+        x: 1537
+        y: 483
+        width: 469
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_3
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 483
+        width: 356
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_4
+      rect:
+        serializedVersion: 2
+        x: 3076
+        y: 484
+        width: 327
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_5
+      rect:
+        serializedVersion: 2
+        x: 3792
+        y: 488
+        width: 327
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 56
+        width: 326
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_7
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 60
+        width: 327
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_8
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 62
+        width: 327
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyPhoto_attack_9
+      rect:
+        serializedVersion: 2
+        x: 2361
+        y: 66
+        width: 326
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

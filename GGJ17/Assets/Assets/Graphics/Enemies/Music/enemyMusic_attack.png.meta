@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 7a50ea1a26646794bb8165ac26748d95
+timeCreated: 1485032792
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemyMusic_attack_24
+    21300002: enemyMusic_attack_25
+    21300004: enemyMusic_attack_50
+    21300006: enemyMusic_attack_51
+    21300008: enemyMusic_attack_52
+    21300010: enemyMusic_attack_53
+    21300012: enemyMusic_attack_54
+    21300014: enemyMusic_attack_56
+    21300016: enemyMusic_attack_58
+    21300018: enemyMusic_attack_63
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyMusic_attack_24
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 917
+        width: 432
+        height: 583
+      alignment: 9
+      pivot: {x: 0.49552727, y: 0.39726117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_25
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 917
+        width: 647
+        height: 583
+      alignment: 9
+      pivot: {x: 0.3895058, y: 0.3773763}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_50
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 917
+        width: 662
+        height: 572
+      alignment: 9
+      pivot: {x: 0.4416268, y: 0.39528543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_51
+      rect:
+        serializedVersion: 2
+        x: 2821
+        y: 917
+        width: 677
+        height: 576
+      alignment: 9
+      pivot: {x: 0.5715612, y: 0.71534866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_52
+      rect:
+        serializedVersion: 2
+        x: 3688
+        y: 912
+        width: 701
+        height: 552
+      alignment: 9
+      pivot: {x: 0.55582476, y: 0.68850297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_53
+      rect:
+        serializedVersion: 2
+        x: 4558
+        y: 903
+        width: 743
+        height: 551
+      alignment: 9
+      pivot: {x: 0.48699778, y: 0.4368808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_54
+      rect:
+        serializedVersion: 2
+        x: 5425
+        y: 902
+        width: 788
+        height: 482
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_56
+      rect:
+        serializedVersion: 2
+        x: 6294
+        y: 875
+        width: 796
+        height: 511
+      alignment: 9
+      pivot: {x: 0.5024273, y: 0.5189059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_58
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 61
+        width: 827
+        height: 477
+      alignment: 9
+      pivot: {x: 0.528306, y: 0.6619498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: enemyMusic_attack_63
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 17
+        width: 837
+        height: 489
+      alignment: 9
+      pivot: {x: 0.5692604, y: 0.73249483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

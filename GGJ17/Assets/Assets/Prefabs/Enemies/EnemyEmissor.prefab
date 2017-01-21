@@ -963,7 +963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTimeOn: 3
   weaponTimeOff: 5
-  randomDelayedStartTime: 5
+  randomDelayedStartTime: 10
   startEnabled: 0
   waves:
   - {fileID: 11489150}
