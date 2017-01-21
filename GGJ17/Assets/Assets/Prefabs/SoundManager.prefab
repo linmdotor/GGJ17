@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463414}
+  - 114: {fileID: 11481888}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -28,6 +29,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11481888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea35629038ae06e4ebc88672a3a2f963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTrack: {fileID: 8300000, guid: 75ebf20d0be9d084595e82f4cf6c515b, type: 3}
+  playerHit: {fileID: 8300000, guid: d31f3173ed2e7c246afbb040ee166199, type: 3}
+  playerDamage: {fileID: 0}
+  playerDeath: {fileID: 0}
+  enemyMusic: {fileID: 8300000, guid: 767c7e3940bb3fe4eb3e820481fc611a, type: 3}
+  enemyDeath: {fileID: 0}
+  showcaseCrash: {fileID: 0}
+  emisorMusic: {fileID: 8300000, guid: d2d08747656d9cc499808327a2f2c74f, type: 3}
+  emisorCrash: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

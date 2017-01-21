@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour {
         //pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
         //pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
 
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
+        this.GetComponent<AudioSource>().Play();
 	}
 	
 	// Update is called once per frame

@@ -3,13 +3,30 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+    
+
     public int life = 1;
     public float score = 10;
     public GameObject crashAnimationPrefab;
 
+    private enum EnemyType { thing, guy };
+
+    [SerializeField]
+    private EnemyType enemyType;
+    
+
 	// Use this for initialization
 	void Start () {
-	
+        if (enemyType == EnemyType.thing)
+        {
+            this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getEmisorMusic();
+            this.GetComponent<AudioSource>().Play();
+        }
+        else if(enemyType == EnemyType.guy)
+        {
+            this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getEnemyMusic();
+            this.GetComponent<AudioSource>().Play();
+        }
 	}
 	
 	// Update is called once per frame

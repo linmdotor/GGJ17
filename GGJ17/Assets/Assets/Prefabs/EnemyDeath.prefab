@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11426398}
   - 82: {fileID: 8220410}
   m_Layer: 0
-  m_Name: Crash
+  m_Name: EnemyDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f2730ab6c210e4387c91f053f0a006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
 --- !u!114 &11492102
 MonoBehaviour:
   m_ObjectHideFlags: 1

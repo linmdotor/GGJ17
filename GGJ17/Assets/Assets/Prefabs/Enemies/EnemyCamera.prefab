@@ -61,6 +61,7 @@ GameObject:
   - 58: {fileID: 5881056}
   - 114: {fileID: 11439150}
   - 114: {fileID: 11493130}
+  - 82: {fileID: 8213490}
   m_Layer: 0
   m_Name: EnemyCamera
   m_TagString: Enemy
@@ -215,6 +216,80 @@ PolygonCollider2D:
       - {x: 3.0488043, y: 4.9931207}
       - {x: -0.00105276, y: -0.4830542}
       - {x: -3.004622, y: 5.0680733}
+--- !u!82 &8213490
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150708}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11439150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   score: 10
+  crashAnimationPrefab: {fileID: 0}
+  enemyType: 1
 --- !u!114 &11486944
 MonoBehaviour:
   m_ObjectHideFlags: 1
