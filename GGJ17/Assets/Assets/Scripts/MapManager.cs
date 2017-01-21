@@ -3,6 +3,17 @@ using System.Collections;
 
 public class MapManager : MonoBehaviour
 {
+
+    #region Singleton
+    public static MapManager MapManagerInstance;
+
+    void Awake()
+    {
+        if (MapManagerInstance == null)
+            MapManagerInstance = gameObject.GetComponent<MapManager>();
+    }
+    #endregion
+
     // GameObject map
     private GameObject map;
 
@@ -16,7 +27,7 @@ public class MapManager : MonoBehaviour
     public uint maxMapSize_X = 100;
     public uint maxMapSize_Y = 70;
 
-    // Size of the current map [X,Y]
+    // Actual size of the map [X,Y]
     public uint mapSize_X = 80;
     public uint mapSize_Y = 50;
 
@@ -24,20 +35,34 @@ public class MapManager : MonoBehaviour
     public Sprite spriteFloor;
     public Sprite spriteWall;
 
+    // Map internal stuff
+    public uint maxWalls = 2;
+    public uint maxTables = 4;
+    public uint maxCabinets = 2;
+
+    public uint minWalls = 1;
+    public uint minTables = 2;
+    public uint minCabinets = 0;
+
+    private uint numWalls;
+    private uint numTables;
+    private uint numCabinets;
+
+    private GameObject[] walls;
+    private GameObject[] tables;
+    private GameObject[] cabinets;
+
 	// Use this for initialization
 	void Start ()
     {
         map = GameObject.FindGameObjectWithTag("Map");
-
         CreateMap();
-        SetCamera();
 
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[20][15].gameObject,4,6,ObjectManager.FurnitureType.MADERA);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1, ObjectManager.FurnitureType.MADERA);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[50][2].gameObject, 7, 10, ObjectManager.FurnitureType.MADERA);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[4][30].gameObject, 3, 3, ObjectManager.FurnitureType.MADERA);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[23][2].gameObject, 2, 6, ObjectManager.FurnitureType.MADERA);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][10].gameObject, 8, 2, ObjectManager.FurnitureType.MADERA);
+        // Global camera (showing the whole map)
+        //SetCamera();
+
+        // Map internal stuff instantiation
+        CreateMapObjects();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +70,11 @@ public class MapManager : MonoBehaviour
     {
 	
 	}
+
+    public MapTile GetMapTile(uint i, uint j)
+    {
+        return tiles[i][j];
+    }
 
     private void CreateMap()
     {
@@ -70,13 +100,19 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < mapSize_X; ++i)
         {
             tiles[i][0].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[i][0].tileType = MapTile.TileType.Wall;
+
             tiles[i][mapSize_Y - 1].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[i][mapSize_Y - 1].tileType = MapTile.TileType.Wall;
         }
 
         for (int j = 0; j < mapSize_Y; ++j)
         {
             tiles[0][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[0][j].tileType = MapTile.TileType.Wall;
+
             tiles[mapSize_X - 1][j].gameObject.GetComponent<SpriteRenderer>().sprite = spriteWall;
+            tiles[mapSize_X - 1][j].tileType = MapTile.TileType.Wall;
         }
     }
 
@@ -99,5 +135,41 @@ public class MapManager : MonoBehaviour
         // ===== Size =====
         Camera.main.orthographicSize = (maxMapSize_Y * MapTile.TileLength) / 2;
     }
+
+    private void CreateMapObjects()
+    {
+        numWalls = (uint)Random.Range(minWalls, maxWalls);
+        for (int i = 0; i < numWalls; ++i)
+            CreateWall();
+
+        numTables = (uint)Random.Range(minTables, maxTables);
+        for (int i = 0; i < numTables; ++i)
+            CreateTable();
+
+        numCabinets = (uint)Random.Range(minCabinets, maxCabinets);
+        for (int i = 0; i < numCabinets; ++i)
+            CreateCabinet();
+
+        // Testing... delete later...
+        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[20][15].gameObject,4,6,ObjectManager.FurnitureType.MADERA);
+        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1, ObjectManager.FurnitureType.MADERA);
+        //ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[50][2].gameObject, 7, 10, ObjectManager.FurnitureType.MADERA);
+    }
+
+    private void CreateWall()
+    {
+
+    }
+
+    private void CreateTable()
+    {
+
+    }
+
+    private void CreateCabinet()
+    {
+
+    }
+
 
 }

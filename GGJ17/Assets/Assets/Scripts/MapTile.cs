@@ -13,6 +13,16 @@ public class MapTile : MonoBehaviour {
         }
     }
 
+    public enum TileType
+    {
+        Floor,
+        Wall,
+        Furniture, // Muebles
+        Cabinet    // Vitrinas
+    };
+
+    public TileType tileType = TileType.Floor;
+
     private uint logicPosition_X;
     private uint logicPosition_Y;
 
