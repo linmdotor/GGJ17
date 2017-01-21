@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -19,11 +20,24 @@ public class UIManager : MonoBehaviour {
 
     Text enemyText;
     Text scoreText;
+    GameObject pauseMenu;
        
     void Start()
     {
         enemyText = transform.Find("EnemiesText").GetComponent<Text>();
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
+        pauseMenu = transform.Find("PauseMenu").gameObject;
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetButton(KeyCodes.Escape))
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
     }
     public void changeNumberOfEnemies(int enemiesNumber)
     {
@@ -33,5 +47,19 @@ public class UIManager : MonoBehaviour {
     public void changeScore(float score)
     {
         scoreText.text = "Score: " + score;
+    }
+
+    public void ResumeButton()
+    {
+        Debug.Log("asdfasdf");
+
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+    }
+
+    public void ExitButton()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("StartScene");
     }
 }
