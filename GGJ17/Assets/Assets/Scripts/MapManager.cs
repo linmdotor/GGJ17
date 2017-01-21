@@ -31,6 +31,13 @@ public class MapManager : MonoBehaviour
 
         CreateMap();
         SetCamera();
+
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[20][15].gameObject,4,6,ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][2].gameObject, 2, 1, ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[50][2].gameObject, 7, 10, ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[4][30].gameObject, 3, 3, ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[23][2].gameObject, 2, 6, ObjectManager.FurnitureType.MADERA);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(tiles[3][10].gameObject, 8, 2, ObjectManager.FurnitureType.MADERA);
 	}
 	
 	// Update is called once per frame
