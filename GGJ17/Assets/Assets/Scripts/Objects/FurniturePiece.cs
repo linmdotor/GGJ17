@@ -16,7 +16,6 @@ public class FurniturePiece : MonoBehaviour {
         {
             if(coll.CompareTag(KeyCodes.PlayerAttack))
             {
-                Debug.Log("Playerattac");
                 GetComponent<Animator>().enabled = true;
                 alreadyBroken = true;
             }
