@@ -26,7 +26,7 @@ public class WaveEffectSimple : WaveEffect
         {
             lifeTime -= Time.deltaTime;
             if(lifeTime > 0)
-                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.075f, this.transform.localScale.y + Time.deltaTime * 0.12f, 0);
+                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.3f, this.transform.localScale.y + Time.deltaTime * 0.3f, 0);
             else
             {
                 lifeTime = lifeTimeBase;
