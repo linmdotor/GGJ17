@@ -16,12 +16,11 @@ public class UIManager : MonoBehaviour {
     }
     #endregion
 
-
-
     Text enemyText;
     Text scoreText;
     Text lifeText;
-    GameObject pauseMenu;
+    Text deadMenuScoreText;
+    GameObject pauseMenu, deadMenu;
 
     private bool paused = false;
 
@@ -31,7 +30,9 @@ public class UIManager : MonoBehaviour {
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
         lifeText = transform.Find("LifeText").GetComponent<Text>();
         pauseMenu = transform.Find("PauseMenu").gameObject;
-        
+        deadMenu = transform.Find("DeadMenu").gameObject;
+        deadMenuScoreText = deadMenu.transform.Find("ScoreText").GetComponent<Text>();
+
     }
 
     void Update()
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour {
         }
 
     }
+
     public void changeNumberOfEnemies(int enemiesNumber)
     {
         enemyText.text = "Enemies: "+enemiesNumber;
@@ -59,6 +61,7 @@ public class UIManager : MonoBehaviour {
     public void changeScore(float score)
     {
         scoreText.text = "Score: " + score;
+        deadMenuScoreText.text = "Score: " + score;
     }
 
     public void changeLifeText(int life)
@@ -66,11 +69,18 @@ public class UIManager : MonoBehaviour {
         lifeText.text = "Life: " + life;
 
     }
+
     public void ResumeButton()
     {
         paused = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+    }
+
+    public void ReplayButton()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainScene");
     }
 
     public void ExitButton()
