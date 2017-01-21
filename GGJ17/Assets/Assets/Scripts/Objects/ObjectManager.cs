@@ -19,6 +19,7 @@ public class ObjectManager : MonoBehaviour {
         public Sprite sprite;
         public FurnitureType furnitureType;
     }
+
     public enum FurnitureType
     {
         MADERA,
@@ -92,6 +93,7 @@ public class ObjectManager : MonoBehaviour {
                 
                 piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
 
+                piezaMueble.AddComponent<BoxCollider2D>();
 
                 mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 mueble.GetComponent<Furniture>().accessiblePieces++;
