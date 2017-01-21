@@ -60,6 +60,7 @@ GameObject:
   - 114: {fileID: 11486944}
   - 58: {fileID: 5881056}
   - 114: {fileID: 11439150}
+  - 114: {fileID: 11493130}
   m_Layer: 0
   m_Name: EnemyCamera
   m_TagString: Enemy
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.112504, y: -3.860899, z: 0}
+  m_LocalPosition: {x: 60, y: -20, z: 0}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -238,11 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c85d066a60e0c428191f9f291c2931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponTimeOn: 1
-  weaponTimeOff: 5
+  weaponTimeOn: 5
+  weaponTimeOff: 0
+  randomDelayedStartTime: 5
+  startEnabled: 1
   waves:
   - {fileID: 11491130}
-  startEnabled: 0
 --- !u!114 &11491130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,6 +268,23 @@ MonoBehaviour:
   - 5
   - 7
   - 11
+--- !u!114 &11493130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b4fdc392734af4489ef5d64144aad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  retargetHACK: {fileID: 0}
+  speed: 3
+  movingTime: 5
+  waitingTime: 3
+  pauseTime: 2.5
 --- !u!212 &21206854
 SpriteRenderer:
   m_ObjectHideFlags: 1
