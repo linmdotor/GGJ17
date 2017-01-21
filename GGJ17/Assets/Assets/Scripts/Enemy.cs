@@ -19,7 +19,10 @@ public class Enemy : MonoBehaviour {
 
     private void death()
     {
-        GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().increaseScore(score);
+        GameManager.GameManagerInstance.increaseScore(score);
+        GameManager.GameManagerInstance.removeEnemy();
+
+
         Destroy(this.gameObject);
     }
     public void damage()
