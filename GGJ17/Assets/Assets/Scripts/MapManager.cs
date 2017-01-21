@@ -3,6 +3,17 @@ using System.Collections;
 
 public class MapManager : MonoBehaviour
 {
+
+    #region Singleton
+    public static MapManager MapManagerInstance;
+
+    void Awake()
+    {
+        if (MapManagerInstance == null)
+            MapManagerInstance = gameObject.GetComponent<MapManager>();
+    }
+    #endregion
+
     // GameObject map
     private GameObject map;
 
