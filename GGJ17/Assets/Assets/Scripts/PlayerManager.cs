@@ -19,7 +19,8 @@ public class PlayerManager : MonoBehaviour {
 	void Start () {
         invTimeBaseActual = invTimeBase;
         UIManager.UIManagerInstance.changeLifeText(life);
-	}
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDamage();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -81,10 +82,13 @@ public class PlayerManager : MonoBehaviour {
 
     private void death()
     {
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
+        this.GetComponent<AudioSource>().Play();
         GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();
     }
     public void damage()
     {
+        this.GetComponent<AudioSource>().Play();
         if (!foilOn) 
         { 
             --life;
