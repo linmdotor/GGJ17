@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MapManager : MonoBehaviour
 {
-
     #region Singleton
     public static MapManager MapManagerInstance;
 
@@ -35,14 +34,22 @@ public class MapManager : MonoBehaviour
     public Sprite spriteFloor;
     public Sprite spriteWall;
 
-    // Map internal stuff
-    public uint maxWalls = 2;
-    public uint maxTables = 4;
-    public uint maxCabinets = 2;
+    // Current map level and difficulty (depending on the map level, it will be
+    // used for the number of things -walls, furnitures, etc.- to instantiate)
+    public uint[] levelsIncreasingDifficulty = new uint[] { 1, 5, 10 };
 
-    public uint minWalls = 1;
-    public uint minTables = 2;
-    public uint minCabinets = 0;
+    private uint numDifficultyLevels;
+    private uint currentDifficultyLevel;
+    private uint currentLevel;
+
+    // Map internal stuff
+    public uint[] minWalls = new uint[] { 2, 1, 3 };
+    public uint[] minTables = new uint[] { 1, 3, 7 };
+    public uint[] minCabinets = new uint[] { 0, 1, 3 };
+
+    public uint[] maxWalls = new uint[] { 2, 3, 5 };
+    public uint[] maxTables = new uint[] { 3, 5, 9 };
+    public uint[] maxCabinets = new uint[] { 1, 3, 5 };
 
     private uint numWalls;
     private uint numTables;
@@ -55,6 +62,9 @@ public class MapManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        // Difficulty levels
+        numDifficultyLevels = (uint)levelsIncreasingDifficulty.Length;
+
         map = GameObject.FindGameObjectWithTag("Map");
         CreateMap();
 
@@ -138,15 +148,15 @@ public class MapManager : MonoBehaviour
 
     private void CreateMapObjects()
     {
-        numWalls = (uint)Random.Range(minWalls, maxWalls);
+        numWalls = (uint)Random.Range(minWalls[currentDifficultyLevel], maxWalls[currentDifficultyLevel]);
         for (int i = 0; i < numWalls; ++i)
             CreateWall();
 
-        numTables = (uint)Random.Range(minTables, maxTables);
+        numTables = (uint)Random.Range(minTables[currentDifficultyLevel], maxTables[currentDifficultyLevel]);
         for (int i = 0; i < numTables; ++i)
             CreateTable();
 
-        numCabinets = (uint)Random.Range(minCabinets, maxCabinets);
+        numCabinets = (uint)Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel]);
         for (int i = 0; i < numCabinets; ++i)
             CreateCabinet();
 
@@ -158,6 +168,7 @@ public class MapManager : MonoBehaviour
 
     private void CreateWall()
     {
+        // Select wall initial tile
 
     }
 

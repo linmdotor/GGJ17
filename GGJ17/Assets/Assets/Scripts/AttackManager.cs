@@ -9,7 +9,7 @@ public class AttackManager : MonoBehaviour {
     void OnEnable()
     {
         enemyHit = false;
-        timeToDisable = 1;
+        timeToDisable = 0.8f;
     }
 
 	// Update is called once per frame

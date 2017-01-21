@@ -10,6 +10,7 @@ TagManager:
   - Wave
   - MapManager
   - Map
+  - PlayerWarrior
   layers:
   - Default
   - TransparentFX
