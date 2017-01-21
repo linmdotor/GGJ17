@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-    
 
+    private bool destroy = false;
     public int life = 1;
     public float score = 10;
     public GameObject crashAnimationPrefab;
@@ -30,9 +30,20 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (life == 0)
+    void Update()
+    {
+        if (destroy)
+        {
             death();
+        }
+        if (life == 0)
+        {
+            foreach (Transform child in this.transform)
+            {
+                child.localScale = new Vector3(0, 0, 0);
+                destroy = true;
+            }
+        }
 	}
 
     private void death()
@@ -45,10 +56,6 @@ public class Enemy : MonoBehaviour {
             GameObject crash = (GameObject)Instantiate(crashAnimationPrefab, this.transform.position, Quaternion.identity);
         }
 
-        foreach (Transform child in this.transform)
-        {
-            child.localScale = new Vector3(0, 0, 0);
-        }
 
         Destroy(this.gameObject);
     }
