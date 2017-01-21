@@ -19,4 +19,5 @@ public class KeyCodes {
     public static string MainCamera = "MainCamera";
     public static string Map = "Map";
     public static string Furniture = "Furniture";
+    public static string PowerUp = "PowerUp";
 }

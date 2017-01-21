@@ -8,6 +8,10 @@ public class PlayerActions : MonoBehaviour {
     public GameObject attack;
     public Camera camera;
 
+    public float redBullBoost;
+    public bool redBullOn = false;
+    public float redBullTime = 0;
+
 	// Use this for initialization
 	void Start () {
         camera = GameObject.FindGameObjectWithTag(KeyCodes.MainCamera).GetComponent<Camera>();
@@ -15,7 +19,15 @@ public class PlayerActions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (redBullTime > 0)
+        { 
+            redBullTime -= Time.deltaTime;
+            if(redBullTime <= 0)
+            {
+                m_playerSpeed -= redBullBoost;
+                redBullOn = false;
+            }
+        }
         movementPressed = false;
         Vector3 toLook = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
         toLook.Normalize();

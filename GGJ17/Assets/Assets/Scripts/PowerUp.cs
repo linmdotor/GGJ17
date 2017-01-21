@@ -1,0 +1,62 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PowerUp : MonoBehaviour {
+
+    public float redBullTime = 5;
+    public float redBullBoost = 3;
+    public float foilTime = 5;
+    public int sandwichHeal = 20;
+
+    public int tileXCord;
+    public int tileYCord;
+
+    public float expiresOn = 10;
+    private float timeOnMap;
+
+    public PowerUpManager.powerUps type;
+
+    private GameObject player;
+
+	// Use this for initialization
+	void Start () {
+        timeOnMap = expiresOn;
+        type = (PowerUpManager.powerUps)Random.Range(0, 3);
+        player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        timeOnMap -= Time.deltaTime;
+        if (timeOnMap <= 0)
+            deletePowerUp();
+	}
+
+    public void deletePowerUp()
+    {
+        MapManager.MapManagerInstance.GetMapTile(tileXCord, tileYCord).tileType = MapTile.TileType.Floor;
+        Destroy(this);
+    }
+    public void effect()
+    {
+        switch(this.type)
+        {
+            case PowerUpManager.powerUps.Foil:
+                player.GetComponent<PlayerManager>().foilOn = true;
+                player.GetComponent<PlayerManager>().foilTime = foilTime;
+                break;
+            case PowerUpManager.powerUps.RedBull:
+                player.GetComponent<PlayerActions>().redBullBoost = redBullBoost;
+                player.GetComponent<PlayerActions>().m_playerSpeed += redBullBoost;
+                player.GetComponent<PlayerActions>().redBullOn = true;
+                player.GetComponent<PlayerActions>().redBullTime = redBullTime;
+                break;
+            case PowerUpManager.powerUps.Sandwich:
+                if (player.GetComponent<PlayerManager>().life > (100 - sandwichHeal))
+                    player.GetComponent<PlayerManager>().life = 100;
+                else
+                    player.GetComponent<PlayerManager>().life += sandwichHeal;
+                break;
+        }
+    }
+}
