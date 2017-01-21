@@ -34,6 +34,11 @@ public class EnemyMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		//Get the player by default
+		if (!currentTarget)
+			currentTarget = GameObject.FindWithTag("PlayerWarrior");
+
 		targetTransform = currentTarget.transform;
 
 		previousState = EnemyMovementState.NONE;
@@ -129,6 +134,21 @@ public class EnemyMovement : MonoBehaviour {
 
 
 	/// <summary>
+	/// MOVES TO THE CURRENT DIRECTION, AND CHANGE IT WHEN COLLIDE
+	/// WITH THE WALL
+	/// </summary>
+	public void MoveToDirection()
+	{
+
+	}
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		//Change currentDirection
+		//Debug.Log("YO, " + this.name + " HE CHOCADO CON: " + other.name);
+	}
+
+
+	/// <summary>
 	/// GET A RANDOM TARGET NEAR THE ENEMY, AND MOVES TOWARD IT 
 	/// </summary>
 	private Vector3 movingAroundTarget = Vector3.zero;
@@ -167,4 +187,5 @@ public class EnemyMovement : MonoBehaviour {
 		currentTarget = newTarget;
 		targetTransform = newTarget.transform;
     }
+
 }

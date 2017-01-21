@@ -519,7 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTimeOn: 10
   weaponTimeOff: 5
-  randomDelayedStartTime: 5
+  randomDelayedStartTime: 10
   startEnabled: 0
   waves:
   - {fileID: 11453930}
@@ -583,6 +583,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   retargetHACK: {fileID: 0}
   speed: 8
+  DelayedRandomTime: 10
   movingTime: 6
   waitingTime: 1
   pauseTime: 1.5
