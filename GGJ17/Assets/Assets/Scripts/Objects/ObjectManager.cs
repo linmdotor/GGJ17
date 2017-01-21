@@ -49,9 +49,17 @@ public class ObjectManager : MonoBehaviour {
 
     public void instantiateEmisors()
     {
+        int emissor = 0; 
+
         foreach(Furniture furniture in furnitures)
         {
-            int emissor = furniture.createEmisors();
+            emissor = furniture.createEmisors();
+            numbersOfEmissors += emissor;
+        }
+
+        foreach (Furniture cabinet in cabinets)
+        {
+            emissor += cabinet.createCabinetEmisors();
             numbersOfEmissors += emissor;
         }       
 

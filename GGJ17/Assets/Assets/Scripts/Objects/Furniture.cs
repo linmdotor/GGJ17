@@ -61,4 +61,44 @@ public class Furniture : MonoBehaviour {
         }
         return currentNumberOfEmissors;
     }
+
+    public int createCabinetEmisors()
+    {
+        maxNumberOfEmissors = accessiblePieces/2;
+        int separeteDistance = 2;
+        int currentSepareteDistance = 2;
+
+        foreach (FurniturePiece piece in furniturePieces)
+       {
+            if (currentNumberOfEmissors == maxNumberOfEmissors)
+                break;
+
+            if(piece.emisorPlace == true)
+            {
+
+                if(currentSepareteDistance != separeteDistance)
+                {
+                    if(piece.x != 0 || piece.x != horizontalSize)
+                        currentSepareteDistance++;
+
+                }
+                else
+                {
+                    //50% de probabilidades de que aparezca
+                    if(Random.Range(0,100) < 50)
+                    {
+                        currentSepareteDistance = 0;
+                        GameObject emissor = Instantiate(ObjectManager.ObjectManagerInstance.enemyEmissor);
+                        emissor.GetComponent<Enemy>().life = 2;
+                        emissor.transform.parent = piece.transform;
+                        emissor.transform.localPosition = Vector3.zero;
+                        currentNumberOfEmissors++;
+                        GameManager.GameManagerInstance.addEnemy();
+                    }
+                }
+            }
+        }
+        return currentNumberOfEmissors;
+    }
+
 }
