@@ -54,6 +54,7 @@ public class Furniture : MonoBehaviour {
                         emissor.transform.parent = piece.transform;
                         emissor.transform.localPosition = Vector3.zero;
                         currentNumberOfEmissors++;
+                        GameManager.GameManagerInstance.addEnemy();
                     }
                 }
             }

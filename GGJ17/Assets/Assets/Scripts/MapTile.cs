@@ -23,8 +23,10 @@ public class MapTile : MonoBehaviour {
 
     public TileType tileType = TileType.Floor;
 
-    private uint logicPosition_X;
-    private uint logicPosition_Y;
+    [HideInInspector]
+    public uint logicPosition_X;
+    [HideInInspector]
+    public uint logicPosition_Y;
 
 	// Use this for initialization
 	void Start () {

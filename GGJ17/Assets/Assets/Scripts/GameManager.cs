@@ -7,14 +7,18 @@ public class GameManager : MonoBehaviour {
 
     #region Singleton
     public static GameManager GameManagerInstance;
-
+    
     void Awake()
     {
         if (GameManagerInstance == null)
             GameManagerInstance = gameObject.GetComponent<GameManager>();
     }
     #endregion
-	
+    
+    
+    public int numberOfEnemiesLeft = 0;
+    public bool levelIsReady = false;
+
     // Use this for initialization
 	void Start () {
 
@@ -38,12 +42,19 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        if (levelIsReady)
+        {
+    	    if(numberOfEnemiesLeft == 0)
+                Debug.Log("Level won");
+
+        }
 	}
 
     public void increaseScore(float score)
     {
         this.score += score;
+        UIManager.UIManagerInstance.changeScore(this.score);
     }
 
     public void gameOver()
@@ -51,5 +62,19 @@ public class GameManager : MonoBehaviour {
         //Load gameOver screen
         //Update scores
         //Deactivate everything (?)
+    }
+
+    public void removeEnemy()
+    {
+
+        numberOfEnemiesLeft--;
+        UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
+
+    }
+
+    public void addEnemy()
+    {
+         numberOfEnemiesLeft++;
+        UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
     }
 }
