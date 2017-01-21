@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ea35629038ae06e4ebc88672a3a2f963
+timeCreated: 1485019347
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - soundTrack: {instanceID: 0}
+  - playerHit: {fileID: 8300000, guid: d31f3173ed2e7c246afbb040ee166199, type: 3}
+  - playerDamage: {instanceID: 0}
+  - playerDeath: {instanceID: 0}
+  - enemyMusic: {fileID: 8300000, guid: 767c7e3940bb3fe4eb3e820481fc611a, type: 3}
+  - enemyDeath: {instanceID: 0}
+  - showcaseCrash: {instanceID: 0}
+  - emisorMusic: {fileID: 8300000, guid: d2d08747656d9cc499808327a2f2c74f, type: 3}
+  - emisorCrash: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
