@@ -28,10 +28,10 @@ public class Furniture : MonoBehaviour {
     {
         maxNumberOfEmissors = accessiblePieces/2;
         int separeteDistance = 2;
-        int currentSepareteDistance = 0;
+        int currentSepareteDistance = 2;
 
         foreach (FurniturePiece piece in furniturePieces)
-       { 
+       {
             if (currentNumberOfEmissors == maxNumberOfEmissors)
                 break;
 
@@ -40,7 +40,9 @@ public class Furniture : MonoBehaviour {
 
                 if(currentSepareteDistance != separeteDistance)
                 {
-                    currentSepareteDistance++;
+                    if(piece.x != 0 || piece.x != horizontalSize)
+                        currentSepareteDistance++;
+
                 }
                 else
                 {
@@ -48,7 +50,7 @@ public class Furniture : MonoBehaviour {
                     if(Random.Range(0,100) < 50)
                     {
                         currentSepareteDistance = 0;
-                        GameObject emissor = Instantiate(ObjectManager.ObjectManagerInstance.objetoDeMierdaQueVaEnLaMesa);
+                        GameObject emissor = Instantiate(ObjectManager.ObjectManagerInstance.enemyEmissor);
                         emissor.transform.parent = piece.transform;
                         emissor.transform.localPosition = Vector3.zero;
                         currentNumberOfEmissors++;

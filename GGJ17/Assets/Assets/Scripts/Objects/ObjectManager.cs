@@ -35,7 +35,7 @@ public class ObjectManager : MonoBehaviour {
     
     int numbersOfEmissors = 0;
 
-    public GameObject objetoDeMierdaQueVaEnLaMesa;
+    public GameObject enemyEmissor;
 
     void Start () {
         //instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
@@ -47,14 +47,14 @@ public class ObjectManager : MonoBehaviour {
     {
         foreach(Furniture furniture in furnitures)
         {
-            numbersOfEmissors += furniture.createEmisors();
+            int emissor = furniture.createEmisors();
+            numbersOfEmissors += emissor;
         }
     }
 
     public void instantiateFurniture(GameObject tile, int distanciaHorizontal, int distanciaVertical, FurnitureType furnitureType)
     {
         GameObject mueble = new GameObject("furniture");
-        Debug.Log("asdss");
         mueble.transform.parent = tile.transform;
         mueble.transform.localPosition = Vector3.zero;
         Sprite selectedSprite = getRandomSpriteFrom(furnitureType);
@@ -98,7 +98,6 @@ public class ObjectManager : MonoBehaviour {
 
             }
         }
-        instantiateEmisors(); 
     }
 
     private Sprite getRandomSpriteFrom(FurnitureType givenType)
