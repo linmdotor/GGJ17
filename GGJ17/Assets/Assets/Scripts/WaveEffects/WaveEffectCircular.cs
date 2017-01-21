@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaveEffectCircular: MonoBehaviour {
+public class WaveEffectCircular: WaveEffect
+{
 
 	[Header("Circles & Twist")]
 	public Transform Circle1;

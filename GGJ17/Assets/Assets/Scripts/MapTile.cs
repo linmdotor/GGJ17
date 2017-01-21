@@ -5,6 +5,14 @@ public class MapTile : MonoBehaviour {
 
     private const float TILE_LENGTH = 720 / 100;
 
+    public static float TileLength
+    {
+        get
+        {
+            return TILE_LENGTH;
+        }
+    }
+
     private uint logicPosition_X;
     private uint logicPosition_Y;
 
@@ -28,4 +36,5 @@ public class MapTile : MonoBehaviour {
 
         transform.position = new Vector3(realPosition_X, -realPosition_Y, 0);
     }
+
 }

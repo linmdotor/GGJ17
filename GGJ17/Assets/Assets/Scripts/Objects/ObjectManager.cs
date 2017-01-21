@@ -4,7 +4,15 @@ using System.Collections.Generic;
 
 public class ObjectManager : MonoBehaviour {
 
+    #region Singleton
+    public static ObjectManager ObjectManagerInstance;
 
+    void Awake()
+    {
+        if (ObjectManagerInstance == null)
+            ObjectManagerInstance = gameObject.GetComponent<ObjectManager>();
+    }
+    #endregion
     [System.Serializable]
     public class FurnitureSprites
     {
@@ -32,9 +40,13 @@ public class ObjectManager : MonoBehaviour {
     
     int numbersOfEmissors = 0;
 
+    public GameObject objetoDeMierdaQueVaEnLaMesa;
+
     void Start () {
         instantiateFurniture(tilePadre,5,3,FurnitureType.MADERA);
+        instantiateEmisors(); 
 	}
+
 
     public void instantiateEmisors()
     {
@@ -62,11 +74,30 @@ public class ObjectManager : MonoBehaviour {
                 GameObject piezaMueble = new GameObject("piezbaMueble" + j + "-" + i);
                 piezaMueble.transform.parent = mueble.transform;
                 piezaMueble.transform.localPosition = Vector3.zero;
+                piezaMueble.AddComponent<FurniturePiece>();
 
+                if (i == 0 || i == distanciaVertical - 1)
+                {
+                    piezaMueble.GetComponent<FurniturePiece>().emisorPlace = true;
+                    piezaMueble.GetComponent<FurniturePiece>().x = j;
+                    piezaMueble.GetComponent<FurniturePiece>().y = i;
+
+                }
+                else if (j == 0 || j == distanciaHorizontal - 1)
+                {
+                    piezaMueble.GetComponent<FurniturePiece>().emisorPlace = true;
+                    piezaMueble.GetComponent<FurniturePiece>().x = j;
+                    piezaMueble.GetComponent<FurniturePiece>().y = i;
+                }
+                    
                 newfurniturePos.x = piezaMueble.transform.position.x + j * HorDistanceBetweenTiles;
                 newfurniturePos.y = piezaMueble.transform.position.y + i * -VertDistanceBetweenTiles;
                 piezaMueble.transform.position = newfurniturePos;
-                piezaMueble.AddComponent<SpriteRenderer>().sprite = selectedSprite; 
+                piezaMueble.AddComponent<SpriteRenderer>().sprite = selectedSprite;
+
+                mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
+                mueble.GetComponent<Furniture>().accessiblePieces++;
+
             }
         }
     }
