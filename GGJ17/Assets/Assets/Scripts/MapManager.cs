@@ -196,12 +196,12 @@ public class MapManager : MonoBehaviour
 
     private void CreateFurniture()
     {
-
+        //
     }
 
     private void CreateCabinet()
     {
-
+        //
     }
 
     private MapTile GetRandomTile()
