@@ -9,10 +9,12 @@ public class PlayerManager : MonoBehaviour {
     private bool onDamageZone;
     private float invTimeBase = 3;
     private float invTimeBaseActual;
+    private bool damageFeedbackActive = false;
 
 	// Use this for initialization
 	void Start () {
         invTimeBaseActual = invTimeBase;
+        UIManager.UIManagerInstance.changeLifeText(life);
 	}
 	
 	// Update is called once per frame
@@ -59,10 +61,37 @@ public class PlayerManager : MonoBehaviour {
     public void damage()
     {
         --life;
+        UIManager.UIManagerInstance.changeLifeText(life);
+
+        if (!damageFeedbackActive)
+            StartCoroutine(damageFeedback());
     }
     public void attackEnded()
     {
         this.gameObject.GetComponent<Animator>().SetBool("Attack", false);
         this.transform.GetChild(0).GetComponent<AttackManager>().animationEnded();
+    }
+
+    IEnumerator damageFeedback()
+    {
+        damageFeedbackActive = true;
+        float waitTime = 0.1f;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+        damageFeedbackActive = false;
     }
 }

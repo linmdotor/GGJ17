@@ -4,6 +4,7 @@ using System.Collections;
 public class KeyCodes {
 
     //Keys
+    public static string Escape = "Escape";
     public static string Up = "Up";
     public static string Down = "Down";
     public static string Left = "Left";
