@@ -12,7 +12,7 @@ GameObject:
   - 68: {fileID: 6895926}
   m_Layer: 0
   m_Name: wave_sprite
-  m_TagString: Untagged
+  m_TagString: Wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 448894}
   m_Layer: 0
   m_Name: Wave
-  m_TagString: Untagged
+  m_TagString: Wave
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

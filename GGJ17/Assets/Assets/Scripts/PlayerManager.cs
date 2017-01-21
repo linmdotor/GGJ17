@@ -5,9 +5,13 @@ public class PlayerManager : MonoBehaviour {
 
     public int life;
 
+    [SerializeField]
     private bool hit;
+    [SerializeField]
     private bool onDamageZone;
+    [SerializeField]
     private float invTimeBase = 3;
+    [SerializeField]
     private float invTimeBaseActual;
 
 	// Use this for initialization
@@ -20,6 +24,11 @@ public class PlayerManager : MonoBehaviour {
         if (onDamageZone)
         {
             invTimeBaseActual -= Time.deltaTime;
+            if (invTimeBaseActual <= 0)
+            {
+                damage();
+                invTimeBaseActual = invTimeBase;
+            }
         }
 	    if (life == 0)
         {
@@ -31,12 +40,24 @@ public class PlayerManager : MonoBehaviour {
     {
         if (wave.tag == KeyCodes.Wave && !hit)
         {
+            print("HOLO");
             damage();
             hit = true;
             onDamageZone = true;
         }
         //EL PLAYER CONTROLA CADA X TIEMPO SI ESTÁ EN UNA ONDA, EN ESE CASO SE QUITA VIDA
     }
+
+    void OnTriggerExit2D(Collider2D wave)
+    {
+        if (wave.tag == KeyCodes.Wave)
+        {
+            hit = false;
+            onDamageZone = false;
+            invTimeBaseActual = invTimeBase;
+        }
+    }
+
 
     private void death()
     {
