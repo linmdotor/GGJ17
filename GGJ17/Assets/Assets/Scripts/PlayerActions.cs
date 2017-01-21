@@ -35,21 +35,25 @@ public class PlayerActions : MonoBehaviour {
         {
             attack.SetActive(true);
             attack.transform.localPosition = new Vector3(0, 1.75f, 0);
+            attack.transform.Rotate(0, 0, 0);
         }
         if (Input.GetButtonDown(KeyCodes.AttackDown) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);
             attack.transform.localPosition = new Vector3(0, -1.75f, 0);
+            attack.transform.Rotate(0, 0, 180);
         }
         if (Input.GetButtonDown(KeyCodes.AttackLeft) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);
             attack.transform.localPosition = new Vector3(-1.75f, 0, 0);
+            attack.transform.Rotate(0, 0, 90);
         }
         if (Input.GetButtonDown(KeyCodes.AttackRight) && !attack.activeInHierarchy)
         {
             attack.SetActive(true);
             attack.transform.localPosition = new Vector3(1.75f, 0, 0);
+            attack.transform.Rotate(0, 0, 270);
         }
     }
 }

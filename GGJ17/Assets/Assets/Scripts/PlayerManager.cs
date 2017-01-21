@@ -5,21 +5,36 @@ public class PlayerManager : MonoBehaviour {
 
     public int life;
 
+    private bool hit;
+    private bool onDamageZone;
+    private int invTimeBase = 3;
+    private int invTimeBaseActual;
+
 	// Use this for initialization
 	void Start () {
-	
+        invTimeBaseActual = invTimeBase;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if(life == 0)
+        if (onDamageZone)
+        {
+            
+        }
+	    if (life == 0)
         {
             death();
         }
 	}
 
     void OnTriggerStay2D(Collider2D wave)
-    { 
+    {
+        if (wave.tag == KeyCodes.Wave && !hit)
+        {
+            damage();
+            hit = true;
+            onDamageZone = true;
+        }
         //EL PLAYER CONTROLA CADA X TIEMPO SI ESTÁ EN UNA ONDA, EN ESE CASO SE QUITA VIDA
     }
 
