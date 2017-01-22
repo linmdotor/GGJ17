@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MapManager : MonoBehaviour
 {
@@ -209,6 +210,8 @@ public class MapManager : MonoBehaviour
     private void CleanMap()
     {
         // Blood sprites
+        List<GameObject> bloodGameObjects = GameObject.FindGameObjectsWithTag("Blood").ToList();
+        bloodGameObjects.ForEach(bloodGO => Destroy(bloodGO));
 
         // Enemies
         GameManager.GameManagerInstance.cleanEnemies();
