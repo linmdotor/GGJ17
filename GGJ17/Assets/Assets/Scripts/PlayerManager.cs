@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour {
 
     public int life;
+	public int enemyDamage;
 
     private bool hit;
     private bool onDamageZone;
@@ -91,7 +92,9 @@ public class PlayerManager : MonoBehaviour {
         this.GetComponent<AudioSource>().Play();
         if (!foilOn) 
         { 
-            --life;
+            life -= enemyDamage;
+			if (life < 0)
+				life = 0;
             UIManager.UIManagerInstance.changeLifeText(life);
 
             if (!damageFeedbackActive)
