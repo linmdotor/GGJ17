@@ -371,6 +371,7 @@ MonoBehaviour:
   score: 10
   crashAnimationPrefab: {fileID: 146776, guid: 57f82a746b4d9434b800fa20d7594f53, type: 2}
   enemyType: 1
+  alreadyDead: 0
 --- !u!114 &11486944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +435,7 @@ MonoBehaviour:
   speed: 3
   DelayedRandomTime: 5
   movingTime: 5
-  waitingTime: 3
+  movingAroundTime: 2
   pauseTime: 2.5
 --- !u!212 &21206854
 SpriteRenderer:

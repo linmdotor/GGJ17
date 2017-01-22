@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour {
 		PAUSING,
 	}
 	public float movingTime = 10.0f;
-	public float waitingTime = 2.0f;
+	public float movingAroundTime = 2.0f;
 	public float pauseTime = 1.5f;
 
 
@@ -46,6 +46,22 @@ public class EnemyMovement : MonoBehaviour {
 
 		DelayedRandomTime *= Random.value;
 		currentTime = -DelayedRandomTime;
+
+
+		//Initialize "infinite" positions array
+		InfitePoint = new Vector3[numberDirections];
+		InfitePoint[0] = new Vector3(-100000f, 0, 0); //LEFT
+		InfitePoint[1] = new Vector3(100000f, 0, 0); //RIGHT
+		InfitePoint[2] = new Vector3(0, 100000f, 0); //UP
+		InfitePoint[3] = new Vector3(0, -100000f, 0); //DOWN
+		//InfitePoint[4] = new Vector3(-100000f, 100000f, 0);
+		//InfitePoint[5] = new Vector3(-100000f, -100000f, 0);
+		//InfitePoint[6] = new Vector3(100000f, -100000f, 0);
+		//InfitePoint[7] = new Vector3(100000f, 100000f, 0);
+
+		//Initialize in a random direction
+		currentDirection = InfitePoint[Mathf.FloorToInt(Random.value * numberDirections)];
+
     }
 	
 	// Update is called once per frame
@@ -56,11 +72,14 @@ public class EnemyMovement : MonoBehaviour {
 		switch (currentState)
 		{
 			case EnemyMovementState.MOVING:
-				if (targetTransform != null)
-				{
-					MoveToTarget(targetTransform.position);
-				}
+				//MOVE 1
+				//if (targetTransform != null)
+				//	MoveToTarget(targetTransform.position);
 
+				//MOVE 2
+				if (Random.value < 0.01f) //Sometimes change direction
+					currentDirection = GetInfinitePoint();
+				MoveToRandomDirection();
 
 				//Transition to Next State
 				if (currentTime >= movingTime)
@@ -73,12 +92,12 @@ public class EnemyMovement : MonoBehaviour {
 
 
 			case EnemyMovementState.MOVING_AROUND:
-				FaceToTarget(MoveToRandomDirection());
+				FaceToTarget(MoveToRandomPosition());
 
 				//Transition to Next State
-				if (currentTime >= waitingTime)
+				if (currentTime >= movingAroundTime)
 				{
-					currentTime -= waitingTime;
+					currentTime -= movingAroundTime;
 					previousState = currentState;
 					currentState = EnemyMovementState.PAUSING;
 
@@ -132,20 +151,46 @@ public class EnemyMovement : MonoBehaviour {
 		FaceToTarget(targetPosition);
     }
 
-
+	//HACK PARA AVANZAR EN LAS 8 DIRECCIONES
+	private Vector3[] InfitePoint;
+	private const int numberDirections = 4;
+	private Vector3 currentDirection;
 	/// <summary>
 	/// MOVES TO THE CURRENT DIRECTION, AND CHANGE IT WHEN COLLIDE
 	/// WITH THE WALL
 	/// </summary>
-	public void MoveToDirection()
+	public void MoveToRandomDirection()
 	{
-
+		float step = speed * Time.deltaTime;
+		transform.position = Vector3.MoveTowards(transform.position, currentDirection, step);
+		FaceToTarget(currentDirection);
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		//Change currentDirection
-		//Debug.Log("YO, " + this.name + " HE CHOCADO CON: " + other.name);
+		//Change currentDirection if collides with other enemies or walls
+		if (this.CompareTag("Enemy"))
+		{
+			if (other.CompareTag("Enemy") || other.CompareTag("Wall") || other.CompareTag("Furniture"))
+			{
+				if (Random.value > 0.5f) //RANDOM CHANCE TO FOLLOW THE PLAYER
+					currentDirection = GetOppositePoint(currentDirection);
+				else
+					currentDirection = currentTarget.transform.position;
+
+			}
+		}
 	}
+
+	private Vector3 GetInfinitePoint()
+	{
+		int randIndex = Mathf.FloorToInt(Random.value * numberDirections);
+		return InfitePoint[randIndex];
+	}
+
+	public Vector3 GetOppositePoint(Vector3 point)
+	{
+		return new Vector3(point.x * -1f, point.y * -1f, 0f);
+    }
 
 
 	/// <summary>
@@ -155,7 +200,7 @@ public class EnemyMovement : MonoBehaviour {
 	private bool generateNewRandomTarget = true;
 	//Generates 3 near targets, and move to one to other, until reaches all of it
 	//returns the position of the current target
-	public Vector3 MoveToRandomDirection()
+	public Vector3 MoveToRandomPosition()
 	{
 		///When we haven't a target, generate it
 		if(generateNewRandomTarget)

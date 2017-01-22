@@ -42,10 +42,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileFloorPrefab: {fileID: 148352, guid: 8d70ff83e61724b408a8bf040a067a5d, type: 2}
   tileWallPrefab: {fileID: 148352, guid: 1b2d4aa76a79e2a43ae0aad1021c4ef4, type: 2}
-  maxMapSize_X: 100
-  maxMapSize_Y: 70
-  mapSize_X: 80
-  mapSize_Y: 50
+  maxMapSize_X: 48
+  maxMapSize_Y: 27
+  mapSize_X: 28
+  mapSize_Y: 16
   spriteFloor: {fileID: 21300000, guid: 92331c1a36480bd4da833754a1206ec4, type: 3}
   spriteWall: {fileID: 21300000, guid: b5301ab93e8604649b426d858261de5b, type: 3}
   levelsIncreasingDifficulty: 01000000050000000a000000
