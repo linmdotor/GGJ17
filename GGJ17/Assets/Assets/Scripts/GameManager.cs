@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour {
 
     	    if(numberOfEnemiesLeft <= 0)
             {
-                Time.timeScale = 0f;
                 UIManager.UIManagerInstance.winMenu.SetActive(true);
             }
 
@@ -57,7 +56,6 @@ public class GameManager : MonoBehaviour {
 
     public void gameOver()
     {
-        Time.timeScale = 0f;
         UIManager.UIManagerInstance.deadMenu.SetActive(true);
         //Load gameOver screen
         //Update scores
