@@ -10,6 +10,11 @@ public class StartCanvas : MonoBehaviour {
         SceneManager.LoadScene("MainScene");
     }
 
+    public void controlsButton()
+    {
+        SceneManager.LoadScene("CONTROLS");
+    }
+
     public void creditsButton()
     {
         SceneManager.LoadScene("CREDITS");
