@@ -58,6 +58,7 @@ public class EnemyManager : MonoBehaviour {
                     GameObject.Instantiate(enemyHeadphonesPrefab, spawnPos, Quaternion.identity);
                     break;
             }
+            GameManager.GameManagerInstance.addEnemy();
         }
     }
 }

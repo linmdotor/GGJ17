@@ -50,7 +50,6 @@ public class PlayerManager : MonoBehaviour {
         }
 	    if (life == 0)
         {
-
             death();
         }
 	}
@@ -93,9 +92,9 @@ public class PlayerManager : MonoBehaviour {
     }
     public void damage()
     {
-        this.GetComponent<AudioSource>().Play();
-        if (!foilOn) 
-        { 
+        if (!foilOn)
+        {
+            this.GetComponent<AudioSource>().Play();
             life -= enemyDamage;
 			if (life < 0)
 				life = 0;
