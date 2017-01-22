@@ -10,6 +10,7 @@ public class KeyCodes {
     public static string Left = "Left";
     public static string Right = "Right";
     public static string PlayerAttack = "PlayerAttack";
+    public static string Submit = "Submit";
 
     //Tags
     public static string PlayerWarrior = "PlayerWarrior";
