@@ -86,7 +86,8 @@ public class PlayerManager : MonoBehaviour {
 
     private void death()
     {
-        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
+		this.GetComponent<PlayerActions>().enabled = false;
+		this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
         this.GetComponent<AudioSource>().Play();
         GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();
     }
