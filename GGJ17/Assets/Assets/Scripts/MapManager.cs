@@ -93,6 +93,12 @@ public class MapManager : MonoBehaviour
     public int cabSize_FixedDim = 2; // Number of tiles for the fixed dimension of the cabinets
     public int cabMinSize_VbleDim = 1;  // Minimum number of tiles for the variable dimension of the cabinets
 
+    // Enemies
+    [Header("Enemies")]
+    public int[] minEnemies = new int[] { 10, 15, 20 };
+    public int[] maxEnemies = new int[] { 13, 20, 28 };
+
+    // Player
     public GameObject player;
 
 	// Use this for initialization
@@ -190,7 +196,8 @@ public class MapManager : MonoBehaviour
         CreateMapObjects();
 
         // Enemies
-        EnemyManager.EnemyManagerInstance.loadEnemies();
+        int numEnemies = Random.Range(minEnemies[currentDifficultyLevel], maxEnemies[currentDifficultyLevel] + 1);
+        EnemyManager.EnemyManagerInstance.loadEnemies(numEnemies);
 
         // Player spawn point
         MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
@@ -201,6 +208,11 @@ public class MapManager : MonoBehaviour
 
     private void CleanMap()
     {
+        // Blood sprites
+
+        // Enemies
+        // GameManager.GameManagerInstance.clean
+
         // Map tiles
         List<GameObject> mapChildren = new List<GameObject>();
 
