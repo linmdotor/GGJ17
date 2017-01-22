@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour {
 
     public void addEnemy()
     {
-        print("llamado");
         numberOfEnemiesLeft++;
         UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
     }
