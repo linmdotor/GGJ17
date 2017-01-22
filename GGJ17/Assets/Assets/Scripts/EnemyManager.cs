@@ -13,8 +13,6 @@ public class EnemyManager : MonoBehaviour {
     }
     #endregion
 
-    public int numberEnemies = 10;
-
     public GameObject enemyCameraPrefab;
     public GameObject enemyPhonePrefab;
     public GameObject enemyHeadphonesPrefab;
@@ -36,10 +34,10 @@ public class EnemyManager : MonoBehaviour {
 	
 	}
 
-    public void loadEnemies()
+    public void loadEnemies(float numberOfEnemies)
     {
         MapTile[] freeSlots = MapManager.MapManagerInstance.GetMapTiles(MapTile.TileType.Floor);
-        for (int enemies = 0; enemies < numberEnemies; ++enemies)
+        for (int enemies = 0; enemies < numberOfEnemies; ++enemies)
         {
             MapTile freeSlot = freeSlots[Random.Range(0, freeSlots.Length)];
             MapManager.MapManagerInstance.GetMapTile(freeSlot.logicPosition_X, freeSlot.logicPosition_Y).tileType = MapTile.TileType.Enemy;

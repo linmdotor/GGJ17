@@ -72,7 +72,13 @@ public class GameManager : MonoBehaviour {
 
     public void addEnemy()
     {
-         numberOfEnemiesLeft++;
+        numberOfEnemiesLeft++;
+        UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
+    }
+
+    public void cleanEnemies()
+    {
+        numberOfEnemiesLeft = 0;
         UIManager.UIManagerInstance.changeNumberOfEnemies(numberOfEnemiesLeft);
     }
 }

@@ -63,7 +63,10 @@ MonoBehaviour:
   tileXCord: 0
   tileYCord: 0
   expiresOn: 10
-  type: 0
+  type: 1
+  sandwich: {fileID: 21300000, guid: 1835a57565ab0784fbcc4a3d1a8028e5, type: 3}
+  redbull: {fileID: 21300000, guid: bb4292110bbbe1144aa105cf0302d9eb, type: 3}
+  foil: {fileID: 21300000, guid: 16e011456172e104c8a3149f7eb0cdcf, type: 3}
 --- !u!212 &21230936
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +94,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7631a4c178f4d5e4e98072dc715fd6b7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000

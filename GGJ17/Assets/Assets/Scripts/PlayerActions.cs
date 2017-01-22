@@ -65,7 +65,7 @@ public class PlayerActions : MonoBehaviour {
             this.gameObject.GetComponent<Animator>().SetBool("Walk", false);
         #endregion
 
-        if (Input.GetButtonDown(KeyCodes.PlayerAttack) && !attack.activeInHierarchy)
+        if (!attack.activeInHierarchy && Input.GetButtonDown(KeyCodes.PlayerAttack))
         {
             attack.SetActive(true);
             this.gameObject.GetComponent<Animator>().SetBool("Attack", true);
