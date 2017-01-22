@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour {
     {
         scoreText.text = "Score: " + score;
         deadMenuScoreText.text = "Score: " + score;
-        winMenuScoreText.text = "Coreo: " + score;
+        winMenuScoreText.text = "Score: " + score;
     }
 
 

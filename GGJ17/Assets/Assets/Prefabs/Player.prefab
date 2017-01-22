@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1357109, y: 0.56, z: 0}
+  m_LocalPosition: {x: 7.08, y: -5.2, z: 0}
   m_LocalScale: {x: 2.1590679, y: 2.1050303, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  enemyDamage: 0
   foilOn: 0
   foilTime: 0
 --- !u!114 &11464064
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementPressed: 0
-  m_playerSpeed: 10
+  m_playerSpeed: 17
   attack: {fileID: 119044}
   camera: {fileID: 0}
   redBullBoost: 0

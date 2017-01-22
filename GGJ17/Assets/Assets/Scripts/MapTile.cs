@@ -19,7 +19,8 @@ public class MapTile : MonoBehaviour {
         Wall,
         Furniture, // Muebles
         Cabinet,   // Vitrinas
-        PowerUp
+        PowerUp,
+        Enemy
     };
 
     public TileType tileType = TileType.Floor;
