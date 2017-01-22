@@ -62,6 +62,7 @@ public class PowerUp : MonoBehaviour {
                     player.GetComponent<PlayerManager>().life = 100;
                 else
                     player.GetComponent<PlayerManager>().life += sandwichHeal;
+                UIManager.UIManagerInstance.changeLifeText(player.GetComponent<PlayerManager>().life);
                 break;
         }
     }

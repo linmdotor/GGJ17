@@ -50,7 +50,6 @@ public class PlayerManager : MonoBehaviour {
         }
 	    if (life == 0)
         {
-
             death();
         }
 	}
@@ -86,15 +85,16 @@ public class PlayerManager : MonoBehaviour {
 
     private void death()
     {
-        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
+		this.GetComponent<PlayerActions>().enabled = false;
+		this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
         this.GetComponent<AudioSource>().Play();
         GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();
     }
     public void damage()
     {
-        this.GetComponent<AudioSource>().Play();
-        if (!foilOn) 
-        { 
+        if (!foilOn)
+        {
+            this.GetComponent<AudioSource>().Play();
             life -= enemyDamage;
 			if (life < 0)
 				life = 0;
