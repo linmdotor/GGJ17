@@ -283,7 +283,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.5990524
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -419,6 +419,8 @@ MonoBehaviour:
   - 5
   - 7
   - 11
+  growthX: 0.3
+  growthY: 0.3
 --- !u!114 &11493130
 MonoBehaviour:
   m_ObjectHideFlags: 1

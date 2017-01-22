@@ -926,7 +926,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.3768158
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -991,7 +991,7 @@ Animator:
   m_GameObject: {fileID: 192324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18996dead43932e45beeca2e7958f1ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7728abcf5ad3236478c23ae833ad746a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1039,6 +1039,8 @@ MonoBehaviour:
   angularSpeed2: -80
   marginPos: 0.75
   speedDispl: 6
+  growthX: 0.3
+  growthY: 0.3
 --- !u!114 &11433690
 MonoBehaviour:
   m_ObjectHideFlags: 1

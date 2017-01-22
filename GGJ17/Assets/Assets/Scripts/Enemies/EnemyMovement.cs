@@ -17,7 +17,6 @@ public class EnemyMovement : MonoBehaviour {
 
 	public float DelayedRandomTime = 10.0f;
 
-
 	//STATES
 	private enum EnemyMovementState
 	{
@@ -87,7 +86,10 @@ public class EnemyMovement : MonoBehaviour {
 					currentTime -= movingTime;
 					previousState = currentState;
                     currentState = EnemyMovementState.PAUSING;
-				}
+
+					//Call Idle Animation
+					this.GetComponentInChildren<Animator>().SetBool("Walking", false);
+                }
 				break;
 
 
@@ -100,6 +102,9 @@ public class EnemyMovement : MonoBehaviour {
 					currentTime -= movingAroundTime;
 					previousState = currentState;
 					currentState = EnemyMovementState.PAUSING;
+
+					//Call Idle Animation
+					this.GetComponentInChildren<Animator>().SetBool("Walking", false);
 
 					//restart the pause target
 					generateNewRandomTarget = true;
@@ -121,6 +126,9 @@ public class EnemyMovement : MonoBehaviour {
 						previousState = currentState;
 						currentState = EnemyMovementState.MOVING;
 					}
+
+					//Call Moving Animation
+					this.GetComponentInChildren<Animator>().SetBool("Walking", true);
 
 				}
 				break;
