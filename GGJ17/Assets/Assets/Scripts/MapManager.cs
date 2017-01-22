@@ -92,43 +92,31 @@ public class MapManager : MonoBehaviour
         // Difficulty levels
         numDifficultyLevels = levelsIncreasingDifficulty.Length;
 
+        // Map and level
         map = GameObject.FindGameObjectWithTag("Map");
-        CreateMap();
 
-        // Global camera (showing the whole map)
-        //SetCamera();
-
-        // Map internal stuff instantiation
-        verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
         walls = new List<MapTile>();
         furniture = new List<MapTile>();
         cabinets = new List<MapTile>();
 
-        if (verticalWalls)
-        {
-            walls.Add(tiles[0][0]);
-            walls.Add(tiles[mapSize_X - 1][0]);
-        }
-        else
-        {
-            walls.Add(tiles[0][0]);
-            walls.Add(tiles[0][mapSize_Y - 1]);
-        }
-
-
-        CreateMapObjects();
-        EnemyManager.EnemyManagerInstance.loadEnemies();
-        MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
-        int rand = Random.Range(0, spawnTilePlayer.Length);
-        Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].transform.position.x, spawnTilePlayer[rand].transform.position.y, 0);
-        GameObject.Instantiate(player, spawnPlayer, Quaternion.identity);
+        GenerateLevel(1);
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	
+        // Testing levels dynamic generation
+        //StartCoroutine(LevelSeriesGeneration());
 	}
+
+    IEnumerator LevelSeriesGeneration()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3.0f);
+            GenerateLevel(currentLevel + 1);
+        }
+    }
 
     public MapTile GetMapTile(int i, int j)
     {
@@ -145,6 +133,60 @@ public class MapManager : MonoBehaviour
                     mapTiles.Add(tiles[i][j]);
 
         return mapTiles.ToArray();
+    }
+
+    public void GenerateLevel(int level)
+    {
+        // Level
+        currentLevel = level;
+
+        // Map
+        CleanMap();
+        CreateMap();
+
+        // Global camera (showing the whole map)
+        //SetCamera();
+
+        // Map internal stuff instantiation
+        verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
+
+        if (verticalWalls)
+        {
+            walls.Add(tiles[0][0]);
+            walls.Add(tiles[mapSize_X - 1][0]);
+        }
+        else
+        {
+            walls.Add(tiles[0][0]);
+            walls.Add(tiles[0][mapSize_Y - 1]);
+        }
+
+        CreateMapObjects();
+
+        // Enemies
+        EnemyManager.EnemyManagerInstance.loadEnemies();
+
+        // Player spawn point
+        MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
+        int rand = Random.Range(0, spawnTilePlayer.Length);
+        Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].transform.position.x, spawnTilePlayer[rand].transform.position.y, 0);
+        GameObject.Instantiate(player, spawnPlayer, Quaternion.identity);
+    }
+
+    private void CleanMap()
+    {
+        // Map tiles
+        List<GameObject> mapChildren = new List<GameObject>();
+
+        foreach (Transform child in map.transform)
+            mapChildren.Add(child.gameObject);
+
+        mapChildren.ForEach(child => Destroy(child));
+
+        // Map objects
+        walls.Clear();
+        furniture.Clear();
+        cabinets.Clear();
     }
 
     private void CreateMap()
@@ -248,6 +290,8 @@ public class MapManager : MonoBehaviour
         numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
         for (int i = 0; i < numCabinets; ++i)
             CreateCabinet();
+
+        ObjectManager.ObjectManagerInstance.instantiateEmisors();
     }
 
     private void CreateWall()
@@ -315,6 +359,10 @@ public class MapManager : MonoBehaviour
 
     private void CreateFurniture()
     {
+        // Maximum number of attempts to avoid infinite loops
+        int numAttempts = 0;
+        int maxAttempts = 10;
+
         // Furniture initial tile
         MapTile initialTile = null;
 
@@ -322,7 +370,7 @@ public class MapManager : MonoBehaviour
         int furnitureDim_X = 0;
         int furnitureDim_Y = 0;
 
-        while (initialTile == null)
+        while (initialTile == null && numAttempts < maxAttempts)
         {
             initialTile = GetRandomTile(freeTilesSurroundingFurniture);
 
@@ -343,16 +391,24 @@ public class MapManager : MonoBehaviour
 
             if (!CheckTilesSurrounding(initialTile, furnitureDim_X, furnitureDim_Y, freeTilesSurroundingFurniture))
                 initialTile = null;
+
+            ++numAttempts;
         }
 
-        // Furniture instantiation and register
-        furniture.Add(initialTile);
-        ObjectManager.ObjectManagerInstance.instantiateFurniture(initialTile.gameObject, furnitureDim_X, furnitureDim_Y);
-		ObjectManager.ObjectManagerInstance.instantiateEmisors();
+        if (initialTile != null)
+        {
+            // Furniture instantiation and register
+            furniture.Add(initialTile);
+            ObjectManager.ObjectManagerInstance.instantiateFurniture(initialTile.gameObject, furnitureDim_X, furnitureDim_Y);
+        }
     }
 
     private void CreateCabinet()
     {
+        // Maximum number of attempts to avoid infinite loops
+        int numAttempts = 0;
+        int maxAttempts = 10;
+
         // Cabinet initial tile
         MapTile initialTile = null;
 
@@ -360,7 +416,7 @@ public class MapManager : MonoBehaviour
         int cabinetDim_X = 0;
         int cabinetDim_Y = 0;
 
-        while (initialTile == null)
+        while (initialTile == null && numAttempts < maxAttempts)
         {
             initialTile = GetRandomTile(freeTilesSurroundingCabinets);
 
@@ -381,11 +437,16 @@ public class MapManager : MonoBehaviour
 
             if (!CheckTilesSurrounding(initialTile, cabinetDim_X, cabinetDim_Y, freeTilesSurroundingCabinets))
                 initialTile = null;
+
+            ++numAttempts;
         }
 
-        // Cabinet instantiation and register
-        cabinets.Add(initialTile);
-        ObjectManager.ObjectManagerInstance.instantiateCabinet(initialTile.gameObject, cabinetDim_X, cabinetDim_Y);
+        if (initialTile != null)
+        {
+            // Cabinet instantiation and register
+            cabinets.Add(initialTile);
+            ObjectManager.ObjectManagerInstance.instantiateCabinet(initialTile.gameObject, cabinetDim_X, cabinetDim_Y);
+        }
     }
 
     private MapTile GetRandomTileWall()
