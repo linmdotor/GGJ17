@@ -43,6 +43,8 @@ MonoBehaviour:
   furnitureSprites:
   - sprite: {fileID: 21300000, guid: 83195fd6ed486b34fac202dbaa8fad3c, type: 3}
     furnitureSprites: 0
+  - sprite: {fileID: 21300000, guid: 66ce3a7f0068f3b4c9b4a193ad39d4ed, type: 3}
+    furnitureSprites: 0
   furnitures: []
   cabinets: []
   cabinetSprite: {fileID: 21300000, guid: fdd56a1b17070c8429c35e1ee6661593, type: 3}
