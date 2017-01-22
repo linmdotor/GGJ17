@@ -115,9 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538dc9beb9841954b8a040e6e42dee84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCursor: {fileID: 2800000, guid: a6fbca53f51cd804998c3fa184ed2d33, type: 3}
   score: 0
   numberOfEnemiesLeft: 0
   levelIsReady: 0
+  actualLevel: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
