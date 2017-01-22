@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11464064}
   - 212: {fileID: 21210386}
   - 50: {fileID: 5050470}
-  - 60: {fileID: 6098954}
+  - 61: {fileID: 6159470}
   m_Layer: 0
   m_Name: Attack
   m_TagString: PlayerAttack
@@ -47,10 +47,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119044}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.92, z: 0}
   m_LocalScale: {x: 0.19999999, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 447512}
   m_RootOrder: 0
@@ -116,8 +116,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.5}
   serializedVersion: 2
   m_Radius: 0.77784973
---- !u!60 &6098954
-PolygonCollider2D:
+--- !u!61 &6159470
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -127,14 +127,9 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: 0.1677242, y: 1.7189941}
-      - {x: -15.279102, y: -1.375267}
-      - {x: -1.8029608, y: -1.9478114}
-      - {x: 3.3124685, y: -0.90254134}
-      - {x: 0.8920985, y: 0.9985937}
+  m_Offset: {x: -0.13159764, y: 0.20247096}
+  serializedVersion: 2
+  m_Size: {x: 17.632952, y: 3.404942}
 --- !u!82 &8286388
 AudioSource:
   m_ObjectHideFlags: 1
@@ -238,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  enemyDamage: 0
+  enemyDamage: 10
   foilOn: 0
   foilTime: 0
 --- !u!114 &11464064
