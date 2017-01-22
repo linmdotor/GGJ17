@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour {
 
         this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
         this.GetComponent<AudioSource>().Play();
+
+        PersistentScore.PersistentScoreInstance.Load();
+
 	}
 	
 	// Update is called once per frame
@@ -58,7 +61,8 @@ public class GameManager : MonoBehaviour {
 
     public void gameOver()
     {
-        UIManager.UIManagerInstance.deadMenu.SetActive(true);
+        //UIManager.UIManagerInstance.deadMenu.SetActive(true);
+        UIManager.UIManagerInstance.playerDead();
         //Load gameOver screen
         //Update scores
         //Deactivate everything (?)
