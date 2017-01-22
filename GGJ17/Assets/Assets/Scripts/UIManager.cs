@@ -19,7 +19,8 @@ public class UIManager : MonoBehaviour {
     Text enemyText;
     Text scoreText;
     Text lifeText;
-    Text deadMenuScoreText, winMenuScoreText;
+	Image lifeImage;
+	Text deadMenuScoreText, winMenuScoreText;
     [HideInInspector]
     public GameObject pauseMenu, deadMenu, winMenu;
 
@@ -30,6 +31,8 @@ public class UIManager : MonoBehaviour {
         enemyText = transform.Find("EnemiesText").GetComponent<Text>();
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
         lifeText = transform.Find("LifeText").GetComponent<Text>();
+		lifeImage = transform.Find("LifeText").Find("LifeImage").GetComponent<Image>();
+		lifeImage.sprite = enemyLifeImages[0];
         pauseMenu = transform.Find("PauseMenu").gameObject;
 
         deadMenu = transform.Find("DeadMenu").gameObject;
@@ -70,9 +73,29 @@ public class UIManager : MonoBehaviour {
         winMenuScoreText.text = "Score: " + score;
     }
 
-    public void changeLifeText(int life)
+
+
+	public Sprite[] enemyLifeImages;
+	private int[,] lifeLimits = new int[4,2] { { 0, 25 }, 
+											{ 26, 50 }, 
+											{ 51, 75 }, 
+											{ 76, 100 } };
+	public void changeLifeText(int life)
     {
+		//TEXT
         lifeText.text = "Life: " + life;
+
+		//IMAGE
+		//Busca en qué nivel de vida está, y cambia el sprite según este
+		for(int i = 0; i<4; ++i)
+		{
+			if(life >= lifeLimits[i,0] && life <= lifeLimits[i,1]) //si está en el rango actual
+			{
+				lifeImage.sprite = enemyLifeImages[i];
+			}
+		}
+
+		//LIFE BAR
 
     }
 

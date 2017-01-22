@@ -149,6 +149,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &982694138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 982694139}
+  - 222: {fileID: 982694141}
+  - 114: {fileID: 982694140}
+  m_Layer: 5
+  m_Name: LifeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &982694139
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982694138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1134121889}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 68, y: 113}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &982694140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982694138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &982694141
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982694138}
 --- !u!1001 &1109802539
 Prefab:
   m_ObjectHideFlags: 0
@@ -186,7 +254,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498478, guid: 0de6d94704e89054491a0decc849168a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0de6d94704e89054491a0decc849168a, type: 2}
@@ -198,6 +266,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11443878, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: enemyLifeImages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 22422320, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -228,7 +300,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22422320, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22422320, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -274,9 +346,38 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 239848719}
+    - target: {fileID: 11490656, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11443878, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: enemyLifeImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 75a2d615054c67e49908f1148cb03256,
+        type: 3}
+    - target: {fileID: 11443878, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: enemyLifeImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300002, guid: 75a2d615054c67e49908f1148cb03256,
+        type: 3}
+    - target: {fileID: 11443878, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: enemyLifeImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300004, guid: 75a2d615054c67e49908f1148cb03256,
+        type: 3}
+    - target: {fileID: 11443878, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
+      propertyPath: enemyLifeImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300006, guid: 75a2d615054c67e49908f1148cb03256,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e289d4cb19937841979f0cfd8eab3c7, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1134121889 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22473962, guid: 9e289d4cb19937841979f0cfd8eab3c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1134121888}
 --- !u!1001 &1173755793
 Prefab:
   m_ObjectHideFlags: 0
@@ -314,7 +415,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488794, guid: 0768e8b973d9ce046bc0710696468be6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0768e8b973d9ce046bc0710696468be6, type: 2}
@@ -356,7 +457,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496432, guid: d8ee22117274346458272707fa5cd0e4, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8281020, guid: d8ee22117274346458272707fa5cd0e4, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
@@ -534,7 +635,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463414, guid: 150e8d5b79f344841a4aef8449c1eb69, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 150e8d5b79f344841a4aef8449c1eb69, type: 2}
@@ -576,7 +677,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447512, guid: 6b78cd8195c0ba046879563f36f1fdc3, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431960, guid: 6b78cd8195c0ba046879563f36f1fdc3, type: 2}
+      propertyPath: enemyDamage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b78cd8195c0ba046879563f36f1fdc3, type: 2}
