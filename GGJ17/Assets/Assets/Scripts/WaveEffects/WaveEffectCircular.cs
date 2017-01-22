@@ -21,6 +21,8 @@ public class WaveEffectCircular: WaveEffect
 
     private float red = 0;
     private bool blue = true;
+    private float timeToChangeBase = 0.5f;
+    private float timeToChange = 0.5f;
 
 
 	// Use this for initialization
@@ -39,9 +41,12 @@ public class WaveEffectCircular: WaveEffect
         foreach (Transform child in this.transform)
         {
             if (child.transform.GetChild(0).transform.childCount == 0)
-                child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 5);
+                child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 256);
             else
-                child.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 5);
+                foreach (Transform childIn in child)
+                {
+                    childIn.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0, 256), Random.Range(0, 256), Random.Range(0, 256));
+                }
         }
 
 	}
@@ -68,12 +73,32 @@ public class WaveEffectCircular: WaveEffect
 		foreach(Transform t in spriteWaveTransforms)
 			t.localPosition = new Vector3(0, initialPosY + (marginPos * Mathf.Sin(Time.time * speedDispl)), 0);
 
-        foreach (Transform child in this.transform) 
+
+        timeToChange -= Time.deltaTime;
+        if (timeToChange <= 0)
+        {
+            foreach (Transform child in this.transform)
+            {
+
+                int red = Random.Range(0, 256);
+                int green = Random.Range(0, 256);
+                int blue = Random.Range(0, 256);
+                Color32 wave = new Color(red / 255.0f, green / 255.0f, blue / 255.0f, 255f / 255.0f);
+                if (child.transform.GetChild(0).transform.childCount == 0)
+                    child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+                else
+                    foreach (Transform childIn in child)
+                        childIn.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+            }
+            timeToChange = timeToChangeBase;
+        }
+
+        /*foreach (Transform child in this.transform) 
         { 
             if (blue)
             {
-                red += Time.deltaTime;
-                Color wave = new Color(red, 0, 5);
+                red += Time.deltaTime * 10;
+                Color wave = new Color(red, 0, 256);
                 if (child.transform.GetChild(0).transform.childCount == 0)
                     child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
                 else
@@ -83,8 +108,8 @@ public class WaveEffectCircular: WaveEffect
                 blue = false;
             if (!blue)
             {
-                red -= Time.deltaTime;
-                Color wave = new Color(red, 0, 5);
+                red -= Time.deltaTime * 10;
+                Color wave = new Color(red, 0, 256);
                 if (child.transform.GetChild(0).transform.childCount == 0)
                     child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
                 else
@@ -92,7 +117,6 @@ public class WaveEffectCircular: WaveEffect
             }
             if (red <= 0)
                 blue = true;
-        }
-        print(red);
+        }*/
     }
 }
