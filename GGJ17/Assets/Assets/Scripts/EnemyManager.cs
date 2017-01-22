@@ -4,12 +4,12 @@ using System.Collections;
 public class EnemyManager : MonoBehaviour {
 
     #region Singleton
-    public static MapManager EnemyManagerInstance;
+    public static EnemyManager EnemyManagerInstance;
 
     void Awake()
     {
         if (EnemyManagerInstance == null)
-            EnemyManagerInstance = gameObject.GetComponent<MapManager>();
+            EnemyManagerInstance = gameObject.GetComponent<EnemyManager>();
     }
     #endregion
 

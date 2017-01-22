@@ -115,6 +115,7 @@ public class MapManager : MonoBehaviour
 
 
         CreateMapObjects();
+        EnemyManager.EnemyManagerInstance.loadEnemies();
 	}
 	
 	// Update is called once per frame
@@ -238,15 +239,12 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < numFurniture; ++i)
             CreateFurniture();
 
-		numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
+        numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
         for (int i = 0; i < numCabinets; ++i)
             CreateCabinet();
+    }
 
-		ObjectManager.ObjectManagerInstance.instantiateEmisors();
-
-	}
-
-	private void CreateWall()
+    private void CreateWall()
     {
         // Wall initial tile
         MapTile initialTile = GetRandomTileWall();
@@ -344,6 +342,7 @@ public class MapManager : MonoBehaviour
         // Furniture instantiation and register
         furniture.Add(initialTile);
         ObjectManager.ObjectManagerInstance.instantiateFurniture(initialTile.gameObject, furnitureDim_X, furnitureDim_Y);
+		ObjectManager.ObjectManagerInstance.instantiateEmisors();
     }
 
     private void CreateCabinet()
@@ -381,7 +380,6 @@ public class MapManager : MonoBehaviour
         // Cabinet instantiation and register
         cabinets.Add(initialTile);
         ObjectManager.ObjectManagerInstance.instantiateCabinet(initialTile.gameObject, cabinetDim_X, cabinetDim_Y);
-
     }
 
     private MapTile GetRandomTileWall()
