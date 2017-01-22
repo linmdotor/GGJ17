@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour {
 		PAUSING,
 	}
 	public float movingTime = 10.0f;
-	public float movingAroundTime = 2.0f;
+	public float movingAroundTime = 1.0f;
 	public float pauseTime = 1.5f;
 
 
@@ -41,10 +41,12 @@ public class EnemyMovement : MonoBehaviour {
 		targetTransform = currentTarget.transform;
 
 		previousState = EnemyMovementState.NONE;
-		currentState = EnemyMovementState.MOVING_AROUND;
+		currentState = EnemyMovementState.MOVING;
+		this.GetComponentInChildren<Animator>().SetBool("Walking", true);
+
 
 		DelayedRandomTime *= Random.value;
-		currentTime = -DelayedRandomTime;
+		currentTime = 0f;
 
 
 		//Initialize "infinite" positions array
@@ -81,9 +83,9 @@ public class EnemyMovement : MonoBehaviour {
 				MoveToRandomDirection();
 
 				//Transition to Next State
-				if (currentTime >= movingTime)
+				if (currentTime >= (movingTime+DelayedRandomTime))
 				{
-					currentTime -= movingTime;
+					currentTime -= (movingTime+DelayedRandomTime);
 					previousState = currentState;
                     currentState = EnemyMovementState.PAUSING;
 

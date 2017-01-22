@@ -113,8 +113,9 @@ public class ObjectManager : MonoBehaviour {
                 piezaMueble.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
 
                 piezaMueble.AddComponent<BoxCollider2D>();
+				piezaMueble.GetComponent<BoxCollider2D>().size = new Vector2(6.0f, 6.0f);
 
-                piezaMueble.tag = KeyCodes.Furniture;
+				piezaMueble.tag = KeyCodes.Furniture;
 
                 mueble.GetComponent<Furniture>().furniturePieces.Add(piezaMueble.GetComponent<FurniturePiece>());
                 mueble.GetComponent<Furniture>().accessiblePieces++;
@@ -208,7 +209,8 @@ public class ObjectManager : MonoBehaviour {
                 piezaWall.GetComponent<SpriteRenderer>().sortingLayerName = "Furniture";
 
                 piezaWall.AddComponent<BoxCollider2D>();
-            }
+				piezaWall.GetComponent<BoxCollider2D>().size = new Vector2(6.0f, 6.0f);
+			}
         }
     }
 

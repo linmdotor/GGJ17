@@ -93,6 +93,6 @@ public class WaveEffectCircular: WaveEffect
             if (red <= 0)
                 blue = true;
         }
-        print(red);
+        //print(red);
     }
 }
