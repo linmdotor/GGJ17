@@ -65,14 +65,14 @@ public class UIManager : MonoBehaviour {
 
     public void changeNumberOfEnemies(int enemiesNumber)
     {
-        enemyText.text = "Enemies: "+enemiesNumber;
+        enemyText.text = "<b>" + enemiesNumber + "</b>";
     }
 
     public void changeScore(float score)
     {
-        scoreText.text = "Score: " + score;
-        deadMenuScoreText.text = "Score: " + score;
-        winMenuScoreText.text = "Score: " + score;
+        scoreText.text = "<b>Score: " + score + "</b>";
+        deadMenuScoreText.text = "<b>Score: " + score + "</b>";
+        winMenuScoreText.text = "<b>Score: " + score + "</b>";
     }
 
 
