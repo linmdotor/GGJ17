@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class MapManager : MonoBehaviour
 {
@@ -197,12 +198,12 @@ public class MapManager : MonoBehaviour
         CreateMapObjects();
 
         // Enemies
-        int numEnemies = Random.Range(minEnemies[currentDifficultyLevel], maxEnemies[currentDifficultyLevel] + 1);
+        int numEnemies = UnityEngine.Random.Range(minEnemies[currentDifficultyLevel], maxEnemies[currentDifficultyLevel] + 1);
         EnemyManager.EnemyManagerInstance.loadEnemies(numEnemies);
 
         // Player spawn point
         MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
-        int rand = Random.Range(0, spawnTilePlayer.Length);
+        int rand = UnityEngine.Random.Range(0, spawnTilePlayer.Length);
         Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].transform.position.x, spawnTilePlayer[rand].transform.position.y, 0);
         GameObject.Instantiate(player, spawnPlayer, Quaternion.identity);
     }
@@ -239,8 +240,8 @@ public class MapManager : MonoBehaviour
     private void CreateMap()
     {
         // ===== Map size =====
-        mapSize_X = Random.Range(minSize_X[currentDifficultyLevel], maxSize_X[currentDifficultyLevel] + 1);
-        mapSize_Y = Random.Range(minSize_Y[currentDifficultyLevel], maxSize_Y[currentDifficultyLevel] + 1);
+        mapSize_X = UnityEngine.Random.Range(minSize_X[currentDifficultyLevel], maxSize_X[currentDifficultyLevel] + 1);
+        mapSize_Y = UnityEngine.Random.Range(minSize_Y[currentDifficultyLevel], maxSize_Y[currentDifficultyLevel] + 1);
 
         // ===== Map base tiles (Floor) =====
         tiles = new MapTile[mapSize_X][];
@@ -330,15 +331,15 @@ public class MapManager : MonoBehaviour
 
     private void CreateMapObjects()
     {
-        numWalls = Random.Range(minWalls[currentDifficultyLevel], maxWalls[currentDifficultyLevel] + 1);
+        numWalls = UnityEngine.Random.Range(minWalls[currentDifficultyLevel], maxWalls[currentDifficultyLevel] + 1);
         for (int i = 0; i < numWalls; ++i)
             CreateWall();
 
-        numFurniture = Random.Range(minFurniture[currentDifficultyLevel], maxFurniture[currentDifficultyLevel] + 1);
+        numFurniture = UnityEngine.Random.Range(minFurniture[currentDifficultyLevel], maxFurniture[currentDifficultyLevel] + 1);
         for (int i = 0; i < numFurniture; ++i)
             CreateFurniture();
 
-        numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
+        numCabinets = UnityEngine.Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
         for (int i = 0; i < numCabinets; ++i)
             CreateCabinet();
 
@@ -425,19 +426,19 @@ public class MapManager : MonoBehaviour
         {
             initialTile = GetRandomTile(freeTilesSurroundingFurniture);
 
-            if (Random.Range(0, 2) == 0)
+            if (UnityEngine.Random.Range(0, 2) == 0)
             {
                 // Shorter dimension == X
-                furnitureDim_X = Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
+                furnitureDim_X = UnityEngine.Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
                 furnitureDim_Y = furnMinSize_LongerDim +
-                    Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
+                    UnityEngine.Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
             }
             else
             {
                 // Shorter dimension == Y
-                furnitureDim_Y = Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
+                furnitureDim_Y = UnityEngine.Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
                 furnitureDim_X = furnMinSize_LongerDim +
-                    Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
+                    UnityEngine.Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
             }
 
             if (!CheckTilesSurrounding(initialTile, furnitureDim_X, furnitureDim_Y, freeTilesSurroundingFurniture))
@@ -471,19 +472,19 @@ public class MapManager : MonoBehaviour
         {
             initialTile = GetRandomTile(freeTilesSurroundingCabinets);
 
-            if (Random.Range(0, 2) == 0)
+            if (UnityEngine.Random.Range(0, 2) == 0)
             {
                 // Fixed dimension == X
                 cabinetDim_X = cabSize_FixedDim;
                 cabinetDim_Y = cabMinSize_VbleDim +
-                    Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
+                    UnityEngine.Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
             }
             else
             {
                 // Fixed dimension == Y
                 cabinetDim_Y = cabSize_FixedDim;
                 cabinetDim_X = cabMinSize_VbleDim +
-                    Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
+                    UnityEngine.Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
             }
 
             if (!CheckTilesSurrounding(initialTile, cabinetDim_X, cabinetDim_Y, freeTilesSurroundingCabinets))
@@ -506,8 +507,8 @@ public class MapManager : MonoBehaviour
 
         while (wallTile == null)
         {
-            int rndPos_X = Random.Range(0, mapSize_X);
-            int rndPos_Y = Random.Range(0, mapSize_Y);
+            int rndPos_X = UnityEngine.Random.Range(0, mapSize_X);
+            int rndPos_Y = UnityEngine.Random.Range(0, mapSize_Y);
 
             if ((rndPos_X > wallMinGap) && (rndPos_Y > wallMinGap)
                 && (rndPos_X < mapSize_X - wallMinGap) && (rndPos_Y < mapSize_Y - wallMinGap)
@@ -518,17 +519,20 @@ public class MapManager : MonoBehaviour
                 // Distance check between walls
                 foreach (MapTile wall in walls)
                 {
-                    if (verticalWalls)
+                    if (wallTile != null)
                     {
-                        // Check horizontal distance
-                        if (Mathf.Abs(wallTile.logicPosition_X - wall.logicPosition_X) < distanceBetweenWalls)
-                            wallTile = null;
-                    }
-                    else
-                    {
-                        // Check vertical distance
-                        if (Mathf.Abs(wallTile.logicPosition_Y - wall.logicPosition_Y) < distanceBetweenWalls)
-                            wallTile = null;
+                        if (verticalWalls)
+                        {
+                            // Check horizontal distance
+                            if (Mathf.Abs(wallTile.logicPosition_X - wall.logicPosition_X) < distanceBetweenWalls)
+                                wallTile = null;
+                        }
+                        else
+                        {
+                            // Check vertical distance
+                            if (Mathf.Abs(wallTile.logicPosition_Y - wall.logicPosition_Y) < distanceBetweenWalls)
+                                wallTile = null;
+                        }
                     }
                 }
             }
@@ -543,8 +547,8 @@ public class MapManager : MonoBehaviour
 
         while (randomTile == null)
         {
-            int rndPos_X = Random.Range(0, mapSize_X);
-            int rndPos_Y = Random.Range(0, mapSize_Y);
+            int rndPos_X = UnityEngine.Random.Range(0, mapSize_X);
+            int rndPos_Y = UnityEngine.Random.Range(0, mapSize_Y);
 
             if ((rndPos_X > freeTilesSurrounding) && (rndPos_Y > freeTilesSurrounding)
                 && (rndPos_X < mapSize_X - freeTilesSurrounding) && (rndPos_Y < mapSize_Y - freeTilesSurrounding)
