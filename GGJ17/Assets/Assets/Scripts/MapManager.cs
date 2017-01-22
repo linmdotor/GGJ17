@@ -24,14 +24,6 @@ public class MapManager : MonoBehaviour
     public GameObject tileFloorPrefab;
     public GameObject tileWallPrefab;
 
-    // Maximum size for every map [X,Y]
-    public int maxMapSize_X = 100;
-    public int maxMapSize_Y = 70;
-
-    // Actual size of the map [X,Y]
-    public int mapSize_X = 80;
-    public int mapSize_Y = 50;
-
     // Map sprites
     public Sprite spriteFloor;
     public Sprite spriteWall;
@@ -45,7 +37,24 @@ public class MapManager : MonoBehaviour
     private int currentDifficultyLevel;
     private int currentLevel;
 
+    // Map size
+    [Header("Map variable size")]
+    // Maximum size for every map [X,Y]
+    public int maxMapSize_X = 48;
+    public int maxMapSize_Y = 27;
+
+    // Actual size of the map [X,Y]
+    private int mapSize_X = 32;
+    private int mapSize_Y = 17;
+
+    public int[] minSize_X = new int[] { 28, 35, 42 };
+    public int[] maxSize_X = new int[] { 32, 40, 48 };
+
+    public int[] minSize_Y = new int[] { 16, 20, 24 };
+    public int[] maxSize_Y = new int[] { 17, 22, 27 };
+
     // Map internal stuff
+    [Header("Map internal stuff")]
     public int[] minWalls = new int[] { 2, 1, 3 };
     public int[] minFurniture = new int[] { 1, 3, 7 };
     public int[] minCabinets = new int[] { 0, 1, 3 };
@@ -91,6 +100,8 @@ public class MapManager : MonoBehaviour
     {
         // Difficulty levels
         numDifficultyLevels = levelsIncreasingDifficulty.Length;
+        currentDifficultyLevel = 0;
+        currentLevel = 1;
 
         // Map and level
         map = GameObject.FindGameObjectWithTag("Map");
@@ -99,6 +110,7 @@ public class MapManager : MonoBehaviour
         furniture = new List<MapTile>();
         cabinets = new List<MapTile>();
 
+        // To be called by the Game Manager
         GenerateLevel(1);
 	}
 	
@@ -116,6 +128,16 @@ public class MapManager : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
             GenerateLevel(currentLevel + 1);
         }
+    }
+
+    public int GetMapSize_X()
+    {
+        return mapSize_X;
+    }
+
+    public int GetMapSize_Y()
+    {
+        return mapSize_Y;
     }
 
     public MapTile GetMapTile(int i, int j)
@@ -139,6 +161,10 @@ public class MapManager : MonoBehaviour
     {
         // Level
         currentLevel = level;
+        
+        int nextDifficultyLevel = currentDifficultyLevel + 1;
+        if (nextDifficultyLevel < numDifficultyLevels && currentLevel >= levelsIncreasingDifficulty[nextDifficultyLevel])
+            currentDifficultyLevel++;
 
         // Map
         CleanMap();
@@ -191,6 +217,10 @@ public class MapManager : MonoBehaviour
 
     private void CreateMap()
     {
+        // ===== Map size =====
+        mapSize_X = Random.Range(minSize_X[currentDifficultyLevel], maxSize_X[currentDifficultyLevel] + 1);
+        mapSize_Y = Random.Range(minSize_Y[currentDifficultyLevel], maxSize_Y[currentDifficultyLevel] + 1);
+
         // ===== Map base tiles (Floor) =====
         tiles = new MapTile[mapSize_X][];
 

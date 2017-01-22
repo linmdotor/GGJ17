@@ -32,7 +32,7 @@ public class CameraBehaviour : MonoBehaviour {
             player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
 
         MapTile topLeft = MapManager.MapManagerInstance.GetMapTile(0, 0);
-        MapTile botRight = MapManager.MapManagerInstance.GetMapTile(MapManager.MapManagerInstance.mapSize_X - 1, MapManager.MapManagerInstance.mapSize_Y - 1);
+        MapTile botRight = MapManager.MapManagerInstance.GetMapTile(MapManager.MapManagerInstance.GetMapSize_X() - 1, MapManager.MapManagerInstance.GetMapSize_Y() - 1);
 
         topLimit = (topLeft.transform.position.y + MapTile.TileLength / 2) - Camera.main.orthographicSize;
         botLimit = (botRight.transform.position.y - MapTile.TileLength / 2) + Camera.main.orthographicSize;
