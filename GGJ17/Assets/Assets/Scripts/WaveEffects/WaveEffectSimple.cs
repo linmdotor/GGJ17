@@ -13,6 +13,9 @@ public class WaveEffectSimple : WaveEffect
 	public float[] speedScaleX;
 	public float[] speedScaleY;
 
+    public float growthX = 0.3f;
+    public float growthY = 0.3f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,7 +29,7 @@ public class WaveEffectSimple : WaveEffect
         {
             lifeTime -= Time.deltaTime;
             if(lifeTime > 0)
-                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.3f, this.transform.localScale.y + Time.deltaTime * 0.3f, 0);
+                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * growthX, this.transform.localScale.y + Time.deltaTime * growthY, 0);
             else
             {
                 lifeTime = lifeTimeBase;

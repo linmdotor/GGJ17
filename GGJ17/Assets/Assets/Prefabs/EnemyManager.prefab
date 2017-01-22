@@ -41,9 +41,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberEnemies: 10
-  enemyCameraPrefab: {fileID: 0}
-  enemyEmissorPrefab: {fileID: 0}
-  enemyHeadphonesPrefab: {fileID: 0}
+  enemyCameraPrefab: {fileID: 150708, guid: 3165c5ea41dfd5b45b41a4cf527a8457, type: 2}
+  enemyEmissorPrefab: {fileID: 189250, guid: 12517468d17953746953129a5d35b0d2, type: 2}
+  enemyHeadphonesPrefab: {fileID: 115072, guid: bafad39d380bcdc4e8ee64e96d41059e,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
