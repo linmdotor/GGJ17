@@ -18,7 +18,10 @@ public class WaveEffectCircular: WaveEffect
 
     public float growthX = 0.3f;
     public float growthY = 0.3f;
-	
+
+    private float red = 0;
+    private bool blue = true;
+
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +35,14 @@ public class WaveEffectCircular: WaveEffect
 			spriteWaveTransforms[i] = Circle1.FindChild("Wave" + i).FindChild("wave_sprite").transform;
 			spriteWaveTransforms[i + 6] = Circle2.FindChild("Wave" + i).FindChild("wave_sprite").transform;
 		}
+
+        foreach (Transform child in this.transform)
+        {
+            if (child.transform.GetChild(0).transform.childCount == 0)
+                child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 5);
+            else
+                child.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 5);
+        }
 
 	}
 	
@@ -56,6 +67,32 @@ public class WaveEffectCircular: WaveEffect
 
 		foreach(Transform t in spriteWaveTransforms)
 			t.localPosition = new Vector3(0, initialPosY + (marginPos * Mathf.Sin(Time.time * speedDispl)), 0);
-			
-	}
+
+        foreach (Transform child in this.transform) 
+        { 
+            if (blue)
+            {
+                red += Time.deltaTime;
+                Color wave = new Color(red, 0, 5);
+                if (child.transform.GetChild(0).transform.childCount == 0)
+                    child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+                else
+                    child.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+            }
+            if (red >= 10)
+                blue = false;
+            if (!blue)
+            {
+                red -= Time.deltaTime;
+                Color wave = new Color(red, 0, 5);
+                if (child.transform.GetChild(0).transform.childCount == 0)
+                    child.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+                else
+                    child.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = wave;
+            }
+            if (red <= 0)
+                blue = true;
+        }
+        print(red);
+    }
 }
