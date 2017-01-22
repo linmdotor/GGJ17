@@ -16,6 +16,10 @@ public class PowerUp : MonoBehaviour {
 
     public PowerUpManager.powerUps type;
 
+    public Sprite sandwich;
+    public Sprite redbull;
+    public Sprite foil;
+
     private GameObject player;
 
 	// Use this for initialization
@@ -23,11 +27,11 @@ public class PowerUp : MonoBehaviour {
         timeOnMap = expiresOn;
         type = (PowerUpManager.powerUps)Random.Range(0, 3);
         if (type == PowerUpManager.powerUps.Foil)
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = foil;
         if (type == PowerUpManager.powerUps.RedBull)
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = redbull;
         if (type == PowerUpManager.powerUps.Sandwich)
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = sandwich;
         player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
 	}
 	
