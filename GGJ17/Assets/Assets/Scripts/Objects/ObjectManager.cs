@@ -32,8 +32,10 @@ public class ObjectManager : MonoBehaviour {
     [SerializeField]
     public List<FurnitureSprites> furnitureSprites;
 
-    private List<Furniture> furnitures = new List<Furniture>();
-    private List<Furniture> cabinets = new List<Furniture>();
+    [HideInInspector]
+    public  List<Furniture> furnitures = new List<Furniture>();
+    [HideInInspector]
+    public List<Furniture> cabinets = new List<Furniture>();
 
     public Sprite cabinetSprite;
     public Sprite wallSprite;

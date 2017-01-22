@@ -209,6 +209,12 @@ public class MapManager : MonoBehaviour
 
     private void CleanMap()
     {
+        //Object
+        ObjectManager.ObjectManagerInstance.furnitures.Clear();
+        ObjectManager.ObjectManagerInstance.cabinets.Clear();
+
+
+
         // Blood sprites
         List<GameObject> bloodGameObjects = GameObject.FindGameObjectsWithTag("Blood").ToList();
         bloodGameObjects.ForEach(bloodGO => Destroy(bloodGO));

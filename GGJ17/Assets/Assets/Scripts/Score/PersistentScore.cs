@@ -79,7 +79,7 @@ public class PersistentScore : MonoBehaviour {
 
     public void Load()
     {
-        Debug.Log("adsf");
+        //Debug.Log("adsf");
 
         if(File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
