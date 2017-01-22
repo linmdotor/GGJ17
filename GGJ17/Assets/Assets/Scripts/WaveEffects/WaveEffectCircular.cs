@@ -15,6 +15,9 @@ public class WaveEffectCircular: WaveEffect
 	private float initialPosY;
 	public float marginPos = 0.5f;
 	public float speedDispl = 7.0f;
+
+    public float growthX = 0.3f;
+    public float growthY = 0.3f;
 	
 
 	// Use this for initialization
@@ -39,7 +42,7 @@ public class WaveEffectCircular: WaveEffect
         {
             lifeTime -= Time.deltaTime;
             if (lifeTime > 0)
-                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * 0.3f, this.transform.localScale.y + Time.deltaTime * 0.3f, 0);
+                this.transform.localScale = new Vector3(this.transform.localScale.x + Time.deltaTime * growthX, this.transform.localScale.y + Time.deltaTime * growthY, 0);
             else
             {
                 lifeTime = lifeTimeBase;

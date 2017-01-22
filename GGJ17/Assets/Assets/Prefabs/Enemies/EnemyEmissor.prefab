@@ -870,7 +870,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -921,7 +921,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -982,6 +982,7 @@ MonoBehaviour:
   score: 10
   crashAnimationPrefab: {fileID: 146776, guid: 04acb45d2af6e0441abe2756325f5c62, type: 2}
   enemyType: 0
+  alreadyDead: 0
 --- !u!114 &11489150
 MonoBehaviour:
   m_ObjectHideFlags: 1

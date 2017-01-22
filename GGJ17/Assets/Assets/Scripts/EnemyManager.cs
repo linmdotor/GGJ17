@@ -3,16 +3,26 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
+    #region Singleton
+    public static EnemyManager EnemyManagerInstance;
+
+    void Awake()
+    {
+        if (EnemyManagerInstance == null)
+            EnemyManagerInstance = gameObject.GetComponent<EnemyManager>();
+    }
+    #endregion
+
     public int numberEnemies = 10;
 
     public GameObject enemyCameraPrefab;
-    public GameObject enemyEmissorPrefab;
+    public GameObject enemyPhonePrefab;
     public GameObject enemyHeadphonesPrefab;
 
     public enum enemyPrefabs
     {
         enemyCameraPrefab,
-        enemyEmissorPrefab,
+        enemyPhonePrefab,
         enemyHeadphonesPrefab
     }
 
@@ -41,8 +51,8 @@ public class EnemyManager : MonoBehaviour {
                 case enemyPrefabs.enemyCameraPrefab:
                     GameObject.Instantiate(enemyCameraPrefab, spawnPos, Quaternion.identity);
                     break;
-                case enemyPrefabs.enemyEmissorPrefab:
-                    GameObject.Instantiate(enemyEmissorPrefab, spawnPos, Quaternion.identity);
+                case enemyPrefabs.enemyPhonePrefab:
+                    GameObject.Instantiate(enemyPhonePrefab, spawnPos, Quaternion.identity);
                     break;
                 case enemyPrefabs.enemyHeadphonesPrefab:
                     GameObject.Instantiate(enemyHeadphonesPrefab, spawnPos, Quaternion.identity);
