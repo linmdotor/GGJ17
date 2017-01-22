@@ -3,6 +3,16 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
+    #region Singleton
+    public static MapManager EnemyManagerInstance;
+
+    void Awake()
+    {
+        if (EnemyManagerInstance == null)
+            EnemyManagerInstance = gameObject.GetComponent<MapManager>();
+    }
+    #endregion
+
     public int numberEnemies = 10;
 
     public GameObject enemyCameraPrefab;
