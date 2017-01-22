@@ -55,6 +55,9 @@ TagManager:
   - name: Furniture
     uniqueID: 2704870211
     locked: 0
+  - name: Blood
+    uniqueID: 328837729
+    locked: 0
   - name: ObjectsInFurniture
     uniqueID: 2442565833
     locked: 0
