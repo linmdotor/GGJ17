@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour {
         {
             //Destroy Waves
             Destroy(GetComponentInChildren<WaveEffect>().gameObject);
+            GetComponent<Collider2D>().enabled = false;
             Destroy(this.gameObject, 1.5f);
         }
     }
