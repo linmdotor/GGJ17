@@ -68,9 +68,16 @@ public class Enemy : MonoBehaviour {
         {
             GameObject crash = (GameObject)Instantiate(crashAnimationPrefab, this.transform.position, Quaternion.identity);
         }
-
-        Destroy(this.gameObject,1.5f);
+        if(enemyType == EnemyType.thing)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject, 1.5f);
+        }
     }
+
     public void damage()
     {
         --life;
