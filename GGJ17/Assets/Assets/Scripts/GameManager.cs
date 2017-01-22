@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+    public Texture2D newCursor;
     public float score;
 
     #region Singleton
@@ -19,8 +20,12 @@ public class GameManager : MonoBehaviour {
     public bool levelIsReady = false;
     public int actualLevel = 1;
 
+
     // Use this for initialization
 	void Start () {
+
+        Cursor.SetCursor(newCursor, new Vector2(64f, 64f), CursorMode.Auto);
+
 
         score = 0;
         actualLevel = 1;
