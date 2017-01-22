@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour {
         for (int enemies = 0; enemies < numberEnemies; ++enemies)
         {
             MapTile freeSlot = freeSlots[Random.Range(0, freeSlots.Length)];
-            //SI HAY PROBLEMA AÑADIR CONTROL DE REPETICIÓN DE SPAWN EN MISMA CASILLA.
+            MapManager.MapManagerInstance.GetMapTile(freeSlot.logicPosition_X, freeSlot.logicPosition_Y).tileType = MapTile.TileType.Enemy;
             Vector3 spawnPos = new Vector3(freeSlot.transform.position.x, freeSlot.transform.position.y, 0);
             EnemyManager.enemyPrefabs enemy = (EnemyManager.enemyPrefabs)Random.Range(0, 2);
             

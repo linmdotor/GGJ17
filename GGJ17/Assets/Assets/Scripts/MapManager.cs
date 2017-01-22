@@ -84,6 +84,8 @@ public class MapManager : MonoBehaviour
     public int cabSize_FixedDim = 2; // Number of tiles for the fixed dimension of the cabinets
     public int cabMinSize_VbleDim = 1;  // Minimum number of tiles for the variable dimension of the cabinets
 
+    public GameObject player;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -116,6 +118,10 @@ public class MapManager : MonoBehaviour
 
         CreateMapObjects();
         EnemyManager.EnemyManagerInstance.loadEnemies();
+        MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
+        int rand = Random.Range(0, spawnTilePlayer.Length);
+        Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].logicPosition_X, spawnTilePlayer[rand].logicPosition_Y, 0);
+        GameObject.Instantiate(player, spawnPlayer, Quaternion.identity);
 	}
 	
 	// Update is called once per frame
