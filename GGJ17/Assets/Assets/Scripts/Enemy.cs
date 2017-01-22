@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
@@ -77,7 +78,13 @@ public class Enemy : MonoBehaviour {
         else
         {
             //Destroy Waves
-            Destroy(GetComponentInChildren<WaveEffect>().gameObject);
+            //List<WaveEffect>() waveEffectList = 
+            foreach (WaveEffect wave in GetComponentsInChildren<WaveEffect>())
+            {
+                wave.transform.localScale = new Vector3(0, 0, 0);
+                Destroy(wave);
+
+            }
             GetComponent<Collider2D>().enabled = false;
             Destroy(this.gameObject, 1.5f);
         }
