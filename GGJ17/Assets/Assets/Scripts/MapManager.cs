@@ -345,7 +345,6 @@ public class MapManager : MonoBehaviour
 
     private void CreateCabinet()
     {
-        /*
         // Cabinet initial tile
         MapTile initialTile = null;
 
@@ -379,7 +378,6 @@ public class MapManager : MonoBehaviour
         // Cabinet instantiation and register
         cabinets.Add(initialTile);
         ObjectManager.ObjectManagerInstance.instantiateCabinet(initialTile.gameObject, cabinetDim_X, cabinetDim_Y);
-        */
     }
 
     private MapTile GetRandomTileWall()
