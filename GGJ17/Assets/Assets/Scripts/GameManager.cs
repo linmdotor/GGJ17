@@ -41,11 +41,12 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (levelIsReady)
-        {
-    	    if(numberOfEnemiesLeft == 0)
-                Debug.Log("Level won");
-        }
+    	    if(numberOfEnemiesLeft <= 0)
+            {
+                Time.timeScale = 0f;
+                UIManager.UIManagerInstance.winMenu.SetActive(true);
+            }
+
 	}
 
     public void increaseScore(float score)
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour {
 
     public void gameOver()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         UIManager.UIManagerInstance.deadMenu.SetActive(true);
         //Load gameOver screen
         //Update scores
