@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour {
     Text scoreText;
     Text lifeText;
 	Image lifeImage;
+	Image lifeBar;
 	Text deadMenuScoreText, winMenuScoreText;
     [HideInInspector]
     public GameObject pauseMenu, deadMenu, winMenu;
@@ -33,7 +34,8 @@ public class UIManager : MonoBehaviour {
         lifeText = transform.Find("LifeText").GetComponent<Text>();
 		lifeImage = transform.Find("LifeText").Find("LifeImage").GetComponent<Image>();
 		lifeImage.sprite = enemyLifeImages[0];
-        pauseMenu = transform.Find("PauseMenu").gameObject;
+		lifeBar = transform.Find("LifeText").Find("LifeBar").GetComponent<Image>();
+		pauseMenu = transform.Find("PauseMenu").gameObject;
 
         deadMenu = transform.Find("DeadMenu").gameObject;
         deadMenuScoreText = deadMenu.transform.Find("ScoreText").GetComponent<Text>();
@@ -83,19 +85,20 @@ public class UIManager : MonoBehaviour {
 	public void changeLifeText(int life)
     {
 		//TEXT
-        lifeText.text = "Life: " + life;
+        //lifeText.text = "Life: " + life;
+
+		//LIFE BAR
+		lifeBar.fillAmount = life / 100.0f;
 
 		//IMAGE
 		//Busca en qué nivel de vida está, y cambia el sprite según este
-		for(int i = 0; i<4; ++i)
+		for (int i = 0; i<4; ++i)
 		{
 			if(life >= lifeLimits[i,0] && life <= lifeLimits[i,1]) //si está en el rango actual
 			{
 				lifeImage.sprite = enemyLifeImages[i];
 			}
 		}
-
-		//LIFE BAR
 
     }
 
@@ -116,7 +119,12 @@ public class UIManager : MonoBehaviour {
     {
         Time.timeScale = 1f;
         //ToDo hacer que se cargue el mapa teniendo en cuenta que nivel es
-        SceneManager.LoadScene("MainScene");
+        //SceneManager.LoadScene("MainScene");
+        Destroy(GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior));
+        MapManager.MapManagerInstance.GenerateLevel(GameManager.GameManagerInstance.actualLevel);
+        winMenu.SetActive(false);
+
+
     }
 
     public void ExitButton()

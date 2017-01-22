@@ -64,6 +64,8 @@ public class Enemy : MonoBehaviour {
 			gameObject.transform.Find("NPCSprite").GetComponent<Animator>().SetTrigger("Dead");
         GameManager.GameManagerInstance.removeEnemy();
 
+        //gameObject.transform.Find
+
         if(crashAnimationPrefab != null)
         {
             GameObject crash = (GameObject)Instantiate(crashAnimationPrefab, this.transform.position, Quaternion.identity);
@@ -74,6 +76,9 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
+            //Destroy Waves
+            Destroy(GetComponentInChildren<WaveEffect>().gameObject);
+            GetComponent<Collider2D>().enabled = false;
             Destroy(this.gameObject, 1.5f);
         }
     }

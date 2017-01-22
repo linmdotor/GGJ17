@@ -14,15 +14,16 @@ public class GameManager : MonoBehaviour {
             GameManagerInstance = gameObject.GetComponent<GameManager>();
     }
     #endregion
-    
-    
+
     public int numberOfEnemiesLeft = 0;
     public bool levelIsReady = false;
+    public int actualLevel = 1;
 
     // Use this for initialization
 	void Start () {
 
         score = 0;
+        actualLevel = 1;
         //GUIManager.GUIManagerInstance.setInitialValues(score, life);
 
         #region HighScore persistente
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour {
 
     	    if(numberOfEnemiesLeft <= 0)
             {
-                Time.timeScale = 0f;
+                actualLevel++;
                 UIManager.UIManagerInstance.winMenu.SetActive(true);
             }
 
@@ -57,7 +58,6 @@ public class GameManager : MonoBehaviour {
 
     public void gameOver()
     {
-        Time.timeScale = 0f;
         UIManager.UIManagerInstance.deadMenu.SetActive(true);
         //Load gameOver screen
         //Update scores
