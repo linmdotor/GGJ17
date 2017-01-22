@@ -43,8 +43,10 @@ MonoBehaviour:
   furnitureSprites:
   - sprite: {fileID: 21300000, guid: 83195fd6ed486b34fac202dbaa8fad3c, type: 3}
     furnitureSprites: 0
+  furnitures: []
+  cabinets: []
   cabinetSprite: {fileID: 21300000, guid: fdd56a1b17070c8429c35e1ee6661593, type: 3}
-  wallSprite: {fileID: 21300000, guid: b5301ab93e8604649b426d858261de5b, type: 3}
+  wallSprite: {fileID: 21300000, guid: d12c75de4242b86479c42017dff4e603, type: 3}
   enemyEmissor: {fileID: 166120, guid: e4e4d01adc1c21242a4cf0abc53aca08, type: 2}
   cabinetPrefab: {fileID: 111776, guid: 37062662de70b7b4da7a2a58db0569ee, type: 2}
 --- !u!1001 &100100000
