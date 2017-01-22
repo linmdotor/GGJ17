@@ -37,7 +37,8 @@ public class MapManager : MonoBehaviour
     public Sprite spriteWall;
 
     // Current map level and difficulty (depending on the map level, it will be
-    // used for the number of things -walls, furnitures, etc.- to instantiate)
+    // used for the number of things -walls, furniture, etc.- to instantiate)
+    [Header("Difficulty levels and number of objects")]
     public int[] levelsIncreasingDifficulty = new int[] { 1, 5, 10 };
 
     private int numDifficultyLevels;
@@ -46,32 +47,35 @@ public class MapManager : MonoBehaviour
 
     // Map internal stuff
     public int[] minWalls = new int[] { 2, 1, 3 };
-    public int[] minFurnitures = new int[] { 1, 3, 7 };
+    public int[] minFurniture = new int[] { 1, 3, 7 };
     public int[] minCabinets = new int[] { 0, 1, 3 };
 
     public int[] maxWalls = new int[] { 2, 3, 5 };
-    public int[] maxFurnitures = new int[] { 3, 5, 9 };
+    public int[] maxFurniture = new int[] { 3, 5, 9 };
     public int[] maxCabinets = new int[] { 1, 3, 5 };
 
     private int numWalls;
-    private int numFurnitures;
+    private int numFurniture;
     private int numCabinets;
 
     private List<MapTile> walls;
-    private List<MapTile> furnitures;
+    private List<MapTile> furniture;
     private List<MapTile> cabinets;
 
-    // Limit dimensions and restrictions for walls
+    // Limit dimensions and restrictions for WALLS
+    [Header("Walls")]
     public int distanceBetweenWalls = 3;
     public int wallMinGap = 3;
 
     private bool verticalWalls;
 
-    //public int wallMinSize_ShorterDim = 1; // Minimum number of tiles for the shorter dimension of the wall
-    //public int wallMinSize_LongerDim = 3;  // Minimum number of tiles for the longer dimension of the wall
+    // Limit dimensions and restrictions for FURNITURE
+    [Header("Furniture")]
+    public int freeTilesSurroundingFurniture = 3;
 
-    //public int wallMinGap_X = 3; // Minimum number of free tiles for the X dimension of the wall row
-    //public int wallMinGap_Y = 2; // Minimum number of free tiles for the Y dimension of the wall column
+    public int furnMinSize_ShorterDim = 2; // Minimum number of tiles for the shorter dimension of the furniture
+    public int furnMaxSize_ShorterDim = 3; // Maximum number of tiles for the shorter dimension of the furniture
+    public int furnMinSize_LongerDim = 2;  // Minimum number of tiles for the longer dimension of the furniture
 
 	// Use this for initialization
 	void Start ()
@@ -88,6 +92,7 @@ public class MapManager : MonoBehaviour
         // Map internal stuff instantiation
         verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
         walls = new List<MapTile>();
+        furniture = new List<MapTile>();
 
         if (verticalWalls)
         {
@@ -221,8 +226,8 @@ public class MapManager : MonoBehaviour
         for (int i = 0; i < numWalls; ++i)
             CreateWall();
 
-        numFurnitures = Random.Range(minFurnitures[currentDifficultyLevel], maxFurnitures[currentDifficultyLevel] + 1);
-        for (int i = 0; i < numFurnitures; ++i)
+        numFurniture = Random.Range(minFurniture[currentDifficultyLevel], maxFurniture[currentDifficultyLevel] + 1);
+        for (int i = 0; i < numFurniture; ++i)
             CreateFurniture();
 
         numCabinets = Random.Range(minCabinets[currentDifficultyLevel], maxCabinets[currentDifficultyLevel] + 1);
@@ -295,7 +300,39 @@ public class MapManager : MonoBehaviour
 
     private void CreateFurniture()
     {
+        // Furniture initial tile
+        MapTile initialTile = null;
 
+        // Furniture random dimensions
+        int furnitureDim_X = 0;
+        int furnitureDim_Y = 0;
+
+        while (initialTile == null)
+        {
+            initialTile = GetRandomTileFurniture();
+
+            if (Random.Range(0, 2) == 0)
+            {
+                // Shorter dimension == X
+                furnitureDim_X = Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
+                furnitureDim_Y = furnMinSize_LongerDim +
+                    Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
+            }
+            else
+            {
+                // Shorter dimension == Y
+                furnitureDim_Y = Random.Range(furnMinSize_ShorterDim, furnMaxSize_ShorterDim + 1);
+                furnitureDim_X = furnMinSize_LongerDim +
+                    Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
+            }
+
+            if (!CheckTilesSurrounding(initialTile, furnitureDim_X, furnitureDim_Y, freeTilesSurroundingFurniture))
+                initialTile = null;
+        }
+
+        // Furniture instantiation and register
+        furniture.Add(initialTile);
+        ObjectManager.ObjectManagerInstance.instantiateFurniture(initialTile.gameObject, furnitureDim_X, furnitureDim_Y);
     }
 
     private void CreateCabinet()
@@ -338,6 +375,74 @@ public class MapManager : MonoBehaviour
         }
 
         return wallTile;
+    }
+
+    private MapTile GetRandomTileFurniture()
+    {
+        MapTile furnitureTile = null;
+
+        while (furnitureTile == null)
+        {
+            int rndPos_X = Random.Range(0, mapSize_X);
+            int rndPos_Y = Random.Range(0, mapSize_Y);
+
+            if ((rndPos_X > freeTilesSurroundingFurniture) && (rndPos_Y > freeTilesSurroundingFurniture)
+                && (rndPos_X < mapSize_X - freeTilesSurroundingFurniture) && (rndPos_Y < mapSize_Y - freeTilesSurroundingFurniture)
+                && (tiles[rndPos_X][rndPos_Y].tileType == MapTile.TileType.Floor))
+            {
+                furnitureTile = tiles[rndPos_X][rndPos_Y];
+            }
+        }
+
+        return furnitureTile;
+    }
+
+    private bool CheckTilesSurrounding(MapTile initialTile, int dimention_X, int dimention_Y, int freeTilesSurrounding)
+    {
+        // i == initialTile.logicPosition_X
+        // i == initialTile.logicPosition_X + dimention_X - 1
+        for (int j = initialTile.logicPosition_Y; j < initialTile.logicPosition_Y + dimention_Y; ++j)
+        {
+            if (!CheckTilesSurrounding(tiles[initialTile.logicPosition_X][j], freeTilesSurrounding))
+                return false;
+            if (!CheckTilesSurrounding(tiles[initialTile.logicPosition_X + dimention_X - 1][j], freeTilesSurrounding))
+                return false;
+        }
+
+        // j == initialTile.logicPosition_Y
+        // j == initialTile.logicPosition_Y + dimention_Y - 1
+        for (int i = initialTile.logicPosition_X; i < initialTile.logicPosition_X + dimention_X; ++i)
+        {
+            if (!CheckTilesSurrounding(tiles[i][initialTile.logicPosition_Y], freeTilesSurrounding))
+                return false;
+            if (!CheckTilesSurrounding(tiles[i][initialTile.logicPosition_Y + dimention_Y - 1], freeTilesSurrounding))
+                return false;
+        }
+
+        return true;
+    }
+    
+    private bool CheckTilesSurrounding(MapTile initialTile, int freeTilesSurrounding)
+    {
+        for (int n = 1; n <= freeTilesSurrounding; ++n)
+        {
+            int minPos_X = initialTile.logicPosition_X - n;
+            int maxPos_X = initialTile.logicPosition_X + n;
+
+            int minPos_Y = initialTile.logicPosition_Y - n;
+            int maxPos_Y = initialTile.logicPosition_Y + n;
+
+            for (int j = minPos_Y; j <= maxPos_Y; ++j)
+            {
+                for (int i = minPos_X; i <= maxPos_X; ++i)
+                {
+                    if (tiles[i][j].tileType != MapTile.TileType.Floor)
+                        return false;
+                }
+            }
+        }
+
+        return true;
     }
 
 }
