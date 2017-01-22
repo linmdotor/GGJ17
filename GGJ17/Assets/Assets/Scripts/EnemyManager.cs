@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour {
     public void loadEnemies(float numberOfEnemies)
     {
         MapTile[] freeSlots = MapManager.MapManagerInstance.GetMapTiles(MapTile.TileType.Floor);
+        print("Número de enemies movibles: " + numberOfEnemies);
         for (int enemies = 0; enemies < numberOfEnemies; ++enemies)
         {
             MapTile freeSlot = freeSlots[Random.Range(0, freeSlots.Length)];
