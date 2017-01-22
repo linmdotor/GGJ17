@@ -15,6 +15,7 @@ TagManager:
   - Floor
   - Wall
   - PowerUp
+  - Blood
   layers:
   - Default
   - TransparentFX

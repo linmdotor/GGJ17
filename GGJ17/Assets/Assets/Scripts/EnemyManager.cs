@@ -37,12 +37,13 @@ public class EnemyManager : MonoBehaviour {
     public void loadEnemies(float numberOfEnemies)
     {
         MapTile[] freeSlots = MapManager.MapManagerInstance.GetMapTiles(MapTile.TileType.Floor);
+        print("Número de enemies movibles: " + numberOfEnemies);
         for (int enemies = 0; enemies < numberOfEnemies; ++enemies)
         {
             MapTile freeSlot = freeSlots[Random.Range(0, freeSlots.Length)];
             MapManager.MapManagerInstance.GetMapTile(freeSlot.logicPosition_X, freeSlot.logicPosition_Y).tileType = MapTile.TileType.Enemy;
             Vector3 spawnPos = new Vector3(freeSlot.transform.position.x, freeSlot.transform.position.y, 0);
-            EnemyManager.enemyPrefabs enemy = (EnemyManager.enemyPrefabs)Random.Range(0, 2);
+            EnemyManager.enemyPrefabs enemy = (EnemyManager.enemyPrefabs)Random.Range(0, 3);
             
             switch(enemy)
             {
