@@ -211,7 +211,7 @@ public class MapManager : MonoBehaviour
         // Blood sprites
 
         // Enemies
-        // GameManager.GameManagerInstance.clean
+        GameManager.GameManagerInstance.cleanEnemies();
 
         // Map tiles
         List<GameObject> mapChildren = new List<GameObject>();
