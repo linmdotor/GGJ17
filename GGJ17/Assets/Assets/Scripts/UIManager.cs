@@ -116,7 +116,12 @@ public class UIManager : MonoBehaviour {
     {
         Time.timeScale = 1f;
         //ToDo hacer que se cargue el mapa teniendo en cuenta que nivel es
-        SceneManager.LoadScene("MainScene");
+        //SceneManager.LoadScene("MainScene");
+        Destroy(GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior));
+        MapManager.MapManagerInstance.GenerateLevel(GameManager.GameManagerInstance.actualLevel);
+        winMenu.SetActive(false);
+
+
     }
 
     public void ExitButton()
