@@ -814,10 +814,10 @@ MonoBehaviour:
   deadMenu: {fileID: 0}
   winMenu: {fileID: 0}
   enemyLifeImages:
-  - {fileID: 21300000, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
-  - {fileID: 21300002, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
-  - {fileID: 21300004, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
   - {fileID: 21300006, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
+  - {fileID: 21300004, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
+  - {fileID: 21300002, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
+  - {fileID: 21300000, guid: 75a2d615054c67e49908f1148cb03256, type: 3}
 --- !u!114 &11445972
 MonoBehaviour:
   m_ObjectHideFlags: 1

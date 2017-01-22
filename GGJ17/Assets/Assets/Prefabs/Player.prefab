@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  enemyDamage: 0
+  enemyDamage: 15
   foilOn: 0
   foilTime: 0
 --- !u!114 &11464064
