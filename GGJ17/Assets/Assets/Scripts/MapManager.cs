@@ -120,7 +120,7 @@ public class MapManager : MonoBehaviour
         EnemyManager.EnemyManagerInstance.loadEnemies();
         MapTile[] spawnTilePlayer = GetMapTiles(MapTile.TileType.Floor);
         int rand = Random.Range(0, spawnTilePlayer.Length);
-        Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].logicPosition_X, spawnTilePlayer[rand].logicPosition_Y, 0);
+        Vector3 spawnPlayer = new Vector3(spawnTilePlayer[rand].transform.position.x, spawnTilePlayer[rand].transform.position.y, 0);
         GameObject.Instantiate(player, spawnPlayer, Quaternion.identity);
 	}
 	

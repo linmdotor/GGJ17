@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraBehaviour : MonoBehaviour {
 
-    public GameObject player = null;
+    private GameObject player = null;
 
     private GameObject map;
     private float topLimit;
@@ -20,8 +20,6 @@ public class CameraBehaviour : MonoBehaviour {
         cameraVertical = Camera.main.orthographicSize;
         cameraHorizont = cameraVertical * Screen.width / Screen.height;
 
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
         if (map == null)
             map = GameObject.FindGameObjectWithTag(KeyCodes.Map);
 
@@ -30,6 +28,9 @@ public class CameraBehaviour : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag(KeyCodes.PlayerWarrior);
+
         MapTile topLeft = MapManager.MapManagerInstance.GetMapTile(0, 0);
         MapTile botRight = MapManager.MapManagerInstance.GetMapTile(MapManager.MapManagerInstance.mapSize_X - 1, MapManager.MapManagerInstance.mapSize_Y - 1);
 

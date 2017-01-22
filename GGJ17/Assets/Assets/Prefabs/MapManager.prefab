@@ -64,6 +64,7 @@ MonoBehaviour:
   freeTilesSurroundingCabinets: 2
   cabSize_FixedDim: 2
   cabMinSize_VbleDim: 1
+  player: {fileID: 198836, guid: 6b78cd8195c0ba046879563f36f1fdc3, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

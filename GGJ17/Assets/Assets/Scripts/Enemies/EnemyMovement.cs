@@ -174,10 +174,16 @@ public class EnemyMovement : MonoBehaviour {
 			{
 				if (Random.value > 0.5f) //RANDOM CHANCE TO FOLLOW THE PLAYER
 					currentDirection = GetOppositePoint(currentDirection);
-				else
-					currentDirection = currentTarget.transform.position;
-
-			}
+                else { 
+                    if(currentTarget != null)
+					    currentDirection = currentTarget.transform.position;
+                    else
+                    {
+                        currentDirection = GetOppositePoint(currentDirection);
+                        currentTarget = GameObject.FindWithTag("PlayerWarrior");
+                    }
+                }   
+            }
 		}
 	}
 
