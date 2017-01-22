@@ -110,7 +110,7 @@ public class MapManager : MonoBehaviour
         furniture = new List<MapTile>();
         cabinets = new List<MapTile>();
 
-        // To be called by the Game Manager
+        // First level generation
         GenerateLevel(1);
 	}
 	
