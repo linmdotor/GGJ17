@@ -100,7 +100,7 @@ GameObject:
   - 82: {fileID: 8220410}
   m_Layer: 0
   m_Name: Crash
-  m_TagString: Untagged
+  m_TagString: Blood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -42,19 +42,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileFloorPrefab: {fileID: 148352, guid: 8d70ff83e61724b408a8bf040a067a5d, type: 2}
   tileWallPrefab: {fileID: 148352, guid: 1b2d4aa76a79e2a43ae0aad1021c4ef4, type: 2}
-  maxMapSize_X: 48
-  maxMapSize_Y: 27
-  mapSize_X: 28
-  mapSize_Y: 16
   spriteFloor: {fileID: 21300000, guid: 92331c1a36480bd4da833754a1206ec4, type: 3}
   spriteWall: {fileID: 21300000, guid: b5301ab93e8604649b426d858261de5b, type: 3}
   levelsIncreasingDifficulty: 01000000050000000a000000
-  minWalls: 020000000100000003000000
-  minFurniture: 010000000300000007000000
-  minCabinets: 000000000100000003000000
-  maxWalls: 020000000300000005000000
-  maxFurniture: 030000000500000009000000
-  maxCabinets: 010000000300000005000000
+  maxMapSize_X: 48
+  maxMapSize_Y: 27
+  minSize_X: 1c000000230000002a000000
+  maxSize_X: 200000002800000030000000
+  minSize_Y: 100000001400000018000000
+  maxSize_Y: 11000000160000001b000000
+  minWalls: 020000000300000004000000
+  minFurniture: 020000000400000008000000
+  minCabinets: 010000000200000003000000
+  maxWalls: 030000000400000005000000
+  maxFurniture: 04000000060000000a000000
+  maxCabinets: 030000000500000007000000
   distanceBetweenWalls: 3
   wallMinGap: 3
   freeTilesSurroundingFurniture: 2
@@ -63,7 +65,9 @@ MonoBehaviour:
   furnMinSize_LongerDim: 2
   freeTilesSurroundingCabinets: 2
   cabSize_FixedDim: 2
-  cabMinSize_VbleDim: 1
+  cabMinSize_VbleDim: 3
+  minEnemies: 0a0000000f00000014000000
+  maxEnemies: 0d000000140000001c000000
   player: {fileID: 198836, guid: 6b78cd8195c0ba046879563f36f1fdc3, type: 2}
 --- !u!1001 &100100000
 Prefab:

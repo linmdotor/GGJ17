@@ -16,8 +16,11 @@ public class PlayerManager : MonoBehaviour {
     public bool foilOn = false;
     public float foilTime = 0;
 
+    public bool playerAlreadyDead = false;
+
 	// Use this for initialization
 	void Start () {
+        playerAlreadyDead = false;
         invTimeBaseActual = invTimeBase;
         UIManager.UIManagerInstance.changeLifeText(life);
         this.GetComponent<AudioSource>().enabled = true;
@@ -85,10 +88,15 @@ public class PlayerManager : MonoBehaviour {
 
     private void death()
     {
-		this.GetComponent<PlayerActions>().enabled = false;
-		this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
-        this.GetComponent<AudioSource>().Play();
-        GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();
+        if(!playerAlreadyDead)
+        {
+            playerAlreadyDead = true;
+            this.GetComponent<PlayerActions>().enabled = false;
+            this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDeath();
+            this.GetComponent<AudioSource>().Play();
+            GameObject.FindGameObjectWithTag(KeyCodes.GameManager).GetComponent<GameManager>().gameOver();
+        }
+        
     }
     public void damage()
     {

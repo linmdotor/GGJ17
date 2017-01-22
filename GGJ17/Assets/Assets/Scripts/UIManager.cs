@@ -27,14 +27,20 @@ public class UIManager : MonoBehaviour {
 
     private bool paused = false;
 
+    public GameObject nameSelector;
+    public GameObject buttons;
+
+    public GameObject playAgainButton;
+
+
     void Start()
     {
-        enemyText = transform.Find("EnemiesText").GetComponent<Text>();
-        scoreText = transform.Find("ScoreText").GetComponent<Text>();
-        lifeText = transform.Find("LifeText").GetComponent<Text>();
-		lifeImage = transform.Find("LifeText").Find("LifeImage").GetComponent<Image>();
+        enemyText = transform.Find("UIGame/EnemiesText").GetComponent<Text>();
+        scoreText = transform.Find("UIGame/ScoreText").GetComponent<Text>();
+        lifeText = transform.Find("UIGame/LifeText").GetComponent<Text>();
+        lifeImage = transform.Find("UIGame/LifeText").Find("LifeImage").GetComponent<Image>();
 		lifeImage.sprite = enemyLifeImages[0];
-		lifeBar = transform.Find("LifeText").Find("LifeBar").GetComponent<Image>();
+        lifeBar = transform.Find("UIGame/LifeText").Find("LifeBar").GetComponent<Image>();
 		pauseMenu = transform.Find("PauseMenu").gameObject;
 
         deadMenu = transform.Find("DeadMenu").gameObject;
@@ -133,5 +139,15 @@ public class UIManager : MonoBehaviour {
 
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartScene");
+    }
+
+
+    public void playerDead()
+    {
+        transform.Find("DeadCanvas").gameObject.SetActive(true);
+        transform.Find("UIGame").gameObject.SetActive(false);
+
+        
+
     }
 }
