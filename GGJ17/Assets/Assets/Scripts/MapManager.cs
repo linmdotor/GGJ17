@@ -77,6 +77,13 @@ public class MapManager : MonoBehaviour
     public int furnMaxSize_ShorterDim = 3; // Maximum number of tiles for the shorter dimension of the furniture
     public int furnMinSize_LongerDim = 2;  // Minimum number of tiles for the longer dimension of the furniture
 
+    // Limit dimensions and restrictions for CABINETS
+    [Header("Cabinets")]
+    public int freeTilesSurroundingCabinets = 3;
+
+    public int cabSize_FixedDim = 2; // Number of tiles for the fixed dimension of the cabinets
+    public int cabMinSize_VbleDim = 1;  // Minimum number of tiles for the variable dimension of the cabinets
+
 	// Use this for initialization
 	void Start ()
     {
@@ -93,6 +100,7 @@ public class MapManager : MonoBehaviour
         verticalWalls = (mapSize_X > mapSize_Y) ? true : false; // Walls direction
         walls = new List<MapTile>();
         furniture = new List<MapTile>();
+        cabinets = new List<MapTile>();
 
         if (verticalWalls)
         {
@@ -309,7 +317,7 @@ public class MapManager : MonoBehaviour
 
         while (initialTile == null)
         {
-            initialTile = GetRandomTileFurniture();
+            initialTile = GetRandomTile(freeTilesSurroundingFurniture);
 
             if (Random.Range(0, 2) == 0)
             {
@@ -337,7 +345,41 @@ public class MapManager : MonoBehaviour
 
     private void CreateCabinet()
     {
+        /*
+        // Cabinet initial tile
+        MapTile initialTile = null;
 
+        // Cabinet random dimensions
+        int cabinetDim_X = 0;
+        int cabinetDim_Y = 0;
+
+        while (initialTile == null)
+        {
+            initialTile = GetRandomTile(freeTilesSurroundingCabinets);
+
+            if (Random.Range(0, 2) == 0)
+            {
+                // Fixed dimension == X
+                cabinetDim_X = cabSize_FixedDim;
+                cabinetDim_Y = cabMinSize_VbleDim +
+                    Random.Range(0, Mathf.Min(mapSize_Y / 2, mapSize_Y - initialTile.logicPosition_Y - 2));
+            }
+            else
+            {
+                // Fixed dimension == Y
+                cabinetDim_Y = cabSize_FixedDim;
+                cabinetDim_X = cabMinSize_VbleDim +
+                    Random.Range(0, Mathf.Min(mapSize_X / 2, mapSize_X - initialTile.logicPosition_X - 2));
+            }
+
+            if (!CheckTilesSurrounding(initialTile, cabinetDim_X, cabinetDim_Y, freeTilesSurroundingCabinets))
+                initialTile = null;
+        }
+
+        // Cabinet instantiation and register
+        cabinets.Add(initialTile);
+        ObjectManager.ObjectManagerInstance.instantiateCabinet(initialTile.gameObject, cabinetDim_X, cabinetDim_Y);
+        */
     }
 
     private MapTile GetRandomTileWall()
@@ -377,24 +419,24 @@ public class MapManager : MonoBehaviour
         return wallTile;
     }
 
-    private MapTile GetRandomTileFurniture()
+    private MapTile GetRandomTile(int freeTilesSurrounding)
     {
-        MapTile furnitureTile = null;
+        MapTile randomTile = null;
 
-        while (furnitureTile == null)
+        while (randomTile == null)
         {
             int rndPos_X = Random.Range(0, mapSize_X);
             int rndPos_Y = Random.Range(0, mapSize_Y);
 
-            if ((rndPos_X > freeTilesSurroundingFurniture) && (rndPos_Y > freeTilesSurroundingFurniture)
-                && (rndPos_X < mapSize_X - freeTilesSurroundingFurniture) && (rndPos_Y < mapSize_Y - freeTilesSurroundingFurniture)
+            if ((rndPos_X > freeTilesSurrounding) && (rndPos_Y > freeTilesSurrounding)
+                && (rndPos_X < mapSize_X - freeTilesSurrounding) && (rndPos_Y < mapSize_Y - freeTilesSurrounding)
                 && (tiles[rndPos_X][rndPos_Y].tileType == MapTile.TileType.Floor))
             {
-                furnitureTile = tiles[rndPos_X][rndPos_Y];
+                randomTile = tiles[rndPos_X][rndPos_Y];
             }
         }
 
-        return furnitureTile;
+        return randomTile;
     }
 
     private bool CheckTilesSurrounding(MapTile initialTile, int dimention_X, int dimention_Y, int freeTilesSurrounding)

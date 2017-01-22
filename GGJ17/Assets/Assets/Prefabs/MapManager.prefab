@@ -50,13 +50,20 @@ MonoBehaviour:
   spriteWall: {fileID: 21300000, guid: b5301ab93e8604649b426d858261de5b, type: 3}
   levelsIncreasingDifficulty: 01000000050000000a000000
   minWalls: 020000000100000003000000
-  minFurnitures: 010000000300000007000000
+  minFurniture: 010000000300000007000000
   minCabinets: 000000000100000003000000
   maxWalls: 020000000300000005000000
-  maxFurnitures: 030000000500000009000000
+  maxFurniture: 030000000500000009000000
   maxCabinets: 010000000300000005000000
   distanceBetweenWalls: 3
   wallMinGap: 3
+  freeTilesSurroundingFurniture: 2
+  furnMinSize_ShorterDim: 2
+  furnMaxSize_ShorterDim: 3
+  furnMinSize_LongerDim: 2
+  freeTilesSurroundingCabinets: 2
+  cabSize_FixedDim: 2
+  cabMinSize_VbleDim: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
