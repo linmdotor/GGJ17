@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
 	void Start () {
         invTimeBaseActual = invTimeBase;
         UIManager.UIManagerInstance.changeLifeText(life);
+        this.GetComponent<AudioSource>().enabled = true;
         this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerDamage();
     }
 	
@@ -42,11 +43,13 @@ public class PlayerManager : MonoBehaviour {
             if (invTimeBaseActual <= 0)
             {
                 damage();
+                this.GetComponent<AudioSource>().enabled = false;
                 invTimeBaseActual = invTimeBase;
             }
         }
 	    if (life == 0)
         {
+
             death();
         }
 	}

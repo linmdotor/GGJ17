@@ -19,9 +19,9 @@ public class UIManager : MonoBehaviour {
     Text enemyText;
     Text scoreText;
     Text lifeText;
-    Text deadMenuScoreText;
+    Text deadMenuScoreText, winMenuScoreText;
     [HideInInspector]
-    public GameObject pauseMenu, deadMenu;
+    public GameObject pauseMenu, deadMenu, winMenu;
 
     private bool paused = false;
 
@@ -31,8 +31,12 @@ public class UIManager : MonoBehaviour {
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
         lifeText = transform.Find("LifeText").GetComponent<Text>();
         pauseMenu = transform.Find("PauseMenu").gameObject;
+
         deadMenu = transform.Find("DeadMenu").gameObject;
         deadMenuScoreText = deadMenu.transform.Find("ScoreText").GetComponent<Text>();
+
+        winMenu = transform.Find("WinMenu").gameObject;
+        winMenuScoreText = winMenu.transform.Find("ScoreText").GetComponent<Text>();
 
     }
 
@@ -63,6 +67,7 @@ public class UIManager : MonoBehaviour {
     {
         scoreText.text = "Score: " + score;
         deadMenuScoreText.text = "Score: " + score;
+        winMenuScoreText.text = "Coreo: " + score;
     }
 
     public void changeLifeText(int life)
@@ -81,6 +86,13 @@ public class UIManager : MonoBehaviour {
     public void ReplayButton()
     {
         Time.timeScale = 1f;
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void ChargeLevel()
+    {
+        Time.timeScale = 1f;
+        //ToDo hacer que se cargue el mapa teniendo en cuenta que nivel es
         SceneManager.LoadScene("MainScene");
     }
 
