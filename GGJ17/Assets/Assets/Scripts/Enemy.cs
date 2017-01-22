@@ -47,7 +47,8 @@ public class Enemy : MonoBehaviour {
                     if(child.name != "NPCSprite")
                         child.localScale = new Vector3(0, 0, 0);
 
-                    GetComponent<EnemyMovement>().enabled = false;
+					if(GetComponent<EnemyMovement>())
+						GetComponent<EnemyMovement>().enabled = false;
                     destroy = true;
                 }
             }
@@ -59,7 +60,8 @@ public class Enemy : MonoBehaviour {
     {
         alreadyDead = true;
         GameManager.GameManagerInstance.increaseScore(score);
-        gameObject.transform.Find("NPCSprite").GetComponent<Animator>().SetTrigger("Dead");
+		if(gameObject.transform.Find("NPCSprite"))
+			gameObject.transform.Find("NPCSprite").GetComponent<Animator>().SetTrigger("Dead");
         GameManager.GameManagerInstance.removeEnemy();
 
         if(crashAnimationPrefab != null)

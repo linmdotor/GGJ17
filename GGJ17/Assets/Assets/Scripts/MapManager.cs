@@ -341,6 +341,7 @@ public class MapManager : MonoBehaviour
         // Furniture instantiation and register
         furniture.Add(initialTile);
         ObjectManager.ObjectManagerInstance.instantiateFurniture(initialTile.gameObject, furnitureDim_X, furnitureDim_Y);
+		ObjectManager.ObjectManagerInstance.instantiateEmisors();
     }
 
     private void CreateCabinet()
